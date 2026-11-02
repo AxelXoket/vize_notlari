@@ -3,7 +3,7 @@
  *
  * NE YAPAR:
  *   Uygulama acilinca API_URL'deki JSON'u bir kez indirir ve listeler.
- *   Yuklenirken ActivityIndicator, hata olursa mesaj + "Tekrar dene" butonu
+ *   Yuklenirken ActivityIndicator, hata olursa mesaj + "Try again" butonu
  *   gosterir. Liste asagi cekilince yenilenir (pull-to-refresh). Satira
  *   dokununca detay alani acilir, tekrar dokununca kapanir.
  *
@@ -58,12 +58,12 @@ export default function App() {
       const response = await fetch(API_URL);
       // fetch 404/500'de hata FIRLATMAZ, kendimiz kontrol ederiz
       if (!response.ok) {
-        throw new Error(`Sunucu hatası: ${response.status}`);
+        throw new Error(`Server error: ${response.status}`);
       }
       const json = await response.json();
       setPosts(json);
     } catch (e) {
-      setError(e.message || 'Bilinmeyen bir hata oluştu');
+      setError(e.message || 'Something went wrong');
     } finally {
       // basarili da olsa hatali da olsa gostergeleri kapat
       setLoading(false);
@@ -107,7 +107,7 @@ export default function App() {
         {isOpen ? (
           <View style={styles.detail}>
             <Text style={styles.detailText}>{item.body}</Text>
-            <Text style={styles.detailMeta}>Kullanıcı: {item.userId}</Text>
+            <Text style={styles.detailMeta}>User: {item.userId}</Text>
           </View>
         ) : null}
       </TouchableOpacity>
@@ -120,7 +120,7 @@ export default function App() {
       <View style={styles.center}>
         <StatusBar style="dark" />
         <ActivityIndicator size="large" color={COLORS.primary} />
-        <Text style={styles.infoText}>Yükleniyor...</Text>
+        <Text style={styles.infoText}>Loading...</Text>
       </View>
     );
   }
@@ -130,9 +130,9 @@ export default function App() {
     return (
       <View style={styles.center}>
         <StatusBar style="dark" />
-        <Text style={styles.errorText}>Hata: {error}</Text>
+        <Text style={styles.errorText}>Error: {error}</Text>
         <TouchableOpacity style={styles.retryButton} onPress={handleRetry}>
-          <Text style={styles.retryText}>Tekrar dene</Text>
+          <Text style={styles.retryText}>Try again</Text>
         </TouchableOpacity>
       </View>
     );
@@ -142,7 +142,7 @@ export default function App() {
   return (
     <View style={styles.container}>
       <StatusBar style="dark" />
-      <Text style={styles.title}>Gönderiler ({posts.length})</Text>
+      <Text style={styles.title}>Posts ({posts.length})</Text>
 
       <FlatList
         data={posts}
@@ -153,7 +153,7 @@ export default function App() {
         onRefresh={handleRefresh}
         ItemSeparatorComponent={() => <View style={styles.separator} />}
         ListEmptyComponent={
-          <Text style={styles.infoText}>Gösterilecek veri yok</Text>
+          <Text style={styles.infoText}>No data to show</Text>
         }
         contentContainerStyle={styles.listContent}
       />

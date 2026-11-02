@@ -3,7 +3,7 @@
  *
  * NE YAPAR:
  *   Sabit urun dizisini kart listesi olarak gosterir. Ustte arama kutusu
- *   (buyuk/kucuk harf duyarsiz, Turkce harf uyumlu), altinda yatay kaydirilan
+ *   (buyuk/kucuk harf duyarsiz, toLowerCase ile), altinda yatay kaydirilan
  *   kategori chip'leri (tek secim), fiyata gore artan/azalan siralama butonu,
  *   sonuc sayisi ve sonuc yoksa bos mesaj vardir.
  *
@@ -17,7 +17,7 @@
  *   - Aranacak alan farkliysa: useMemo icindeki item.name kismini degistir
  *     (ornek: item.name + ' ' + item.city).
  *   - Siralama baska alana gore olacaksa: sort icindeki a.price / b.price
- *     yerine o alani yaz (metin icin a.name.localeCompare(b.name, 'tr')).
+ *     yerine o alani yaz (metin icin a.name.localeCompare(b.name, 'en')).
  *   - Liste ASLA state'e kopyalanmaz: kaynak PRODUCTS + filtre state'leri
  *     -> useMemo ile turetilmis liste.
  */
@@ -47,38 +47,38 @@ const COLORS = {
 
 // Sabit veri (picsum: her id sabit bir resim verir)
 const PRODUCTS = [
-  { id: '1', name: 'Kablosuz Kulaklık', category: 'Elektronik', price: 1299, image: 'https://picsum.photos/id/1/200/200' },
-  { id: '2', name: 'Akıllı Saat', category: 'Elektronik', price: 2499, image: 'https://picsum.photos/id/2/200/200' },
-  { id: '3', name: 'Bluetooth Hoparlör', category: 'Elektronik', price: 899, image: 'https://picsum.photos/id/3/200/200' },
-  { id: '4', name: 'Pamuklu Tişört', category: 'Giyim', price: 249, image: 'https://picsum.photos/id/4/200/200' },
-  { id: '5', name: 'Kot Pantolon', category: 'Giyim', price: 699, image: 'https://picsum.photos/id/5/200/200' },
-  { id: '6', name: 'İnce Mont', category: 'Giyim', price: 1599, image: 'https://picsum.photos/id/6/200/200' },
-  { id: '7', name: 'Suç ve Ceza', category: 'Kitap', price: 120, image: 'https://picsum.photos/id/7/200/200' },
-  { id: '8', name: 'Simyacı', category: 'Kitap', price: 95, image: 'https://picsum.photos/id/8/200/200' },
-  { id: '9', name: 'İnce Memed', category: 'Kitap', price: 150, image: 'https://picsum.photos/id/9/200/200' },
-  { id: '10', name: 'Koşu Ayakkabısı', category: 'Spor', price: 1899, image: 'https://picsum.photos/id/10/200/200' },
-  { id: '11', name: 'Yoga Matı', category: 'Spor', price: 349, image: 'https://picsum.photos/id/11/200/200' },
-  { id: '12', name: 'Dambıl Seti', category: 'Spor', price: 799, image: 'https://picsum.photos/id/12/200/200' },
-  { id: '13', name: 'Çelik Termos', category: 'Ev', price: 449, image: 'https://picsum.photos/id/13/200/200' },
-  { id: '14', name: 'Kahve Makinesi', category: 'Ev', price: 3299, image: 'https://picsum.photos/id/14/200/200' },
+  { id: '1', name: 'Wireless Headphones', category: 'Electronics', price: 1299, image: 'https://picsum.photos/id/1/200/200' },
+  { id: '2', name: 'Smart Watch', category: 'Electronics', price: 2499, image: 'https://picsum.photos/id/2/200/200' },
+  { id: '3', name: 'Bluetooth Speaker', category: 'Electronics', price: 899, image: 'https://picsum.photos/id/3/200/200' },
+  { id: '4', name: 'Cotton T-Shirt', category: 'Clothing', price: 249, image: 'https://picsum.photos/id/4/200/200' },
+  { id: '5', name: 'Jeans', category: 'Clothing', price: 699, image: 'https://picsum.photos/id/5/200/200' },
+  { id: '6', name: 'Light Jacket', category: 'Clothing', price: 1599, image: 'https://picsum.photos/id/6/200/200' },
+  { id: '7', name: 'Crime and Punishment', category: 'Books', price: 120, image: 'https://picsum.photos/id/7/200/200' },
+  { id: '8', name: 'The Alchemist', category: 'Books', price: 95, image: 'https://picsum.photos/id/8/200/200' },
+  { id: '9', name: 'Moby Dick', category: 'Books', price: 150, image: 'https://picsum.photos/id/9/200/200' },
+  { id: '10', name: 'Running Shoes', category: 'Sports', price: 1899, image: 'https://picsum.photos/id/10/200/200' },
+  { id: '11', name: 'Yoga Mat', category: 'Sports', price: 349, image: 'https://picsum.photos/id/11/200/200' },
+  { id: '12', name: 'Dumbbell Set', category: 'Sports', price: 799, image: 'https://picsum.photos/id/12/200/200' },
+  { id: '13', name: 'Steel Thermos', category: 'Home', price: 449, image: 'https://picsum.photos/id/13/200/200' },
+  { id: '14', name: 'Coffee Maker', category: 'Home', price: 3299, image: 'https://picsum.photos/id/14/200/200' },
 ];
 
-// Kategoriler veriden otomatik cikar, basa "Tümü" eklenir
-const CATEGORIES = ['Tümü', ...new Set(PRODUCTS.map((p) => p.category))];
+// Kategoriler veriden otomatik cikar, basa "All" eklenir
+const CATEGORIES = ['All', ...new Set(PRODUCTS.map((p) => p.category))];
 
 export default function App() {
   const [query, setQuery] = useState('');
-  const [category, setCategory] = useState('Tümü');
+  const [category, setCategory] = useState('All');
   const [sortAsc, setSortAsc] = useState(true); // true: artan, false: azalan
 
   // Filtrelenmis + siralanmis liste: sadece bagimliliklar degisince yeniden hesaplanir
   const filteredProducts = useMemo(() => {
-    // toLocaleLowerCase('tr'): "İ" -> "i", "I" -> "ı" dogru donusur
-    const q = query.trim().toLocaleLowerCase('tr');
+    // toLowerCase: buyuk/kucuk harf farkini yok sayar
+    const q = query.trim().toLowerCase();
 
     const result = PRODUCTS.filter((item) => {
-      const matchesCategory = category === 'Tümü' || item.category === category;
-      const matchesQuery = item.name.toLocaleLowerCase('tr').includes(q);
+      const matchesCategory = category === 'All' || item.category === category;
+      const matchesQuery = item.name.toLowerCase().includes(q);
       return matchesCategory && matchesQuery;
     });
 
@@ -93,7 +93,7 @@ export default function App() {
       <View style={styles.cardBody}>
         <Text style={styles.name}>{item.name}</Text>
         <Text style={styles.category}>{item.category}</Text>
-        <Text style={styles.price}>{item.price} TL</Text>
+        <Text style={styles.price}>${item.price}</Text>
       </View>
     </View>
   );
@@ -102,12 +102,12 @@ export default function App() {
     <View style={styles.container}>
       <StatusBar style="dark" />
 
-      <Text style={styles.title}>Ürünler</Text>
+      <Text style={styles.title}>Products</Text>
 
       {/* Arama kutusu */}
       <TextInput
         style={styles.search}
-        placeholder="Ürün ara..."
+        placeholder="Search products..."
         value={query}
         onChangeText={setQuery}
         autoCorrect={false}
@@ -140,14 +140,14 @@ export default function App() {
       {/* Sonuc sayisi + siralama butonu */}
       <View style={styles.toolbar}>
         <Text style={styles.resultCount}>
-          {filteredProducts.length} sonuç
+          {filteredProducts.length} results
         </Text>
         <TouchableOpacity
           style={styles.sortButton}
           onPress={() => setSortAsc((prev) => !prev)}
         >
           <Text style={styles.sortText}>
-            Fiyat: {sortAsc ? 'Artan ↑' : 'Azalan ↓'}
+            {sortAsc ? 'Price: low to high ↑' : 'Price: high to low ↓'}
           </Text>
         </TouchableOpacity>
       </View>
@@ -158,7 +158,7 @@ export default function App() {
         renderItem={renderItem}
         ItemSeparatorComponent={() => <View style={styles.separator} />}
         ListEmptyComponent={
-          <Text style={styles.emptyText}>Aramana uygun ürün bulunamadı</Text>
+          <Text style={styles.emptyText}>No results</Text>
         }
         contentContainerStyle={styles.listContent}
         keyboardShouldPersistTaps="handled"

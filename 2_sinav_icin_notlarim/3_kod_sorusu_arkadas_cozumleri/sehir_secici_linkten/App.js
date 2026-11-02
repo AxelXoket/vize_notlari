@@ -3,7 +3,7 @@
  *
  * Ne yapar:
  *   - sehir_secici/App.js ile ayni ekran, ama sehir listesi sabit dizi yerine DATA_URL'den fetch ile gelir.
- *   - Yuklenirken ActivityIndicator, hata olursa hata mesaji + "Tekrar dene" butonu.
+ *   - Yuklenirken ActivityIndicator, hata olursa hata mesaji + "Try again" butonu.
  *   - Dokununca secim / secimi kaldirma, altta sabit "Selected cities: X / Y".
  *
  * Kullanilan bilesenler: View, Text, Image, FlatList, TouchableOpacity,
@@ -134,7 +134,7 @@ export default function App() {
       <View style={styles.center}>
         <Text style={styles.errorText}>Could not load data: {error}</Text>
         <TouchableOpacity style={styles.button} onPress={loadCities}>
-          <Text style={styles.buttonText}>Tekrar dene</Text>
+          <Text style={styles.buttonText}>Try again</Text>
         </TouchableOpacity>
       </View>
     );

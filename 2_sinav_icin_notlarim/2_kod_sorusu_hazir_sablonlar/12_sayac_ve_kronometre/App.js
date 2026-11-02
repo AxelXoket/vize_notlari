@@ -2,8 +2,8 @@
  * 12 - SAYAC VE KRONOMETRE
  *
  * Ne yapar:
- * - Ustte SAYAC: +, -, Sifirla. Adim (1 / 5 / 10) secilebilir. 0'in altina inmez.
- * - Altta KRONOMETRE: Baslat / Durdur / Sifirla / Tur. Format mm:ss.d
+ * - Ustte SAYAC: +, -, Reset. Adim (1 / 5 / 10) secilebilir. 0'in altina inmez.
+ * - Altta KRONOMETRE: Start / Stop / Reset / Lap. Format mm:ss.d
  *   (d = saniyenin onda biri). Turlar liste halinde gosterilir.
  *
  * Bilesenler: View, Text, TouchableOpacity, ScrollView, StyleSheet,
@@ -19,7 +19,7 @@
  *   }, [isRunning]);
  * - setX(prev => prev + 1) FONKSIYONEL guncelleme: interval icinde eski
  *   degere takilip kalmayi (stale closure) onler. setX(x + 1) YAZMA.
- * - Cleanup: Durdur'a basinca veya ekran kapaninca interval temizlenir.
+ * - Cleanup: Stop'a basinca veya ekran kapaninca interval temizlenir.
  *
  * NASIL UYARLANIR:
  * - Geri sayim icin: baslangic degeri ver, setX(prev => prev - 1) yaz ve
@@ -114,7 +114,7 @@ export default function App() {
       <ScrollView contentContainerStyle={styles.content}>
         {/* ===== SAYAC KARTI ===== */}
         <View style={styles.card}>
-          <Text style={styles.cardTitle}>Sayac</Text>
+          <Text style={styles.cardTitle}>Counter</Text>
           <Text style={styles.countText}>{count}</Text>
 
           {/* Adim secimi: secili olan renkli */}
@@ -143,7 +143,7 @@ export default function App() {
               style={[styles.button, { backgroundColor: COLORS.gray }]}
               onPress={resetCount}
             >
-              <Text style={styles.buttonText}>Sifirla</Text>
+              <Text style={styles.buttonText}>Reset</Text>
             </TouchableOpacity>
             <TouchableOpacity
               style={[styles.button, { backgroundColor: COLORS.green }]}
@@ -156,7 +156,7 @@ export default function App() {
 
         {/* ===== KRONOMETRE KARTI ===== */}
         <View style={styles.card}>
-          <Text style={styles.cardTitle}>Kronometre</Text>
+          <Text style={styles.cardTitle}>Stopwatch</Text>
           <Text style={styles.timeText}>{formatTime(tenths)}</Text>
 
           <View style={styles.row}>
@@ -167,7 +167,7 @@ export default function App() {
               ]}
               onPress={toggleRunning}
             >
-              <Text style={styles.buttonText}>{isRunning ? 'Durdur' : 'Baslat'}</Text>
+              <Text style={styles.buttonText}>{isRunning ? 'Stop' : 'Start'}</Text>
             </TouchableOpacity>
 
             {/* Tur sadece calisirken aktif */}
@@ -180,24 +180,24 @@ export default function App() {
               onPress={addLap}
               disabled={!isRunning}
             >
-              <Text style={styles.buttonText}>Tur</Text>
+              <Text style={styles.buttonText}>Lap</Text>
             </TouchableOpacity>
 
             <TouchableOpacity
               style={[styles.button, { backgroundColor: COLORS.gray }]}
               onPress={resetWatch}
             >
-              <Text style={styles.buttonText}>Sifirla</Text>
+              <Text style={styles.buttonText}>Reset</Text>
             </TouchableOpacity>
           </View>
 
           {/* Tur listesi */}
           {laps.length === 0 ? (
-            <Text style={styles.emptyText}>Henuz tur yok</Text>
+            <Text style={styles.emptyText}>No laps yet</Text>
           ) : (
             laps.map((lap) => (
               <View key={lap.number} style={styles.lapRow}>
-                <Text style={styles.lapNumber}>Tur {lap.number}</Text>
+                <Text style={styles.lapNumber}>Lap {lap.number}</Text>
                 <Text style={styles.lapDiff}>+{formatTime(lap.diff)}</Text>
                 <Text style={styles.lapTotal}>{formatTime(lap.total)}</Text>
               </View>

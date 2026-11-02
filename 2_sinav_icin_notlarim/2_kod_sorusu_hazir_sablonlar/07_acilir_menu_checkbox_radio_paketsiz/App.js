@@ -12,10 +12,10 @@
  *   StatusBar (expo-status-bar)
  *
  * NASIL UYARLANIR:
- *   1. Dropdown secenekleri: SEHIRLER dizisini degistir (value '' olan "Seçiniz" kalsin).
- *   2. Checkbox secenekleri: ILGI_ALANLARI dizisine ekle, baslangic state'ine ayni id ile false ekle.
- *   3. Radio secenekleri: SEVIYELER dizisini degistir.
- *   4. Ikinci bir dropdown: yeni state + yeni modalAcik state'i, Modal blogunu kopyala.
+ *   1. Dropdown secenekleri: CITIES dizisini degistir (value '' olan "Select..." kalsin).
+ *   2. Checkbox secenekleri: INTERESTS dizisine ekle, baslangic state'ine ayni id ile false ekle.
+ *   3. Radio secenekleri: LEVELS dizisini degistir.
+ *   4. Ikinci bir dropdown: yeni state + yeni modalVisible state'i, Modal blogunu kopyala.
  */
 
 import { useState } from 'react';
@@ -35,8 +35,8 @@ const COLORS = {
 };
 
 // value '' olan ilk eleman = "henuz secilmedi"
-const SEHIRLER = [
-  { label: 'Seçiniz', value: '' },
+const CITIES = [
+  { label: 'Select...', value: '' },
   { label: 'İstanbul', value: 'istanbul' },
   { label: 'Ankara', value: 'ankara' },
   { label: 'İzmir', value: 'izmir' },
@@ -44,17 +44,17 @@ const SEHIRLER = [
   { label: 'Antalya', value: 'antalya' },
 ];
 
-const ILGI_ALANLARI = [
-  { id: 'spor', label: 'Spor' },
-  { id: 'muzik', label: 'Müzik' },
-  { id: 'kitap', label: 'Kitap' },
-  { id: 'oyun', label: 'Oyun' },
+const INTERESTS = [
+  { id: 'sports', label: 'Sports' },
+  { id: 'music', label: 'Music' },
+  { id: 'books', label: 'Books' },
+  { id: 'games', label: 'Games' },
 ];
 
-const SEVIYELER = [
-  { id: 'baslangic', label: 'Başlangıç' },
-  { id: 'orta', label: 'Orta' },
-  { id: 'ileri', label: 'İleri' },
+const LEVELS = [
+  { id: 'beginner', label: 'Beginner' },
+  { id: 'intermediate', label: 'Intermediate' },
+  { id: 'advanced', label: 'Advanced' },
 ];
 
 // Core RadioButton: dis halka + seciliyse ic dolu daire
@@ -92,101 +92,101 @@ function Checkbox({ label, checked, onPress }) {
 }
 
 export default function App() {
-  const [sehir, setSehir] = useState(''); // dropdown: string
-  const [modalAcik, setModalAcik] = useState(false); // dropdown listesi acik mi
-  const [ilgiler, setIlgiler] = useState({ spor: false, muzik: true, kitap: false, oyun: false }); // checkbox: obje
-  const [seviye, setSeviye] = useState('orta'); // radio: tek string
+  const [city, setCity] = useState(''); // dropdown: string
+  const [modalVisible, setModalVisible] = useState(false); // dropdown listesi acik mi
+  const [interests, setInterests] = useState({ sports: false, music: true, books: false, games: false }); // checkbox: obje
+  const [level, setLevel] = useState('intermediate'); // radio: tek string
 
   // Checkbox'a basinca o anahtari tersine cevir (immutable)
-  const ilgiDegistir = (id) => {
-    setIlgiler((onceki) => ({ ...onceki, [id]: !onceki[id] }));
+  const toggleInterest = (id) => {
+    setInterests((prev) => ({ ...prev, [id]: !prev[id] }));
   };
 
   // Listeden secince: degeri kaydet ve modali kapat
-  const sehirSec = (value) => {
-    setSehir(value);
-    setModalAcik(false);
+  const selectCity = (value) => {
+    setCity(value);
+    setModalVisible(false);
   };
 
   // Ozet icin etiketleri bul
-  const sehirEtiketi = sehir === '' ? 'Seçilmedi' : SEHIRLER.find((s) => s.value === sehir).label;
-  const seciliIlgiler = ILGI_ALANLARI.filter((i) => ilgiler[i.id]).map((i) => i.label);
-  const ilgiMetni = seciliIlgiler.length > 0 ? seciliIlgiler.join(', ') : 'Yok';
-  const seviyeEtiketi = SEVIYELER.find((s) => s.id === seviye)?.label ?? 'Seçilmedi';
+  const cityLabel = city === '' ? 'Not selected' : CITIES.find((s) => s.value === city).label;
+  const selectedInterests = INTERESTS.filter((i) => interests[i.id]).map((i) => i.label);
+  const interestsText = selectedInterests.length > 0 ? selectedInterests.join(', ') : 'None';
+  const levelLabel = LEVELS.find((s) => s.id === level)?.label ?? 'Not selected';
 
   return (
     <View style={styles.container}>
       <StatusBar style="dark" />
       <ScrollView contentContainerStyle={styles.scrollContent}>
-        <Text style={styles.title}>Tercihler</Text>
+        <Text style={styles.title}>Preferences</Text>
 
         {/* 1) DROPDOWN: kutu + Modal icinde FlatList */}
-        <Text style={styles.label}>Şehir</Text>
-        <Pressable style={styles.dropdownBox} onPress={() => setModalAcik(true)}>
-          <Text style={[styles.optionText, sehir === '' && { color: COLORS.muted }]}>
-            {sehir === '' ? 'Seçiniz' : sehirEtiketi}
+        <Text style={styles.label}>City</Text>
+        <Pressable style={styles.dropdownBox} onPress={() => setModalVisible(true)}>
+          <Text style={[styles.optionText, city === '' && { color: COLORS.muted }]}>
+            {city === '' ? 'Select...' : cityLabel}
           </Text>
           <Text style={styles.arrow}>▼</Text>
         </Pressable>
 
         {/* 2) CHECKBOX: coklu secim */}
-        <Text style={styles.label}>İlgi Alanları</Text>
-        {ILGI_ALANLARI.map((item) => (
+        <Text style={styles.label}>Interests</Text>
+        {INTERESTS.map((item) => (
           <Checkbox
             key={item.id}
             label={item.label}
-            checked={ilgiler[item.id]}
-            onPress={() => ilgiDegistir(item.id)}
+            checked={interests[item.id]}
+            onPress={() => toggleInterest(item.id)}
           />
         ))}
 
         {/* 3) RADIO: tek secim */}
-        <Text style={styles.label}>Seviye</Text>
+        <Text style={styles.label}>Level</Text>
         <View accessibilityRole="radiogroup">
-          {SEVIYELER.map((s) => (
+          {LEVELS.map((s) => (
             <RadioButton
               key={s.id}
               label={s.label}
-              selected={seviye === s.id}
-              onPress={() => setSeviye(s.id)}
+              selected={level === s.id}
+              onPress={() => setLevel(s.id)}
             />
           ))}
         </View>
 
         {/* CANLI OZET */}
         <View style={styles.card}>
-          <Text style={styles.cardTitle}>Özet</Text>
-          <Text style={styles.cardLine}>Seçilen şehir: {sehirEtiketi}</Text>
-          <Text style={styles.cardLine}>İlgi alanları: {ilgiMetni}</Text>
-          <Text style={styles.cardLine}>Seviye: {seviyeEtiketi}</Text>
+          <Text style={styles.cardTitle}>Summary</Text>
+          <Text style={styles.cardLine}>Selected city: {cityLabel}</Text>
+          <Text style={styles.cardLine}>Interests: {interestsText}</Text>
+          <Text style={styles.cardLine}>Level: {levelLabel}</Text>
         </View>
       </ScrollView>
 
       {/* DROPDOWN LISTESI: transparent Modal, disariya basinca kapanir */}
       <Modal
-        visible={modalAcik}
+        visible={modalVisible}
         transparent
         animationType="fade"
-        onRequestClose={() => setModalAcik(false)} // Android geri tusu
+        onRequestClose={() => setModalVisible(false)} // Android geri tusu
       >
-        <Pressable style={styles.overlay} onPress={() => setModalAcik(false)}>
+        <Pressable style={styles.overlay} onPress={() => setModalVisible(false)}>
           {/* Icerideki bosluga basinca kapanmasin diye ayri Pressable */}
           <Pressable style={styles.modalCard} onPress={() => {}}>
-            <Text style={styles.cardTitle}>Şehir seçin</Text>
+            <Text style={styles.cardTitle}>Select a city</Text>
             <FlatList
-              data={SEHIRLER}
+              data={CITIES}
               keyExtractor={(item) => item.label}
               renderItem={({ item }) => {
-                const secili = item.value === sehir;
+                const isSelected = item.value === city;
                 return (
                   <Pressable
-                    style={[styles.listItem, secili && styles.listItemSelected]}
-                    onPress={() => sehirSec(item.value)}
+                    style={[styles.listItem, isSelected && styles.listItemSelected]}
+                    onPress={() => selectCity(item.value)}
                   >
                     <Text style={[styles.optionText, item.value === '' && { color: COLORS.muted }]}>
                       {item.label}
                     </Text>
-                    {secili && <Text style={styles.listCheck}>✓</Text>}
+                    {isSelected && <Text style={styles.listCheck}>✓</Text>}
                   </Pressable>
                 );
               }}

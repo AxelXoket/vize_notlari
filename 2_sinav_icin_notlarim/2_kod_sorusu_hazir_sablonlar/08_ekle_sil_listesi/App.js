@@ -2,9 +2,9 @@
  * 08 - YAPILACAKLAR LISTESI (TODO)
  *
  * NE YAPAR:
- *   Kullanici gorev yazar, "Ekle" ile listeye ekler. Goreve dokununca
- *   tamamlandi olur (ustu cizili). "Sil" butonu onay sorar. Ustte sayac,
- *   altinda Tumu / Aktif / Tamamlanan filtre sekmeleri vardir.
+ *   Kullanici gorev yazar, "Add" ile listeye ekler. Goreve dokununca
+ *   tamamlandi olur (ustu cizili). "Delete" butonu onay sorar. Ustte sayac,
+ *   altinda All / Active / Completed filtre sekmeleri vardir.
  *
  * KULLANILAN BILESENLER:
  *   View, Text, TextInput, TouchableOpacity, FlatList, Alert, StyleSheet,
@@ -46,9 +46,9 @@ const COLORS = {
 
 // Filtre sekmeleri: key kodda, label ekranda kullanilir
 const FILTERS = [
-  { key: 'all', label: 'Tümü' },
-  { key: 'active', label: 'Aktif' },
-  { key: 'done', label: 'Tamamlanan' },
+  { key: 'all', label: 'All' },
+  { key: 'active', label: 'Active' },
+  { key: 'done', label: 'Completed' },
 ];
 
 export default function App() {
@@ -80,10 +80,10 @@ export default function App() {
   // Silmeden once onay sor
   // Not: Snack'in WEB onizlemesinde Alert butonlari calismaz, telefonda (Expo Go) dene.
   const deleteTodo = (id, title) => {
-    Alert.alert('Görevi sil', `"${title}" silinsin mi?`, [
-      { text: 'Vazgeç', style: 'cancel' },
+    Alert.alert('Delete task', `Delete "${title}"?`, [
+      { text: 'Cancel', style: 'cancel' },
       {
-        text: 'Sil',
+        text: 'Delete',
         style: 'destructive',
         onPress: () => setTodos((prev) => prev.filter((t) => t.id !== id)),
       },
@@ -117,7 +117,7 @@ export default function App() {
         style={styles.deleteButton}
         onPress={() => deleteTodo(item.id, item.title)}
       >
-        <Text style={styles.deleteText}>Sil</Text>
+        <Text style={styles.deleteText}>Delete</Text>
       </TouchableOpacity>
     </View>
   );
@@ -126,23 +126,23 @@ export default function App() {
     <View style={styles.container}>
       <StatusBar style="dark" />
 
-      <Text style={styles.title}>Yapılacaklar</Text>
+      <Text style={styles.title}>To-Do List</Text>
       <Text style={styles.counter}>
-        {todos.length} görevden {doneCount} tanesi tamamlandı
+        {doneCount} of {todos.length} tasks completed
       </Text>
 
       {/* Giris satiri */}
       <View style={styles.inputRow}>
         <TextInput
           style={styles.input}
-          placeholder="Yeni görev yaz..."
+          placeholder="Add a new task..."
           value={text}
           onChangeText={setText}
           onSubmitEditing={addTodo} // klavyede Enter ile de ekle
           returnKeyType="done"
         />
         <TouchableOpacity style={styles.addButton} onPress={addTodo}>
-          <Text style={styles.addButtonText}>Ekle</Text>
+          <Text style={styles.addButtonText}>Add</Text>
         </TouchableOpacity>
       </View>
 
@@ -172,7 +172,7 @@ export default function App() {
         renderItem={renderItem}
         ItemSeparatorComponent={() => <View style={styles.separator} />}
         ListEmptyComponent={
-          <Text style={styles.emptyText}>Henüz görev yok</Text>
+          <Text style={styles.emptyText}>No tasks yet</Text>
         }
         style={styles.list}
         keyboardShouldPersistTaps="handled"

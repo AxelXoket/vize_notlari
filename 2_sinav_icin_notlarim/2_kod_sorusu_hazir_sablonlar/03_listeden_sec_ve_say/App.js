@@ -4,7 +4,7 @@
  * Ne yapar:
  *   - FlatList ile liste; satira dokununca secilir / secim kalkar.
  *   - MULTI = true ise birden fazla secim, MULTI = false ise tek secim (radio gibi).
- *   - "Tümünü seç" ve "Temizle" butonlari (tek secim modunda "Tümünü seç" gizlenir).
+ *   - "Select all" ve "Clear" butonlari (tek secim modunda "Select all" gizlenir).
  *   - Altta sayac ("Selected: X / Y") ve secilenlerin virgulle listesi.
  *
  * Kullanilan bilesenler: View, Text, Image, FlatList, TouchableOpacity, StyleSheet, StatusBar.
@@ -119,7 +119,7 @@ export default function App() {
     <View style={styles.container}>
       <Text style={styles.title}>{TITLE}</Text>
       <Text style={styles.subtitle}>
-        {MULTI ? 'Çoklu seçim modu' : 'Tek seçim modu'}
+        {MULTI ? 'Multiple selection mode' : 'Single selection mode'}
       </Text>
 
       {/* Butonlar */}
@@ -129,14 +129,14 @@ export default function App() {
             style={[styles.button, { backgroundColor: COLORS.primary }]}
             onPress={selectAll}
           >
-            <Text style={styles.buttonText}>Tümünü seç</Text>
+            <Text style={styles.buttonText}>Select all</Text>
           </TouchableOpacity>
         )}
         <TouchableOpacity
           style={[styles.button, { backgroundColor: COLORS.danger }]}
           onPress={clearAll}
         >
-          <Text style={styles.buttonText}>Temizle</Text>
+          <Text style={styles.buttonText}>Clear</Text>
         </TouchableOpacity>
       </View>
 
@@ -155,7 +155,7 @@ export default function App() {
           Selected: {selected.length} / {ITEMS.length}
         </Text>
         <Text style={styles.selectedNames} numberOfLines={2}>
-          {selectedNames.length > 0 ? selectedNames : 'Henüz seçim yok'}
+          {selectedNames.length > 0 ? selectedNames : 'Nothing selected yet'}
         </Text>
       </View>
 

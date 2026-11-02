@@ -2,10 +2,10 @@
  * 05 - KAYIT FORMU (sadece core bilesenler, paket yok)
  *
  * NE YAPAR:
- *   Ad Soyad, E-posta, Telefon, Sifre, Sifre Tekrar alanlari; cinsiyet icin
- *   RadioButton grubu; "Kosullari kabul ediyorum" Checkbox'i; Kaydol ve Temizle
+ *   Full Name, Email, Phone, Password, Confirm Password alanlari; gender icin
+ *   RadioButton grubu; "I accept the terms" Checkbox'i; Register ve Clear
  *   butonlari. Her alanin altinda kirmizi hata metni cikar. Basarili kayitta
- *   alttaki "Ozet" kartinda girilenler gorunur ve Alert.alert acilir.
+ *   alttaki "Summary" kartinda girilenler gorunur ve Alert.alert acilir.
  *
  * BILESENLER:
  *   View, Text, TextInput, TouchableOpacity, Pressable, ScrollView,
@@ -17,9 +17,9 @@
  *   onSubmitEditing (klavyedeki "ileri" tusu), ref + focus()
  *
  * NASIL UYARLANIR:
- *   1. Yeni alan: BOS_FORM'a anahtar ekle, bir TextInput kopyala, validate()'e kural ekle.
- *   2. Alan silmek: TextInput'u, BOS_FORM anahtarini ve validate() kuralini sil.
- *   3. Radio secenekleri: CINSIYETLER dizisini degistir (ornek: Sinif 1, 2, 3, 4).
+ *   1. Yeni alan: EMPTY_FORM'a anahtar ekle, bir TextInput kopyala, validate()'e kural ekle.
+ *   2. Alan silmek: TextInput'u, EMPTY_FORM anahtarini ve validate() kuralini sil.
+ *   3. Radio secenekleri: GENDERS dizisini degistir (ornek: Class 1, 2, 3, 4).
  *   4. Renkler: en ustteki COLORS sabitini degistir.
  */
 
@@ -50,49 +50,49 @@ const COLORS = {
   white: '#ffffff',
 };
 
-const CINSIYETLER = [
-  { id: 'kadin', label: 'Kadın' },
-  { id: 'erkek', label: 'Erkek' },
-  { id: 'belirtmek_istemiyorum', label: 'Belirtmek istemiyorum' },
+const GENDERS = [
+  { id: 'female', label: 'Female' },
+  { id: 'male', label: 'Male' },
+  { id: 'prefer_not_to_say', label: 'Prefer not to say' },
 ];
 
-// Formun bos hali (Temizle butonu da bunu kullanir)
-const BOS_FORM = {
-  adSoyad: '',
+// Formun bos hali (Clear butonu da bunu kullanir)
+const EMPTY_FORM = {
+  fullName: '',
   email: '',
-  telefon: '',
-  sifre: '',
-  sifreTekrar: '',
-  cinsiyet: '',
-  kosul: false,
+  phone: '',
+  password: '',
+  confirmPassword: '',
+  gender: '',
+  terms: false,
 };
 
 // Basit e-posta kontrolu: bir@iki.uc
 const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-// Tum kurallar burada; hatali alanlar icin { alanAdi: 'mesaj' } doner
+// Tum kurallar burada; hatali alanlar icin { fieldName: 'mesaj' } doner
 function validate(form) {
-  const hatalar = {};
+  const errors = {};
 
-  if (form.adSoyad.trim() === '') hatalar.adSoyad = 'Ad Soyad boş bırakılamaz.';
+  if (form.fullName.trim() === '') errors.fullName = 'Required';
 
-  if (form.email.trim() === '') hatalar.email = 'E-posta boş bırakılamaz.';
-  else if (!EMAIL_REGEX.test(form.email.trim())) hatalar.email = 'Geçerli bir e-posta girin.';
+  if (form.email.trim() === '') errors.email = 'Required';
+  else if (!EMAIL_REGEX.test(form.email.trim())) errors.email = 'Invalid email';
 
-  if (form.telefon.trim() === '') hatalar.telefon = 'Telefon boş bırakılamaz.';
-  else if (form.telefon.length < 10) hatalar.telefon = 'Telefon en az 10 haneli olmalı.';
+  if (form.phone.trim() === '') errors.phone = 'Required';
+  else if (form.phone.length < 10) errors.phone = 'Phone must be at least 10 digits';
 
-  if (form.sifre === '') hatalar.sifre = 'Şifre boş bırakılamaz.';
-  else if (form.sifre.length < 6) hatalar.sifre = 'Şifre en az 6 karakter olmalı.';
+  if (form.password === '') errors.password = 'Required';
+  else if (form.password.length < 6) errors.password = 'At least 6 characters';
 
-  if (form.sifreTekrar === '') hatalar.sifreTekrar = 'Şifre tekrarı boş bırakılamaz.';
-  else if (form.sifreTekrar !== form.sifre) hatalar.sifreTekrar = 'Şifreler eşleşmiyor.';
+  if (form.confirmPassword === '') errors.confirmPassword = 'Required';
+  else if (form.confirmPassword !== form.password) errors.confirmPassword = 'Passwords do not match';
 
-  if (form.cinsiyet === '') hatalar.cinsiyet = 'Bir seçenek seçin.';
+  if (form.gender === '') errors.gender = 'Please select an option';
 
-  if (!form.kosul) hatalar.kosul = 'Koşulları kabul etmelisiniz.';
+  if (!form.terms) errors.terms = 'You must accept the terms';
 
-  return hatalar;
+  return errors;
 }
 
 // Core ile RadioButton: dis halka + seciliyse ic dolu daire
@@ -130,48 +130,48 @@ function Checkbox({ label, checked, onPress }) {
 }
 
 export default function App() {
-  const [form, setForm] = useState(BOS_FORM);
-  const [hatalar, setHatalar] = useState({});
-  const [sifreGoster, setSifreGoster] = useState(false);
-  const [sifreTekrarGoster, setSifreTekrarGoster] = useState(false);
-  const [ozet, setOzet] = useState(null); // basarili kayittan sonra dolar
+  const [form, setForm] = useState(EMPTY_FORM);
+  const [errors, setErrors] = useState({});
+  const [showPassword, setShowPassword] = useState(false);
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+  const [summary, setSummary] = useState(null); // basarili kayittan sonra dolar
 
   // "ileri" tusuyla siradaki alana gecmek icin ref'ler
   const emailRef = useRef(null);
-  const telefonRef = useRef(null);
-  const sifreRef = useRef(null);
-  const sifreTekrarRef = useRef(null);
+  const phoneRef = useRef(null);
+  const passwordRef = useRef(null);
+  const confirmPasswordRef = useRef(null);
 
   // Tek alan guncelle (immutable) ve o alanin hatasini sil
-  const alanDegistir = (alan, deger) => {
-    setForm((onceki) => ({ ...onceki, [alan]: deger }));
-    setHatalar((onceki) => ({ ...onceki, [alan]: undefined }));
+  const updateField = (field, value) => {
+    setForm((prev) => ({ ...prev, [field]: value }));
+    setErrors((prev) => ({ ...prev, [field]: undefined }));
   };
 
-  const kaydol = () => {
-    const yeniHatalar = validate(form);
-    setHatalar(yeniHatalar);
+  const handleRegister = () => {
+    const newErrors = validate(form);
+    setErrors(newErrors);
 
-    if (Object.keys(yeniHatalar).length > 0) {
-      setOzet(null);
+    if (Object.keys(newErrors).length > 0) {
+      setSummary(null);
       return; // hata var, kayit yok
     }
 
-    setOzet(form);
-    Alert.alert('Kayıt başarılı', `Hoş geldin, ${form.adSoyad.trim()}!`);
+    setSummary(form);
+    Alert.alert('Success', `Welcome, ${form.fullName.trim()}!`);
   };
 
-  const temizle = () => {
-    setForm(BOS_FORM);
-    setHatalar({});
-    setOzet(null);
-    setSifreGoster(false);
-    setSifreTekrarGoster(false);
+  const handleClear = () => {
+    setForm(EMPTY_FORM);
+    setErrors({});
+    setSummary(null);
+    setShowPassword(false);
+    setShowConfirmPassword(false);
   };
 
-  const cinsiyetEtiketi = (id) => {
-    const bulunan = CINSIYETLER.find((c) => c.id === id);
-    return bulunan ? bulunan.label : '-';
+  const genderLabel = (id) => {
+    const found = GENDERS.find((g) => g.id === id);
+    return found ? found.label : '-';
   };
 
   return (
@@ -185,140 +185,140 @@ export default function App() {
           contentContainerStyle={styles.scrollContent}
           keyboardShouldPersistTaps="handled"
         >
-          <Text style={styles.title}>Kayıt Ol</Text>
+          <Text style={styles.title}>Sign Up</Text>
 
-          {/* AD SOYAD */}
-          <Text style={styles.label}>Ad Soyad</Text>
+          {/* FULL NAME */}
+          <Text style={styles.label}>Full Name</Text>
           <TextInput
-            style={[styles.input, hatalar.adSoyad && styles.inputError]}
-            placeholder="Ad Soyad"
-            value={form.adSoyad}
-            onChangeText={(t) => alanDegistir('adSoyad', t)}
+            style={[styles.input, errors.fullName && styles.inputError]}
+            placeholder="Full Name"
+            value={form.fullName}
+            onChangeText={(t) => updateField('fullName', t)}
             autoCapitalize="words"
             returnKeyType="next"
             onSubmitEditing={() => emailRef.current?.focus()}
           />
-          {hatalar.adSoyad && <Text style={styles.errorText}>{hatalar.adSoyad}</Text>}
+          {errors.fullName && <Text style={styles.errorText}>{errors.fullName}</Text>}
 
-          {/* E-POSTA */}
-          <Text style={styles.label}>E-posta</Text>
+          {/* EMAIL */}
+          <Text style={styles.label}>Email</Text>
           <TextInput
             ref={emailRef}
-            style={[styles.input, hatalar.email && styles.inputError]}
-            placeholder="ornek@mail.com"
+            style={[styles.input, errors.email && styles.inputError]}
+            placeholder="example@mail.com"
             value={form.email}
-            onChangeText={(t) => alanDegistir('email', t)}
+            onChangeText={(t) => updateField('email', t)}
             keyboardType="email-address"
             autoCapitalize="none"
             autoCorrect={false}
             returnKeyType="next"
-            onSubmitEditing={() => telefonRef.current?.focus()}
+            onSubmitEditing={() => phoneRef.current?.focus()}
           />
-          {hatalar.email && <Text style={styles.errorText}>{hatalar.email}</Text>}
+          {errors.email && <Text style={styles.errorText}>{errors.email}</Text>}
 
-          {/* TELEFON */}
-          <Text style={styles.label}>Telefon</Text>
+          {/* PHONE */}
+          <Text style={styles.label}>Phone</Text>
           <TextInput
-            ref={telefonRef}
-            style={[styles.input, hatalar.telefon && styles.inputError]}
-            placeholder="05xx xxx xx xx"
-            value={form.telefon}
+            ref={phoneRef}
+            style={[styles.input, errors.phone && styles.inputError]}
+            placeholder="Phone number"
+            value={form.phone}
             // Sadece rakam kalsin
-            onChangeText={(t) => alanDegistir('telefon', t.replace(/[^0-9]/g, ''))}
+            onChangeText={(t) => updateField('phone', t.replace(/[^0-9]/g, ''))}
             keyboardType="phone-pad"
             maxLength={11}
             returnKeyType="next"
-            onSubmitEditing={() => sifreRef.current?.focus()}
+            onSubmitEditing={() => passwordRef.current?.focus()}
           />
-          {hatalar.telefon && <Text style={styles.errorText}>{hatalar.telefon}</Text>}
+          {errors.phone && <Text style={styles.errorText}>{errors.phone}</Text>}
 
-          {/* SIFRE + goster/gizle */}
-          <Text style={styles.label}>Şifre</Text>
+          {/* PASSWORD + goster/gizle */}
+          <Text style={styles.label}>Password</Text>
           <View style={styles.passwordRow}>
             <TextInput
-              ref={sifreRef}
-              style={[styles.input, styles.passwordInput, hatalar.sifre && styles.inputError]}
-              placeholder="En az 6 karakter"
-              value={form.sifre}
-              onChangeText={(t) => alanDegistir('sifre', t)}
-              secureTextEntry={!sifreGoster}
+              ref={passwordRef}
+              style={[styles.input, styles.passwordInput, errors.password && styles.inputError]}
+              placeholder="At least 6 characters"
+              value={form.password}
+              onChangeText={(t) => updateField('password', t)}
+              secureTextEntry={!showPassword}
               autoCapitalize="none"
               returnKeyType="next"
-              onSubmitEditing={() => sifreTekrarRef.current?.focus()}
+              onSubmitEditing={() => confirmPasswordRef.current?.focus()}
             />
-            <TouchableOpacity style={styles.showButton} onPress={() => setSifreGoster(!sifreGoster)}>
-              <Text style={styles.showButtonText}>{sifreGoster ? 'Gizle' : 'Göster'}</Text>
+            <TouchableOpacity style={styles.showButton} onPress={() => setShowPassword(!showPassword)}>
+              <Text style={styles.showButtonText}>{showPassword ? 'Hide' : 'Show'}</Text>
             </TouchableOpacity>
           </View>
-          {hatalar.sifre && <Text style={styles.errorText}>{hatalar.sifre}</Text>}
+          {errors.password && <Text style={styles.errorText}>{errors.password}</Text>}
 
-          {/* SIFRE TEKRAR + goster/gizle */}
-          <Text style={styles.label}>Şifre Tekrar</Text>
+          {/* CONFIRM PASSWORD + goster/gizle */}
+          <Text style={styles.label}>Confirm Password</Text>
           <View style={styles.passwordRow}>
             <TextInput
-              ref={sifreTekrarRef}
-              style={[styles.input, styles.passwordInput, hatalar.sifreTekrar && styles.inputError]}
-              placeholder="Şifreyi tekrar girin"
-              value={form.sifreTekrar}
-              onChangeText={(t) => alanDegistir('sifreTekrar', t)}
-              secureTextEntry={!sifreTekrarGoster}
+              ref={confirmPasswordRef}
+              style={[styles.input, styles.passwordInput, errors.confirmPassword && styles.inputError]}
+              placeholder="Re-enter your password"
+              value={form.confirmPassword}
+              onChangeText={(t) => updateField('confirmPassword', t)}
+              secureTextEntry={!showConfirmPassword}
               autoCapitalize="none"
               returnKeyType="done"
             />
             <TouchableOpacity
               style={styles.showButton}
-              onPress={() => setSifreTekrarGoster(!sifreTekrarGoster)}
+              onPress={() => setShowConfirmPassword(!showConfirmPassword)}
             >
-              <Text style={styles.showButtonText}>{sifreTekrarGoster ? 'Gizle' : 'Göster'}</Text>
+              <Text style={styles.showButtonText}>{showConfirmPassword ? 'Hide' : 'Show'}</Text>
             </TouchableOpacity>
           </View>
-          {hatalar.sifreTekrar && <Text style={styles.errorText}>{hatalar.sifreTekrar}</Text>}
+          {errors.confirmPassword && <Text style={styles.errorText}>{errors.confirmPassword}</Text>}
 
-          {/* CINSIYET: RadioButton grubu (tek secim, string state) */}
-          <Text style={styles.label}>Cinsiyet</Text>
+          {/* GENDER: RadioButton grubu (tek secim, string state) */}
+          <Text style={styles.label}>Gender</Text>
           <View accessibilityRole="radiogroup">
-            {CINSIYETLER.map((c) => (
+            {GENDERS.map((g) => (
               <RadioButton
-                key={c.id}
-                label={c.label}
-                selected={form.cinsiyet === c.id}
-                onPress={() => alanDegistir('cinsiyet', c.id)}
+                key={g.id}
+                label={g.label}
+                selected={form.gender === g.id}
+                onPress={() => updateField('gender', g.id)}
               />
             ))}
           </View>
-          {hatalar.cinsiyet && <Text style={styles.errorText}>{hatalar.cinsiyet}</Text>}
+          {errors.gender && <Text style={styles.errorText}>{errors.gender}</Text>}
 
-          {/* KOSULLAR: Checkbox (boolean state) */}
+          {/* TERMS: Checkbox (boolean state) */}
           <Checkbox
-            label="Koşulları kabul ediyorum"
-            checked={form.kosul}
-            onPress={() => alanDegistir('kosul', !form.kosul)}
+            label="I accept the terms"
+            checked={form.terms}
+            onPress={() => updateField('terms', !form.terms)}
           />
-          {hatalar.kosul && <Text style={styles.errorText}>{hatalar.kosul}</Text>}
+          {errors.terms && <Text style={styles.errorText}>{errors.terms}</Text>}
 
-          {/* BUTONLAR: kosul kabul edilmeden Kaydol pasif ve soluk */}
+          {/* BUTONLAR: terms kabul edilmeden Register pasif ve soluk */}
           <TouchableOpacity
-            style={[styles.button, !form.kosul && styles.buttonDisabled]}
-            onPress={kaydol}
-            disabled={!form.kosul}
+            style={[styles.button, !form.terms && styles.buttonDisabled]}
+            onPress={handleRegister}
+            disabled={!form.terms}
           >
-            <Text style={styles.buttonText}>Kaydol</Text>
+            <Text style={styles.buttonText}>Register</Text>
           </TouchableOpacity>
 
-          <TouchableOpacity style={[styles.button, styles.clearButton]} onPress={temizle}>
-            <Text style={[styles.buttonText, styles.clearButtonText]}>Temizle</Text>
+          <TouchableOpacity style={[styles.button, styles.clearButton]} onPress={handleClear}>
+            <Text style={[styles.buttonText, styles.clearButtonText]}>Clear</Text>
           </TouchableOpacity>
 
-          {/* OZET KARTI: sadece basarili kayittan sonra */}
-          {ozet && (
+          {/* SUMMARY KARTI: sadece basarili kayittan sonra */}
+          {summary && (
             <View style={styles.card}>
-              <Text style={styles.cardTitle}>Özet</Text>
-              <Text style={styles.cardLine}>Ad Soyad: {ozet.adSoyad}</Text>
-              <Text style={styles.cardLine}>E-posta: {ozet.email}</Text>
-              <Text style={styles.cardLine}>Telefon: {ozet.telefon}</Text>
-              <Text style={styles.cardLine}>Şifre: {'*'.repeat(ozet.sifre.length)}</Text>
-              <Text style={styles.cardLine}>Cinsiyet: {cinsiyetEtiketi(ozet.cinsiyet)}</Text>
-              <Text style={styles.cardLine}>Koşullar: {ozet.kosul ? 'Kabul edildi' : 'Hayır'}</Text>
+              <Text style={styles.cardTitle}>Summary</Text>
+              <Text style={styles.cardLine}>Full Name: {summary.fullName}</Text>
+              <Text style={styles.cardLine}>Email: {summary.email}</Text>
+              <Text style={styles.cardLine}>Phone: {summary.phone}</Text>
+              <Text style={styles.cardLine}>Password: {'*'.repeat(summary.password.length)}</Text>
+              <Text style={styles.cardLine}>Gender: {genderLabel(summary.gender)}</Text>
+              <Text style={styles.cardLine}>Terms: {summary.terms ? 'Accepted' : 'No'}</Text>
             </View>
           )}
         </ScrollView>

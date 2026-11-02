@@ -4,7 +4,7 @@
  * KURULUM:
  *   Yerel proje:  npx expo install @react-native-picker/picker expo-checkbox
  *   Expo Snack:   import yazinca paketler otomatik eklenir (gerekirse "Add dependency").
- *   Paket kurulamazsa: 07_secim_bilesenleri_paketsiz/App.js (ayni ekran, paketsiz).
+ *   Paket kurulamazsa: 07_acilir_menu_checkbox_radio_paketsiz/App.js (ayni ekran, paketsiz).
  *
  * NE YAPAR:
  *   Sehir secimi (Picker), coklu ilgi alani secimi (expo-checkbox),
@@ -16,10 +16,10 @@
  *   Pressable ile RadioButton, View, Text, ScrollView, StyleSheet
  *
  * NASIL UYARLANIR:
- *   1. Picker secenekleri: SEHIRLER dizisini degistir ("Seçiniz" ilk eleman kalsin).
- *   2. Checkbox secenekleri: ILGI_ALANLARI dizisine ekle, baslangic state'ine ayni id ile false ekle.
- *   3. Radio secenekleri: SEVIYELER dizisini degistir.
- *   4. Ozet metni: en alttaki "Özet" kartindaki Text satirlarini duzenle.
+ *   1. Picker secenekleri: CITIES dizisini degistir ("Select..." ilk eleman kalsin).
+ *   2. Checkbox secenekleri: INTERESTS dizisine ekle, baslangic state'ine ayni id ile false ekle.
+ *   3. Radio secenekleri: LEVELS dizisini degistir.
+ *   4. Ozet metni: en alttaki "Summary" kartindaki Text satirlarini duzenle.
  */
 
 import { useState } from 'react';
@@ -38,8 +38,8 @@ const COLORS = {
 };
 
 // value '' olan ilk eleman = "henuz secilmedi"
-const SEHIRLER = [
-  { label: 'Seçiniz', value: '' },
+const CITIES = [
+  { label: 'Select...', value: '' },
   { label: 'İstanbul', value: 'istanbul' },
   { label: 'Ankara', value: 'ankara' },
   { label: 'İzmir', value: 'izmir' },
@@ -47,17 +47,17 @@ const SEHIRLER = [
   { label: 'Antalya', value: 'antalya' },
 ];
 
-const ILGI_ALANLARI = [
-  { id: 'spor', label: 'Spor' },
-  { id: 'muzik', label: 'Müzik' },
-  { id: 'kitap', label: 'Kitap' },
-  { id: 'oyun', label: 'Oyun' },
+const INTERESTS = [
+  { id: 'sports', label: 'Sports' },
+  { id: 'music', label: 'Music' },
+  { id: 'books', label: 'Books' },
+  { id: 'games', label: 'Games' },
 ];
 
-const SEVIYELER = [
-  { id: 'baslangic', label: 'Başlangıç' },
-  { id: 'orta', label: 'Orta' },
-  { id: 'ileri', label: 'İleri' },
+const LEVELS = [
+  { id: 'beginner', label: 'Beginner' },
+  { id: 'intermediate', label: 'Intermediate' },
+  { id: 'advanced', label: 'Advanced' },
 ];
 
 // Core ile RadioButton (hocanin RadioItem ornegindeki kalip)
@@ -78,57 +78,57 @@ function RadioButton({ label, selected, onPress }) {
 }
 
 export default function App() {
-  const [sehir, setSehir] = useState(''); // Picker: string
-  const [ilgiler, setIlgiler] = useState({ spor: false, muzik: true, kitap: false, oyun: false }); // Checkbox: obje
-  const [seviye, setSeviye] = useState('orta'); // Radio: tek string
+  const [city, setCity] = useState(''); // Picker: string
+  const [interests, setInterests] = useState({ sports: false, music: true, books: false, games: false }); // Checkbox: obje
+  const [level, setLevel] = useState('intermediate'); // Radio: tek string
 
   // Checkbox degisince sadece o anahtari guncelle (immutable)
-  const ilgiDegistir = (id, deger) => {
-    setIlgiler((onceki) => ({ ...onceki, [id]: deger }));
+  const toggleInterest = (id, value) => {
+    setInterests((prev) => ({ ...prev, [id]: value }));
   };
 
   // Ozet icin etiketleri bul
-  const sehirEtiketi = sehir === '' ? 'Seçilmedi' : SEHIRLER.find((s) => s.value === sehir).label;
-  const seciliIlgiler = ILGI_ALANLARI.filter((i) => ilgiler[i.id]).map((i) => i.label);
-  const ilgiMetni = seciliIlgiler.length > 0 ? seciliIlgiler.join(', ') : 'Yok';
-  const seviyeEtiketi = SEVIYELER.find((s) => s.id === seviye)?.label ?? 'Seçilmedi';
+  const cityLabel = city === '' ? 'Not selected' : CITIES.find((s) => s.value === city).label;
+  const selectedInterests = INTERESTS.filter((i) => interests[i.id]).map((i) => i.label);
+  const interestsText = selectedInterests.length > 0 ? selectedInterests.join(', ') : 'None';
+  const levelLabel = LEVELS.find((s) => s.id === level)?.label ?? 'Not selected';
 
   return (
     <View style={styles.container}>
       <StatusBar style="dark" />
       <ScrollView contentContainerStyle={styles.scrollContent}>
-        <Text style={styles.title}>Tercihler</Text>
+        <Text style={styles.title}>Preferences</Text>
 
-        {/* 1) PICKER: sehir */}
-        <Text style={styles.label}>Şehir</Text>
+        {/* 1) PICKER: city */}
+        <Text style={styles.label}>City</Text>
         {/* Android'de arka plan icin Picker'i View ile sar */}
         <View style={styles.pickerBox}>
           <Picker
-            selectedValue={sehir}
-            onValueChange={(value) => setSehir(value)}
+            selectedValue={city}
+            onValueChange={(value) => setCity(value)}
             mode="dropdown"
             dropdownIconColor={COLORS.primary}
           >
-            {SEHIRLER.map((s) => (
+            {CITIES.map((s) => (
               <Picker.Item key={s.value} label={s.label} value={s.value} />
             ))}
           </Picker>
         </View>
 
         {/* 2) CHECKBOX (expo-checkbox): coklu secim */}
-        <Text style={styles.label}>İlgi Alanları</Text>
-        {ILGI_ALANLARI.map((item) => (
+        <Text style={styles.label}>Interests</Text>
+        {INTERESTS.map((item) => (
           <View key={item.id} style={styles.row}>
             <Checkbox
-              value={ilgiler[item.id]}
-              onValueChange={(value) => ilgiDegistir(item.id, value)}
-              color={ilgiler[item.id] ? COLORS.primary : undefined}
+              value={interests[item.id]}
+              onValueChange={(value) => toggleInterest(item.id, value)}
+              color={interests[item.id] ? COLORS.primary : undefined}
               style={styles.checkbox}
             />
             {/* Yaziya basinca da degissin */}
             <Text
               style={styles.optionText}
-              onPress={() => ilgiDegistir(item.id, !ilgiler[item.id])}
+              onPress={() => toggleInterest(item.id, !interests[item.id])}
             >
               {item.label}
             </Text>
@@ -136,24 +136,24 @@ export default function App() {
         ))}
 
         {/* 3) RADIO: tek secim */}
-        <Text style={styles.label}>Seviye</Text>
+        <Text style={styles.label}>Level</Text>
         <View accessibilityRole="radiogroup">
-          {SEVIYELER.map((s) => (
+          {LEVELS.map((s) => (
             <RadioButton
               key={s.id}
               label={s.label}
-              selected={seviye === s.id}
-              onPress={() => setSeviye(s.id)}
+              selected={level === s.id}
+              onPress={() => setLevel(s.id)}
             />
           ))}
         </View>
 
         {/* CANLI OZET: state degistikce otomatik guncellenir */}
         <View style={styles.card}>
-          <Text style={styles.cardTitle}>Özet</Text>
-          <Text style={styles.cardLine}>Seçilen şehir: {sehirEtiketi}</Text>
-          <Text style={styles.cardLine}>İlgi alanları: {ilgiMetni}</Text>
-          <Text style={styles.cardLine}>Seviye: {seviyeEtiketi}</Text>
+          <Text style={styles.cardTitle}>Summary</Text>
+          <Text style={styles.cardLine}>Selected city: {cityLabel}</Text>
+          <Text style={styles.cardLine}>Interests: {interestsText}</Text>
+          <Text style={styles.cardLine}>Level: {levelLabel}</Text>
         </View>
       </ScrollView>
     </View>

@@ -3,7 +3,7 @@
  *
  * Ne yapar: Sosyal medya tarzi bir profil sayfasi cizer. Kapak resmi, ustune
  * tasan yuvarlak profil fotografi, ad / unvan / biyografi, 3 istatistik kutusu,
- * "Takip et" ve "Mesaj" butonlari, yatay kaydirilan kucuk resim seridi.
+ * "Follow" ve "Message" butonlari, yatay kaydirilan kucuk resim seridi.
  *
  * Bilesenler: View, Text, Image, ScrollView (dikey + yatay), TouchableOpacity,
  * StyleSheet, useState, StatusBar (expo-status-bar).
@@ -49,19 +49,19 @@ const COLORS = {
 
 const PROFILE = {
   name: 'Ayse Yilmaz',
-  title: 'Mobil Uygulama Gelistirici',
+  title: 'Mobile App Developer',
   bio:
-    'React Native ve Expo ile mobil uygulamalar gelistiriyorum. Kullanici ' +
-    'deneyimi, temiz kod ve hizli prototipleme ilgi alanlarim. Bos zamanlarimda ' +
-    'fotograf cekiyor, kamp yapiyor ve acik kaynak projelere katki veriyorum.',
+    'I build mobile apps with React Native and Expo. My interests are user ' +
+    'experience, clean code and rapid prototyping. In my free time I take ' +
+    'photos, go camping and contribute to open source projects.',
   cover: 'https://picsum.photos/id/1018/800/400',
   avatar: 'https://i.pravatar.cc/200?img=47',
 };
 
 const STATS = [
-  { id: '1', label: 'Gonderi', value: '128' },
-  { id: '2', label: 'Takipci', value: '4.2K' },
-  { id: '3', label: 'Takip', value: '312' },
+  { id: '1', label: 'Posts', value: '128' },
+  { id: '2', label: 'Followers', value: '4.2K' },
+  { id: '3', label: 'Following', value: '312' },
 ];
 
 const PHOTOS = [
@@ -108,7 +108,7 @@ export default function App() {
             </Text>
             <TouchableOpacity onPress={() => setBioExpanded(!bioExpanded)}>
               <Text style={styles.moreText}>
-                {bioExpanded ? 'Daha az goster' : 'Devamini gor'}
+                {bioExpanded ? 'Show less' : 'Show more'}
               </Text>
             </TouchableOpacity>
           </View>
@@ -135,18 +135,18 @@ export default function App() {
               <Text
                 style={isFollowing ? styles.buttonOutlineText : styles.buttonFilledText}
               >
-                {isFollowing ? 'Takip ediliyor' : 'Takip et'}
+                {isFollowing ? 'Following' : 'Follow'}
               </Text>
             </TouchableOpacity>
 
             <TouchableOpacity style={[styles.button, styles.buttonOutline]}>
-              <Text style={styles.buttonOutlineText}>Mesaj</Text>
+              <Text style={styles.buttonOutlineText}>Message</Text>
             </TouchableOpacity>
           </View>
         </View>
 
         {/* Yatay resim seridi */}
-        <Text style={styles.sectionTitle}>Fotograflar</Text>
+        <Text style={styles.sectionTitle}>Photos</Text>
         <ScrollView
           horizontal
           showsHorizontalScrollIndicator={false}

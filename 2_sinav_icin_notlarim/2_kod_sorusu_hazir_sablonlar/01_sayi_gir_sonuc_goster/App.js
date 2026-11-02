@@ -4,7 +4,7 @@
  * NE YAPAR:
  *   Bir sayi girilir, yatay seceneklerden (chip) donusum turu secilir,
  *   Convert'e basinca sonuc kartta gosterilir. Reset her seyi temizler.
- *   Hazir donusumler: Celsius -> Fahrenheit, km -> mil, kg -> lb, TL -> USD (sabit kur).
+ *   Hazir donusumler: Celsius -> Fahrenheit, km -> mi, kg -> lb, TRY -> USD (sabit kur).
  *
  * KULLANILAN BILESENLER:
  *   View, Text, TextInput, TouchableOpacity, ScrollView (yatay chip listesi),
@@ -42,16 +42,16 @@ const COLORS = {
   error: '#D32F2F',
 };
 
-const TITLE = 'Birim Donusturucu';
+const TITLE = 'Unit Converter';
 const DECIMALS = 2;
-const USD_RATE = 41.5; // 1 USD = 41.5 TL (sabit, ornek kur)
+const USD_RATE = 41.5; // 1 USD = 41.5 TRY (sabit, ornek kur)
 
 // DONUSUM TABLOSU: yeni birim icin buraya bir satir ekle
 const CONVERSIONS = [
   { label: '°C → °F', from: '°C', to: '°F', convert: (x) => (x * 9) / 5 + 32 },
-  { label: 'km → mil', from: 'km', to: 'mil', convert: (x) => x * 0.621371 },
+  { label: 'km → mi', from: 'km', to: 'mi', convert: (x) => x * 0.621371 },
   { label: 'kg → lb', from: 'kg', to: 'lb', convert: (x) => x * 2.20462 },
-  { label: 'TL → USD', from: 'TL', to: 'USD', convert: (x) => x / USD_RATE },
+  { label: 'TRY → USD', from: 'TRY', to: 'USD', convert: (x) => x / USD_RATE },
 ];
 
 // Sadece rakam, bastaki eksi ve tek ondalik ayirici birakir; virgulu noktaya cevirir
@@ -86,7 +86,7 @@ export default function App() {
   const handleConvert = () => {
     const value = parseFloat(input);
     if (input.trim() === '' || isNaN(value)) {
-      setError('Lutfen gecerli bir sayi girin.');
+      setError('Please enter a valid number.');
       setResult(null);
       return;
     }
@@ -127,7 +127,7 @@ export default function App() {
       </ScrollView>
 
       {/* Giris alani; iOS numeric klavyede eksi yok, o yuzden iOS'ta numbers-and-punctuation */}
-      <Text style={styles.label}>Deger ({conversion.from})</Text>
+      <Text style={styles.label}>Value ({conversion.from})</Text>
       <TextInput
         style={styles.input}
         placeholder={conversion.from}
@@ -150,7 +150,7 @@ export default function App() {
       {/* Sonuc karti: sadece Convert'ten sonra */}
       {result !== null && (
         <View style={styles.card}>
-          <Text style={styles.cardLabel}>Sonuc</Text>
+          <Text style={styles.cardLabel}>Result</Text>
           <Text style={styles.cardValue}>
             {result.output} {conversion.to}
           </Text>

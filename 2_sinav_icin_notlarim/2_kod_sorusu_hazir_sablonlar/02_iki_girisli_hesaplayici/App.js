@@ -2,10 +2,10 @@
  * SABLON 02: Vucut Kitle Indeksi (VKI / BMI) hesaplayici, iki girisli hesaplayici
  *
  * NE YAPAR:
- *   Boy (cm) ve kilo (kg) alinir. Hesapla'ya basinca VKI = kilo / (boy_metre * boy_metre)
+ *   Boy (cm) ve kilo (kg) alinir. Calculate'e basinca VKI = kilo / (boy_metre * boy_metre)
  *   hesaplanir, kategori bulunur ve kategoriye gore renkli kartta gosterilir.
- *   Kategoriler: Zayif < 18.5, Normal < 25, Fazla kilolu < 30, Obez >= 30.
- *   Temizle her seyi sifirlar. Bos, sifir veya mantiksiz giriste kirmizi uyari gosterir.
+ *   Kategoriler: Underweight < 18.5, Normal < 25, Overweight < 30, Obese >= 30.
+ *   Clear her seyi sifirlar. Bos, sifir veya mantiksiz giriste kirmizi uyari gosterir.
  *
  * KULLANILAN BILESENLER:
  *   View, Text, TextInput, TouchableOpacity, StyleSheet (react-native),
@@ -33,14 +33,14 @@ const COLORS = {
   error: '#D32F2F',
 };
 
-const TITLE = 'VKI Hesaplayici';
+const TITLE = 'BMI Calculator';
 
 // Kategori tablosu: max degerinden KUCUK ise o kategori (yukaridan asagi kontrol edilir)
 const CATEGORIES = [
-  { max: 18.5, name: 'Zayif', color: '#03A9F4' },
+  { max: 18.5, name: 'Underweight', color: '#03A9F4' },
   { max: 25, name: 'Normal', color: '#4CAF50' },
-  { max: 30, name: 'Fazla kilolu', color: '#FF9800' },
-  { max: Infinity, name: 'Obez', color: '#F44336' },
+  { max: 30, name: 'Overweight', color: '#FF9800' },
+  { max: Infinity, name: 'Obese', color: '#F44336' },
 ];
 
 // Sadece rakam ve tek ondalik ayirici birakir; virgulu noktaya cevirir
@@ -66,12 +66,12 @@ export default function App() {
     const w = parseFloat(weight);
 
     if (height.trim() === '' || weight.trim() === '') {
-      setError('Lutfen boy ve kilo girin.');
+      setError('Please enter height and weight.');
       setResult(null);
       return;
     }
     if (isNaN(h) || isNaN(w) || h < 50 || h > 250 || w <= 0 || w > 400) {
-      setError('Gecersiz deger: boy 50-250 cm, kilo 0-400 kg araliginda olmali.');
+      setError('Invalid value: height must be 50-250 cm, weight 0-400 kg.');
       setResult(null);
       return;
     }
@@ -97,20 +97,20 @@ export default function App() {
       <Text style={styles.title}>{TITLE}</Text>
 
       {/* Boy girisi */}
-      <Text style={styles.label}>Boy (cm)</Text>
+      <Text style={styles.label}>Height (cm)</Text>
       <TextInput
         style={styles.input}
-        placeholder="ornek: 175"
+        placeholder="e.g. 175"
         keyboardType="numeric"
         value={height}
         onChangeText={(text) => setHeight(keepNumeric(text))}
       />
 
       {/* Kilo girisi */}
-      <Text style={styles.label}>Kilo (kg)</Text>
+      <Text style={styles.label}>Weight (kg)</Text>
       <TextInput
         style={styles.input}
-        placeholder="ornek: 70"
+        placeholder="e.g. 70"
         keyboardType="numeric"
         value={weight}
         onChangeText={(text) => setWeight(keepNumeric(text))}
@@ -119,10 +119,10 @@ export default function App() {
       {/* Butonlar yan yana */}
       <View style={styles.buttonRow}>
         <TouchableOpacity style={[styles.button, styles.primaryButton]} onPress={handleCalculate} activeOpacity={0.7}>
-          <Text style={styles.primaryText}>Hesapla</Text>
+          <Text style={styles.primaryText}>Calculate</Text>
         </TouchableOpacity>
         <TouchableOpacity style={[styles.button, styles.outlineButton]} onPress={handleClear} activeOpacity={0.7}>
-          <Text style={styles.outlineText}>Temizle</Text>
+          <Text style={styles.outlineText}>Clear</Text>
         </TouchableOpacity>
       </View>
 
@@ -132,7 +132,7 @@ export default function App() {
       {/* Sonuc karti: rengi kategoriye gore degisir */}
       {result !== null && (
         <View style={[styles.card, { backgroundColor: result.color }]}>
-          <Text style={styles.cardLabel}>Vucut Kitle Indeksi</Text>
+          <Text style={styles.cardLabel}>Body Mass Index</Text>
           <Text style={styles.cardValue}>{result.bmi}</Text>
           <Text style={styles.cardCategory}>{result.name}</Text>
         </View>

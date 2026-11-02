@@ -5,7 +5,7 @@
  *   - FlatList numColumns={3} ile picsum resimlerinden izgara.
  *   - Resme dokununca begenilir / begeni kalkar; sag ust kosede yesil rozet cikar.
  *   - Ustte sayac: "Liked: X / Y".
- *   - Resme uzun basinca (onLongPress) Modal acilir, resim buyuk gosterilir; "Kapat" ile kapanir.
+ *   - Resme uzun basinca (onLongPress) Modal acilir, resim buyuk gosterilir; "Close" ile kapanir.
  *
  * Kullanilan bilesenler: View, Text, Image, FlatList, TouchableOpacity, Modal,
  *   StyleSheet, useWindowDimensions, StatusBar.
@@ -99,7 +99,7 @@ export default function App() {
       <Text style={styles.counter}>
         Liked: {liked.length} / {IMAGES.length}
       </Text>
-      <Text style={styles.hint}>Dokun: beğen. Uzun bas: büyük önizleme.</Text>
+      <Text style={styles.hint}>Tap: like. Long press: large preview.</Text>
 
       <FlatList
         data={IMAGES}
@@ -133,7 +133,7 @@ export default function App() {
             style={styles.closeButton}
             onPress={() => setPreview(null)}
           >
-            <Text style={styles.closeText}>Kapat</Text>
+            <Text style={styles.closeText}>Close</Text>
           </TouchableOpacity>
         </View>
       </Modal>
