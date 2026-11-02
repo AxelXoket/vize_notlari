@@ -1,17 +1,17 @@
 # Vize Notlarım: Mobil Uygulama Geliştirme
 
 Kapsam: **W2** JavaScript, **W3** React, **W4** React Native'e giriş, **W6** React Native core components.
-Kaynak: hocanın materyali ([1_hoca_notlari](../1_hoca_notlari)), commit `7a13069`.
+Kaynak: hocanın materyali ([1_hocanin_ders_materyali](../1_hocanin_ders_materyali)), commit `7a13069`.
 
 ## İçindekiler
 
 | | Ne | Ne zaman |
 |---|---|---|
-| [5_sinav_gunu_rehberi.md](5_sinav_gunu_rehberi.md) | Sınav günü adım adım: klasör yapısı, Snack/Expo, hata ayıklama | Sınavdan önce bir kez oku |
-| [4_sinav_kodlari](4_sinav_kodlari) | 13 hazır, çalıştırılıp denenmiş `App.js` şablonu (form, liste, seçim, dönüştürücü...) | Sınavda kopyala, uyarla |
-| [3_arkadas_referansi](3_arkadas_referansi) | Arkadaştan alınan referans çözümler (Joule dönüştürücü, şehir seçici) ve TextInput soru-cevap | Örnek olarak |
-| [1_konu_anlatimi.md](1_konu_anlatimi.md) | Kısa ve net konu anlatımı, 4 hafta | Çalışırken |
-| [2_detayli_notlar](2_detayli_notlar) | Çok detaylı notlar, prop tabloları, hafta başına 36-54 soru-cevap, materyaldeki hatalar | Bir şeyi ararken |
+| [1_sinavda_ne_yapacagim_rehber.md](1_sinavda_ne_yapacagim_rehber.md) | Sınav günü adım adım: klasör yapısı, Snack/Expo, hata ayıklama | Sınavdan önce bir kez oku |
+| [2_kod_sorusu_hazir_sablonlar](2_kod_sorusu_hazir_sablonlar) | 13 hazır, çalıştırılıp denenmiş `App.js` şablonu (form, liste, seçim, dönüştürücü...) | Sınavda kopyala, uyarla |
+| [3_kod_sorusu_arkadas_cozumleri](3_kod_sorusu_arkadas_cozumleri) | Arkadaştan alınan referans çözümler (Joule dönüştürücü, şehir seçici) ve TextInput soru-cevap | Örnek olarak |
+| [4_teori_konu_anlatimi.md](4_teori_konu_anlatimi.md) | Kısa ve net konu anlatımı, 4 hafta | Çalışırken |
+| [5_teori_detayli_notlar](5_teori_detayli_notlar) | Çok detaylı notlar, prop tabloları, hafta başına 36-54 soru-cevap, materyaldeki hatalar | Bir şeyi ararken |
 
 - **Referanslar tıklanır:** [`W6/components/FlatList.md:42`](https://github.com/zeki-ozen/MobileAppDevelopment/blob/7a13069/W6/components/FlatList.md?plain=1#L42) gibi linkler hocanın dosyasını tam o satırda açar.
 - **Sayfada arama:** GitHub'da `Cmd+F` / `Ctrl+F`. Tüm repoda dosya bulmak için repo sayfasında `t` tuşu.

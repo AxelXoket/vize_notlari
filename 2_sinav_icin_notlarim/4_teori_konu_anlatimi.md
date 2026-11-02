@@ -1,7 +1,7 @@
 # Mobil Uygulama Geliştirme: Konu Anlatımı (W2, W3, W4, W6)
 
 Hocanın materyaline (`zeki-ozen/MobileAppDevelopment`, commit `7a13069`) dayanan kısa anlatım.
-Detaylı notlar ve soru-cevaplar: [2_detayli_notlar](2_detayli_notlar). Hocanın dosyaları: [1_hoca_notlari](../1_hoca_notlari).
+Detaylı notlar ve soru-cevaplar: [5_teori_detayli_notlar](5_teori_detayli_notlar). Hocanın dosyaları: [1_hocanin_ders_materyali](../1_hocanin_ders_materyali).
 
 - [Hafta 2: JavaScript & ES6](#hafta-2-javascript--es6)
 - [Hafta 3: React (web)](#hafta-3-react-web)
@@ -13,7 +13,7 @@ Detaylı notlar ve soru-cevaplar: [2_detayli_notlar](2_detayli_notlar). Hocanın
 # Hafta 2: JavaScript & ES6
 
 ## 2.0 JavaScript'in temelleri
-Kaynak: [`W2/topics/00_Fundamentals_of_JavaScript.html`](../1_hoca_notlari/W2/topics/00_Fundamentals_of_JavaScript.md)
+Kaynak: [`W2/topics/00_Fundamentals_of_JavaScript.html`](../1_hocanin_ders_materyali/W2/topics/00_Fundamentals_of_JavaScript.md)
 
 JavaScript (JS), Brendan Eich'in 1995'te Netscape'te yazdığı high-level (yüksek seviyeli), interpreted (yorumlanan) bir dildir. Web sayfalarına etkileşim katmak için doğdu; bugün web, mobil, masaüstü ve sunucuda çalışıyor.
 
@@ -41,7 +41,7 @@ console.log(whereAmI);     // tarayıcıda "browser", Node'da "Node.js"
 Dikkat: `window` sadece tarayıcıda vardır; ortam tespiti `typeof window` ile yapılır. Demo `00_fundamentals.js` bilgileri `Object.entries(obj).forEach(([key, value]) => ...)` ile gezip `console.group` / `console.groupEnd` içinde basar, `console.info` ile ipucu verir; `latestSpec` gerçek spesifikasyon değil, `new Date().getFullYear()` yani o anki yıldır.
 
 ## 2.1 JavaScript'i HTML içinde kullanmak
-Kaynak: [`W2/topics/01_Using_JS_in_HTML.html`](../1_hoca_notlari/W2/topics/01_Using_JS_in_HTML.md)
+Kaynak: [`W2/topics/01_Using_JS_in_HTML.html`](../1_hocanin_ders_materyali/W2/topics/01_Using_JS_in_HTML.md)
 
 Tarayıcıda JS'i sayfaya `<script>` etiketiyle bağlarız. Kodun nerede durduğu, ne zaman çalışacağını belirler.
 
@@ -62,7 +62,7 @@ Tarayıcıda JS'i sayfaya `<script>` etiketiyle bağlarız. Kodun nerede durduğ
 Dikkat: `defer` olmadan `<head>`'deki script, henüz oluşmamış elemanı bulamaz (`null`). Demo `01_using_js_in_html.js` `button?.addEventListener` ile optional chaining kullanır ve her tıkta `highlighted = !highlighted` ile rengi değiştirir. (Materyalde `<head>`'deki inline örneğin açılış etiketi `<script>` yerine `<p>` yazılmış; bu yüzden "Hello from inline JavaScript!" konsola düşmez, kod metni sayfanın üstünde düz paragraf olarak görünür. Doğrusu `<script>console.log(...)</script>`.)
 
 ## 2.2 JavaScript'i tek başına çalıştırmak
-Kaynak: [`W2/topics/02_Running_JS_Standalone.html`](../1_hoca_notlari/W2/topics/02_Running_JS_Standalone.md)
+Kaynak: [`W2/topics/02_Running_JS_Standalone.html`](../1_hocanin_ders_materyali/W2/topics/02_Running_JS_Standalone.md)
 
 JS sadece tarayıcıya bağlı değildir: Node.js, Deno ve Bun ile komut satırında da çalışır. Bu, otomasyon, prototipleme, unit test ve build araçları için idealdir.
 
@@ -82,7 +82,7 @@ if (typeof window === "undefined") {
 Dikkat: `alert` ve `document` Node'da yoktur; `process` tarayıcıda yoktur.
 
 ## 2.3 Değişkenler ve sabitler
-Kaynak: [`W2/topics/03_Variables_and_Constants.html`](../1_hoca_notlari/W2/topics/03_Variables_and_Constants.md)
+Kaynak: [`W2/topics/03_Variables_and_Constants.html`](../1_hocanin_ders_materyali/W2/topics/03_Variables_and_Constants.md)
 
 Değişken, bir değere verilen isimdir. Modern JS'te `let` ve `const` block-scoped (blok kapsamlı) çalışır; `var` function-scoped (fonksiyon kapsamlı) olup eski kod uyumluluğu için durur.
 
@@ -114,7 +114,7 @@ const arr = [1]; arr.push(2); // [1, 2], içerik değişebilir
 Dikkat: `const` "değer sabit" değil "bağ sabit" demektir. TDZ'de `typeof myVar` (var) `"undefined"` döner ama `typeof myLet` `ReferenceError` atar. Demo `03_variables_constants.js`: bloktaki `var legacy` dıştakini **ezer** (bloktan sonra da yeni değer), bloktaki `let modern` dıştakini sadece **gölgeler** (shadowing; bloktan çıkınca eski değer döner). Demodaki "global" etiketli değişkenler aslında click handler fonksiyonunun içindedir.
 
 ## 2.4 Veri tipleri
-Kaynak: [`W2/topics/04_Data_Types.html`](../1_hoca_notlari/W2/topics/04_Data_Types.md)
+Kaynak: [`W2/topics/04_Data_Types.html`](../1_hocanin_ders_materyali/W2/topics/04_Data_Types.md)
 
 JS'te 7 primitive (ilkel) tip ve bir de reference (referans) tipler ailesi vardır. Ayrım önemlidir çünkü kopyalama davranışı farklıdır.
 
@@ -142,7 +142,7 @@ console.log(typeof null, Array.isArray([])); // object true
 Dikkat: `typeof null === "object"` ve `typeof [] === "object"`; diziyi `Array.isArray`, null'ı `value === null` ile ayırt et. Demo `04_data_types.js` girilen değeri `json` (`JSON.parse`), `string` veya `auto` (`eval`, dikkatli kullan) modunda çözüp typeof, Array?, Null?, Constructor raporlar; `0`, `""`, `false`, `NaN` için Constructor `N/A` çıkar çünkü `value && value.constructor` falsy'de kısa devre yapar. (Materyalde `instanceof Date;` sol tarafı olmadan yazılmış, geçersiz; doğrusu `value instanceof Date`.)
 
 ### Sınıf alıştırması
-Kaynak: [`W2/topics/deneme.html`](../1_hoca_notlari/W2/topics/deneme.md), [`W2/topics/first.js`](../1_hoca_notlari/W2/topics/first.js)
+Kaynak: [`W2/topics/deneme.html`](../1_hocanin_ders_materyali/W2/topics/deneme.md), [`W2/topics/first.js`](../1_hocanin_ders_materyali/W2/topics/first.js)
 
 Derste yazılan küçük deneme: `deneme.html` önce external `first.js`'i yükler, sonra inline script çalıştırır.
 
@@ -163,7 +163,7 @@ while (devam) {
 Dikkat: Log metni "Popped number" diyor ama `shift()` baştan çıkarır; `pop()` sondan çıkarır.
 
 ## 2.5 Operatörler ve ifadeler
-Kaynak: [`W2/topics/05_Operators_and_Expressions.html`](../1_hoca_notlari/W2/topics/05_Operators_and_Expressions.md)
+Kaynak: [`W2/topics/05_Operators_and_Expressions.html`](../1_hocanin_ders_materyali/W2/topics/05_Operators_and_Expressions.md)
 
 Operatör, değerler üzerinde işlem yapıp yeni bir değer üreten semboldür; operatörlerle kurulmuş her parça bir expression (ifade) olur.
 
@@ -187,7 +187,7 @@ console.log(0 || 5, 0 ?? 5);         // 5 0
 Dikkat: `||` 0 ve `""` gibi geçerli değerleri de ezer; varsayılan değer için `??` kullan. `NaN` kendine eşit değildir. `&&`/`||` boolean değil operand döndürür: demo `05_operators.js` 12 ve 5 ile `12 && 5` → 5, `12 || 5` → 12, `12 ** 5` → 248832, `12 % 5` → 2 verir; `Number(input.value)` hiç null/undefined üretmediği için demodaki `??` asla "default"a düşmez.
 
 ## 2.6 Kontrol akışı: koşullar
-Kaynak: [`W2/topics/06_Control_Flow.html`](../1_hoca_notlari/W2/topics/06_Control_Flow.md)
+Kaynak: [`W2/topics/06_Control_Flow.html`](../1_hocanin_ders_materyali/W2/topics/06_Control_Flow.md)
 
 Control flow (kontrol akışı), komutların hangi sırayla çalışacağını belirler; koşullu ifadeler programın karar vermesini sağlar.
 
@@ -211,7 +211,7 @@ console.log(Boolean([]), Boolean("0"));              // true true
 Dikkat: `if (count)` 0 için false olur; sayı için `count > 0` yaz, varlık için `value !== undefined && value !== null` ya da `??`. `break` unutulursa sonraki `case`'e düşer; `case` içinde `return` varsa `break` gerekmez (demo `06_control_flow.js` hava durumuna göre kıyafeti `if/else`, aktiviteyi `switch` + `return` ile seçer). Teaching Notes'taki falsy listesi `-0` ve `0n`'ı atlıyor; tam liste 8 değerdir.
 
 ## 2.7 Döngüler ve yineleme
-Kaynak: [`W2/topics/07_Loops_and_Iteration.html`](../1_hoca_notlari/W2/topics/07_Loops_and_Iteration.md)
+Kaynak: [`W2/topics/07_Loops_and_Iteration.html`](../1_hocanin_ders_materyali/W2/topics/07_Loops_and_Iteration.md)
 
 Döngü, bir kod parçasını tekrar tekrar çalıştırır. Tekrar sayısı biliniyor mu, neyin üzerinde dönülüyor; döngü seçimini bu belirler.
 
@@ -237,7 +237,7 @@ outer: for (let i = 0; i < 3; i++)
 Dikkat: "for...of değer, for...in key" ayrımı sık sorulur. `do...while` koşul yanlış olsa bile bir kez çalışır. `new Set([1, 2, 2, 3])` for...of ile 1, 2, 3 verir (tekrar atılır); Map'te `for (const [k, v] of map)`. Demo `07_loops.js` aynı listeyi for...of, Map, while, do...while (3, 2, 1 geri sayım) ve forEach ile yazdırır.
 
 ## 2.8 Fonksiyonlar ve arrow function'lar
-Kaynak: [`W2/topics/08_Functions_and_Arrow_Functions.html`](../1_hoca_notlari/W2/topics/08_Functions_and_Arrow_Functions.md)
+Kaynak: [`W2/topics/08_Functions_and_Arrow_Functions.html`](../1_hocanin_ders_materyali/W2/topics/08_Functions_and_Arrow_Functions.md)
 
 Fonksiyon, parametre alıp çağrılabilen yeniden kullanılabilir kod bloğudur. JS'te birden çok tanım şekli var ve her birinin hoisting ile `this` davranışı farklıdır.
 
@@ -269,7 +269,7 @@ console.log(obj.f());              // "X"; obj.g() obj'yi görmez
 Dikkat: Function expression ve arrow hoist edilmez, tanımdan önce çağırmak hata verir. (Materyalde `obj.arrowFunction()` için `undefined` yazıyor; aslında sonuç ortama bağlı: tarayıcı script'inde boş string, ES module'de `TypeError`. Kesin olan: arrow'un `this`'i `obj` değildir. Ayrıca `arrowFunc(1, 2, 3); // Error` denmiş ama `arguments` satırı yorumda olduğu için hata atmaz; satır açılsaydı `arguments` tanımsız olurdu.)
 
 ## 2.9 Diziler ve iterasyon metotları
-Kaynak: [`W2/topics/09_Arrays_and_Iteration_Methods.html`](../1_hoca_notlari/W2/topics/09_Arrays_and_Iteration_Methods.md)
+Kaynak: [`W2/topics/09_Arrays_and_Iteration_Methods.html`](../1_hocanin_ders_materyali/W2/topics/09_Arrays_and_Iteration_Methods.md)
 
 Array (dizi), her tipten değeri tutabilen, sıfırdan indekslenen, mutable sıralı koleksiyondur. Hangi metodun diziyi değiştirdiğini (mutate) bilmek en önemli noktadır.
 
@@ -296,7 +296,7 @@ console.log(n.splice(1, 1), n);             // [5] [1, 10, 40]
 Dikkat: `slice` kopya, `splice` mutasyon; karıştırma. `reduce`'a başlangıç değeri ver. Demo `09_arrays.js` "şarkı,dakika" satırlarını `split` + `filter(Boolean)` + `map` + destructuring ile işler; varsayılan veriyle `totalSongs: 3`, `totalDurationMinutes: 15`, `hasLongSongs: true`. (Materyalde 19 yaş üstü ortalaması `87.5` yazıyor; doğrusu (85 + 78 + 96) / 3 = 86.33. Aynı örnek blokta `let a` iki kez bildirildiği için birlikte çalıştırılırsa `SyntaxError` verir.)
 
 ## 2.10 ES6 modülleri ve import
-Kaynak: [`W2/topics/10_Modules_and_Imports.html`](../1_hoca_notlari/W2/topics/10_Modules_and_Imports.md)
+Kaynak: [`W2/topics/10_Modules_and_Imports.html`](../1_hocanin_ders_materyali/W2/topics/10_Modules_and_Imports.md)
 
 Module (modül), kodu dosyalara bölüp sadece gerekeni dışarı açmanın standart yoludur: encapsulation (kapsülleme), bağımlılık yönetimi ve bundler'larda tree shaking sağlar.
 
@@ -342,7 +342,7 @@ Dikkat: default import'ta süslü parantez yok, named'de var ve isim birebir ayn
 # Hafta 3: React (web)
 
 ## 3.1 React Temelleri
-Kaynak: [`W3/00-React-Fundamentals.md`](../1_hoca_notlari/W3/00-React-Fundamentals.md)
+Kaynak: [`W3/00-React-Fundamentals.md`](../1_hocanin_ders_materyali/W3/00-React-Fundamentals.md)
 
 React, kullanıcı arayüzü (UI) kurmak için bir JavaScript **kütüphanesidir** (library, framework değil). Facebook yazdı, bugün Meta ve topluluk geliştiriyor. Ana fikir: ekranı küçük, yeniden kullanılabilir parçalara, yani **component**'lere bölmek.
 
@@ -401,7 +401,7 @@ export default UserCard;
 > **Dikkat:** Materyaldeki ağaç `public/index.html` + `App.js` (CRA) ile `main.jsx` (Vite) yapısını karıştırıyor; Vite'ta `index.html` proje kökündedir. PropTypes'ı "önerilir" diye anlatıyor, oysa React 19 PropTypes kontrolünü kaldırdı, TypeScript önerilir. Örnekte `isRequired` prop'a `defaultProps` verilmiş; zorunlu prop'a varsayılan değer anlamsızdır.
 
 ## 3.2 React için JavaScript Temelleri
-Kaynak: [`W3/00-javascript-basics.md`](../1_hoca_notlari/W3/00-javascript-basics.md)
+Kaynak: [`W3/00-javascript-basics.md`](../1_hocanin_ders_materyali/W3/00-javascript-basics.md)
 
 React yazmak aslında modern JavaScript yazmaktır; aşağıdakiler React kodunun her satırında karşına çıkar.
 
@@ -427,7 +427,7 @@ const s2 = { ...s, user: { ...s.user, profile: { ...s.user.profile, theme: 'ligh
 > **Dikkat:** spread **sığ kopya** (shallow copy) yapar; iç içe object'te her seviyeyi ayrı ayrı yaymak gerekir. `const { age, ...noAge } = user` içindeki `...` spread değil **rest**'tir: eşittirin solunda toplar, sağında açar. Aynı anahtarda sonraki kazanır: `{ ...user, age: 26 }` yaşı ezer, `{ age: 26, ...user }` ezmez. Default import'ta `{}` kullanılmaz, named import'ta kullanılır.
 
 ## 3.3 Kurulum (Setup and Installation)
-Kaynak: [`W3/00-setup-and-installation.md`](../1_hoca_notlari/W3/00-setup-and-installation.md)
+Kaynak: [`W3/00-setup-and-installation.md`](../1_hocanin_ders_materyali/W3/00-setup-and-installation.md)
 
 React kodu (JSX) tarayıcıda doğrudan çalışmaz; derleyen ve paketleyen bir araç zinciri gerekir. Bu araçları **Node.js** üzerinden kurarız.
 
@@ -460,7 +460,7 @@ export default App;
 > **Dikkat:** (Materyalde "CRA is the official tool" yazıyor, doğrusu: React ekibi CRA'yı Şubat 2025'te deprecated ilan etti; Vite veya Next.js gibi framework öneriliyor. Sınavda materyal sorulursa materyalin cevabı CRA'dır.) Materyalde Vite ve Next.js başlıkları ve oluşturma komutları eksik, yukarıdaki komutlar tamamlamadır. `REACT_APP_` kuralı sadece CRA içindir; Vite'ta `VITE_` ve `import.meta.env`, Next.js'te tarayıcıya açılacaklar `NEXT_PUBLIC_`. Materyal `npm start` için hem "sayfa otomatik yenilenir" hem "Hot Reloading, sayfa yenilemeden" diyor; ikisi de "kaydedince ekran güncellenir" demektir. CRA şablonunda `npm run lint` script'i yoktur.
 
 ## 3.4 Components
-Kaynak: [`W3/01-components.md`](../1_hoca_notlari/W3/01-components.md), [`W3/01-components-class.jsx`](../1_hoca_notlari/W3/01-components-class.jsx), [`W3/01-components-functional.jsx`](../1_hoca_notlari/W3/01-components-functional.jsx)
+Kaynak: [`W3/01-components.md`](../1_hocanin_ders_materyali/W3/01-components.md), [`W3/01-components-class.jsx`](../1_hocanin_ders_materyali/W3/01-components-class.jsx), [`W3/01-components-functional.jsx`](../1_hocanin_ders_materyali/W3/01-components-functional.jsx)
 
 Component, UI'nin bağımsız ve yeniden kullanılabilir bir parçasıdır; her parçayı ayrı düşünmeni sağlar. İki türü vardır.
 
@@ -492,7 +492,7 @@ class WelcomeClass extends React.Component {
 > **Dikkat:** Component adı büyük harfle başlamalı. Materyalde "When to use which?" başlığı boş kalmış; cevabı dosyanın sonunda: yeni kodda function component + Hooks tercih edilir.
 
 ## 3.5 JSX
-Kaynak: [`W3/02-jsx.md`](../1_hoca_notlari/W3/02-jsx.md), [`W3/02-jsx-example.jsx`](../1_hoca_notlari/W3/02-jsx-example.jsx)
+Kaynak: [`W3/02-jsx.md`](../1_hocanin_ders_materyali/W3/02-jsx.md), [`W3/02-jsx-example.jsx`](../1_hocanin_ders_materyali/W3/02-jsx-example.jsx)
 
 **JSX (JavaScript XML)**, JavaScript içinde HTML'e benzeyen kod yazmanı sağlayan söz dizimi uzantısıdır (syntax extension). React, markup ile mantığı ayrı dosyalara bölmek yerine ikisini aynı component'te birleştirir; JSX bunun aracıdır.
 
@@ -520,7 +520,7 @@ function Greeting({ name, age }) {
 > **Dikkat:** `{}` içine `if` veya `for` gibi **deyim** (statement) yazılamaz, sadece ifade; koşul için ternary veya `&&`, döngü için `map` kullanılır. İki kardeş kök elemanı sarmadan döndürmek derleme hatasıdır.
 
 ## 3.6 Props
-Kaynak: [`W3/03-props.md`](../1_hoca_notlari/W3/03-props.md), [`W3/03-props-example.jsx`](../1_hoca_notlari/W3/03-props-example.jsx)
+Kaynak: [`W3/03-props.md`](../1_hocanin_ders_materyali/W3/03-props.md), [`W3/03-props-example.jsx`](../1_hocanin_ders_materyali/W3/03-props-example.jsx)
 
 **Props** (properties, özellikler), parent component'in child'a veri geçirme yoludur. HTML attribute'u gibi yazılır ve **read-only**'dir (salt okunur): child gelen props'u değiştiremez. Bu kural tek yönlü veri akışını ve öngörülebilirliği sağlar.
 
@@ -545,7 +545,7 @@ function Card({ children }) {
 > **Dikkat:** (Materyalde function component için `Button.defaultProps` kullanılıyor, doğrusu: React 18.3 bunu uyarıyla işaretledi, React 19'da function component'lerde kaldırıldı; `{ text = 'Click Me' }` yazılmalı. React 19 ile materyaldeki `<Button />` boş buton çizer.) Props'u child içinde değiştirmeye çalışma; değişmesi gereken veri state'tir.
 
 ## 3.7 State
-Kaynak: [`W3/04-state.md`](../1_hoca_notlari/W3/04-state.md), [`W3/04-state-example.jsx`](../1_hoca_notlari/W3/04-state-example.jsx)
+Kaynak: [`W3/04-state.md`](../1_hocanin_ders_materyali/W3/04-state.md), [`W3/04-state-example.jsx`](../1_hocanin_ders_materyali/W3/04-state-example.jsx)
 
 **State**, component'in kendine ait ve zamanla değişen verisidir (sayaç, form girdisi, açık/kapalı bilgisi). State değişince React component'i **yeniden render** eder (re-render), ekran kendiliğinden güncellenir.
 
@@ -583,7 +583,7 @@ function Counter() {
 > **Dikkat:** (Materyalde "State is mutable" yazıyor, doğrusu: state *değişebilir* ama *mutate edilmez*; `users.push(x)` veya `this.state.user.age = 31` yasak, her zaman yeni kopya verilir.) Art arda iki `setCount(count + 1)` sayacı 1 artırır, 2 değil; bu yüzden functional update kullan.
 
 ## 3.8 Lifecycle ve useEffect
-Kaynak: [`W3/05-lifecycle-and-effects.md`](../1_hoca_notlari/W3/05-lifecycle-and-effects.md), [`W3/05-lifecycle-and-effects-example.jsx`](../1_hoca_notlari/W3/05-lifecycle-and-effects-example.jsx)
+Kaynak: [`W3/05-lifecycle-and-effects.md`](../1_hocanin_ders_materyali/W3/05-lifecycle-and-effects.md), [`W3/05-lifecycle-and-effects-example.jsx`](../1_hocanin_ders_materyali/W3/05-lifecycle-and-effects-example.jsx)
 
 Her component doğar (mount), güncellenir (update) ve ölür (unmount). Veri çekme, abonelik, timer gibi **side effect** (yan etki, render dışı iş) bu aşamalara bağlanır. Class component'te bunun için lifecycle metotları, function component'te `useEffect` Hook'u vardır.
 
@@ -625,7 +625,7 @@ Veri çekme kalıbı: `loading`, `data`, `error` üç state; `useEffect(..., [])
 > **Dikkat:** (Materyalde dizisiz effect'in cleanup'ı "componentWillUnmount gibi" diye geçiyor, doğrusu: o cleanup her re-render'da, effect yeniden çalışmadan önce de çalışır, sadece unmount'ta değil.) (Materyalde `[count]` effect'i "componentDidUpdate eşdeğeri" deniyor, doğrusu: bu effect ilk mount'ta da çalışır, `componentDidUpdate` ise ilk render'da çalışmaz.) Cleanup'ı unutmak (timer, abonelik) memory leak'e (bellek sızıntısı) yol açar. Error yakalayan `getDerivedStateFromError` ve `componentDidCatch` metotları materyaldeki listede yok. React 18+ `StrictMode` development'ta effect'i mount'ta iki kez çalıştırır (mount, cleanup, mount); konsolda çift log normaldir.
 
 ## 3.9 Event Handling
-Kaynak: [`W3/06-event-handling.md`](../1_hoca_notlari/W3/06-event-handling.md), [`W3/06-event-handling-example.jsx`](../1_hoca_notlari/W3/06-event-handling-example.jsx)
+Kaynak: [`W3/06-event-handling.md`](../1_hocanin_ders_materyali/W3/06-event-handling.md), [`W3/06-event-handling-example.jsx`](../1_hocanin_ders_materyali/W3/06-event-handling-example.jsx)
 
 Event (olay), kullanıcının tıklama, yazma, form gönderme gibi eylemleridir. React'te olaylar DOM'a çok benzer, iki farkla: isimler **camelCase** (`onClick`, `onChange`, `onSubmit`, `onMouseOver`) ve handler string değil **fonksiyon** olarak verilir.
 
@@ -655,7 +655,7 @@ function FormExample() {
 > **Dikkat:** `onClick={greetUser('Alice')}` handler'ı render'da çalıştırır, tıklamada değil; içinde setState varsa sonsuz döngü ("Too many re-renders") olur. `onSubmit` form'a verilir, butona değil. Class'ta `bind` unutulursa handler içinde `this` `undefined` olur. Event adları küçük harfle (`onclick`) yazılırsa çalışmaz.
 
 ## 3.10 Conditional Rendering
-Kaynak: [`W3/07-conditional-rendering.md`](../1_hoca_notlari/W3/07-conditional-rendering.md), [`W3/07-conditional-rendering-example.jsx`](../1_hoca_notlari/W3/07-conditional-rendering-example.jsx)
+Kaynak: [`W3/07-conditional-rendering.md`](../1_hocanin_ders_materyali/W3/07-conditional-rendering.md), [`W3/07-conditional-rendering-example.jsx`](../1_hocanin_ders_materyali/W3/07-conditional-rendering-example.jsx)
 
 Conditional rendering (koşullu render), bir koşula göre farklı eleman göstermektir: giriş yapmışsa "Hoş geldin", yapmamışsa "Giriş yap". React'te bunun için özel söz dizimi yoktur, normal JavaScript kullanılır.
 
@@ -682,7 +682,7 @@ function Mailbox({ unread, isLoggedIn }) {
 > **Dikkat:** `&&`'nin solu sayı ise ve 0 ise ekrana "0" basılır; `{count && ...}` yerine `{count > 0 && ...}` yaz. `||` fallback `0` ve `''` gibi falsy değerleri de değiştirir; sadece `null`/`undefined` için `??` kullanılır. (Materyalde `WarningBanner` içinde fazladan bir `</div>` var, kod derlenmez; doğrusu tek `<div className="warning">Warning!</div>`.) (Örnek dosyadaki function `ErrorBoundary` hata yakalamaz, doğrusu: error boundary yalnız class component ile, `getDerivedStateFromError` / `componentDidCatch` kullanılarak yazılabilir.)
 
 ## 3.11 List Rendering ve Key
-Kaynak: [`W3/08-list-rendering.md`](../1_hoca_notlari/W3/08-list-rendering.md), [`W3/08-list-rendering-example.jsx`](../1_hoca_notlari/W3/08-list-rendering-example.jsx)
+Kaynak: [`W3/08-list-rendering.md`](../1_hocanin_ders_materyali/W3/08-list-rendering.md), [`W3/08-list-rendering-example.jsx`](../1_hocanin_ders_materyali/W3/08-list-rendering-example.jsx)
 
 Bir veri dizisini ekranda listeye çevirmek için JavaScript'in `map()` fonksiyonu kullanılır: her elemanı bir JSX elemanına dönüştürür, oluşan dizi JSX içine `{}` ile konur.
 
@@ -709,7 +709,7 @@ function NumberList({ numbers }) {
 > **Dikkat:** key unutulursa konsolda uyarı çıkar ve liste güncellemeleri hatalı olabilir. Materyal index'i her durumda yanlış sayar; React dokümanına göre sırası hiç değişmeyen statik listelerde index kabul edilebilir, ama sınavda materyalin cevabı "index kullanma, benzersiz id kullan"dır. Key'i çıkarılan component'in içindeki `<li>`'ye koymak işe yaramaz. `key={n.toString()}` sadece değerler tekrar etmiyorsa güvenlidir; tekrar eden sayılarda key çakışır.
 
 ## 3.12 Hooks
-Kaynak: [`W3/09-hooks.md`](../1_hoca_notlari/W3/09-hooks.md), [`W3/09-hooks-example.jsx`](../1_hoca_notlari/W3/09-hooks-example.jsx)
+Kaynak: [`W3/09-hooks.md`](../1_hocanin_ders_materyali/W3/09-hooks.md), [`W3/09-hooks-example.jsx`](../1_hocanin_ders_materyali/W3/09-hooks-example.jsx)
 
 Hook (kanca), function component'in React'in state ve lifecycle özelliklerine "takılmasını" sağlayan fonksiyondur. React 16.8 ile geldi; o günden beri class yerine tercih edilen yazım budur. Hepsinin adı `use` ile başlar.
 
@@ -836,7 +836,7 @@ Her effect sadece gerçekten kullandığı değerlere bağlanır: kullanıcıyı
 > **Dikkat:** Hook'u `if` içinde çağırmak; custom hook adını `use` ile başlatmamak (React ve linter onu hook saymaz); dependency array'de değer unutmak (`eslint-plugin-react-hooks` `exhaustive-deps` kuralı uyarır).
 
 ## 3.13 Data Sharing (Bileşenler arası veri paylaşımı)
-Kaynak: [`W3/10-data-sharing.md`](../1_hoca_notlari/W3/10-data-sharing.md), [`W3/10-data-sharing-example.jsx`](../1_hoca_notlari/W3/10-data-sharing-example.jsx)
+Kaynak: [`W3/10-data-sharing.md`](../1_hocanin_ders_materyali/W3/10-data-sharing.md), [`W3/10-data-sharing-example.jsx`](../1_hocanin_ders_materyali/W3/10-data-sharing-example.jsx)
 
 React'te veri **tek yönlü** akar: parent'tan child'a, props ile. Kardeş ya da uzak akraba bileşenler aynı veriyi kullanacaksa dört yol var: lifting state up, prop drilling, Context API, state management kütüphanesi.
 
@@ -880,7 +880,7 @@ Büyük uygulamalarda global state için **Redux**, **MobX**, **Zustand** kullan
 > **Dikkat:** Obje state'ini spread ile kopyalayarak güncelle, mutasyon yapma; Context her şeyi çözmez, sık değişen büyük state için kütüphane daha uygun.
 
 ## 3.14 Styling (Stil verme)
-Kaynak: [`W3/12-styling.md`](../1_hoca_notlari/W3/12-styling.md), [`W3/12-styling-example.jsx`](../1_hoca_notlari/W3/12-styling-example.jsx), [`W3/styling-example.css`](../1_hoca_notlari/W3/styling-example.css)
+Kaynak: [`W3/12-styling.md`](../1_hocanin_ders_materyali/W3/12-styling.md), [`W3/12-styling-example.jsx`](../1_hocanin_ders_materyali/W3/12-styling-example.jsx), [`W3/styling-example.css`](../1_hocanin_ders_materyali/W3/styling-example.css)
 
 React bileşenine stil vermenin altı yolu var; hepsi geçerli, seçim projeye ve ekibe göre yapılır.
 
@@ -935,7 +935,7 @@ Tema sistemi (tema objesi `light`/`dark`/`blue`, `themes[theme]` ile seçim, `Ob
 > **Dikkat:** Örnek dosyadaki "CSS Modules" ve "Styled Components" bölümleri **simülasyon**, gerçek kütüphane değil; `<style jsx>` styled-jsx (Next.js) ister, düz React'te CSS global olur. "Responsive" örneği media query değil state ile çalışıyor ve tablet görünümü desktop ile aynı. Dark temada `.card` yazısı beyaz zemin üstünde beyaz kalıyor.
 
 ## 3.15 Forms (Formlar)
-Kaynak: [`W3/13-forms.md`](../1_hoca_notlari/W3/13-forms.md), [`W3/13-forms-example.jsx`](../1_hoca_notlari/W3/13-forms-example.jsx)
+Kaynak: [`W3/13-forms.md`](../1_hocanin_ders_materyali/W3/13-forms.md), [`W3/13-forms-example.jsx`](../1_hocanin_ders_materyali/W3/13-forms-example.jsx)
 
 HTML'de form elemanı kendi değerini kendisi tutar. React'te bu değeri state'e bağlayıp state'i **tek doğruluk kaynağı** (single source of truth) yaparız; buna **controlled component** (kontrollü bileşen) denir.
 
@@ -1004,7 +1004,7 @@ const handleSubmit = e => { e.preventDefault(); alert(nameRef.current.value); };
 > **Dikkat:** `value` verip `onChange` vermemek input'u salt okunur yapar; `useState()` (undefined) ile başlamak uncontrolled'dan controlled'a geçiş uyarısı verir, `useState('')` yaz; spread'i unutursan diğer alanlar silinir; `preventDefault()` unutulursa sayfa yenilenir.
 
 ## 3.16 Routing (Yönlendirme)
-Kaynak: [`W3/14-routing.md`](../1_hoca_notlari/W3/14-routing.md), [`W3/14-routing-example.jsx`](../1_hoca_notlari/W3/14-routing-example.jsx)
+Kaynak: [`W3/14-routing.md`](../1_hocanin_ders_materyali/W3/14-routing.md), [`W3/14-routing-example.jsx`](../1_hocanin_ders_materyali/W3/14-routing-example.jsx)
 
 **React Router**, React'in standart routing kütüphanesidir: tek sayfalık uygulamada (SPA, single page application) sayfa yenilemeden URL'ye göre farklı bileşen gösterir. Kurulum: `npm install react-router-dom`. Materyal **v6 API**'sini anlatıyor (`Routes`, `element=`, `useNavigate`); v5'teki `Switch`, `component=`, `exact`, `useHistory` yok.
 
@@ -1074,7 +1074,7 @@ function ProtectedRoute({ isAuthenticated, children }) {
 > **Dikkat:** Bu el yapımı router `:id` parametresini anlamıyor (`startsWith` ile düz karşılaştırıyor), bu yüzden `ProductDetail`, `UserProfile` ve `path="*"` 404 rotası **hiç render olmuyor**; "ilk eşleşen" mantığı da yok. Sınavda React Router sorulursa dokümandaki v6 API'sini yaz, örnek dosyadakini değil. Nested route'ta `<Outlet />` unutulursa alt sayfa görünmez; alt path'i `/` ile başlatmak onu mutlak (absolute) yapar.
 
 ## 3.17 Best Practices ve öğrenme yolu
-Kaynak: [`W3/README.md`](../1_hoca_notlari/W3/README.md)
+Kaynak: [`W3/README.md`](../1_hocanin_ders_materyali/W3/README.md)
 
 ### Öğrenme yolu (learning path)
 - **Phase 1 (temeller, 1-2. hafta):** React'e giriş, kurulum, JavaScript temelleri, components, JSX, props, state.
@@ -1125,7 +1125,7 @@ Kaynak: [`W3/README.md`](../1_hoca_notlari/W3/README.md)
 # Hafta 4: React Native'e Giriş
 
 ## 4.1 React Native nedir, nasıl çalışır, nasıl kurulur
-Kaynak: [`W4/1-react-native-intro.md`](../1_hoca_notlari/W4/1-react-native-intro.md)
+Kaynak: [`W4/1-react-native-intro.md`](../1_hocanin_ders_materyali/W4/1-react-native-intro.md)
 
 Bu haftanın hedefi dört şey: RN mimarisini anlamak, Expo ve React Native CLI ile kurulum yapmak, ilk uygulama iskeletini çalıştırmak ve platforma özgü (platform-specific) özelliklere giriş. Önceki haftalar bunun temeli: W1 mobil ekosistem, W2 JavaScript/ES6 (RN'in dili), W3 React ve JSX (bileşen mantığı RN'de aynen kullanılır).
 
@@ -1205,7 +1205,7 @@ const styles = StyleSheet.create({
 Dikkat: RN'de flex varsayılanı `column` olduğu için `justifyContent` dikeyde, `alignItems` yatayda çalışır. Stil adları camelCase (`backgroundColor`), birim yok (`fontSize: 16`).
 
 ## 4.2 Expo ile "Hello React Native"
-Kaynak: [`W4/2-example-hello-expo.md`](../1_hoca_notlari/W4/2-example-hello-expo.md)
+Kaynak: [`W4/2-example-hello-expo.md`](../1_hocanin_ders_materyali/W4/2-example-hello-expo.md)
 
 İlk ekranı kurup hemen çıktı görmek için yazılmış örnek. Proje `npx create-expo-app hello-rn` ile kurulur, `npx expo start` ile çalışır.
 
@@ -1257,7 +1257,7 @@ Dikkat: (Materyalin etkileşimli sürümünde `StatusBar` `react-native`'den imp
 `components/` (tekrar kullanılan bileşenler), `screens/` (ekranlar), `hooks/` (custom hook'lar), `utils/` (yardımcı fonksiyonlar), `constants/` (renk gibi sabitler), `assets/images` ve `assets/fonts`. Kökte `App.js`, `app.json`, `package.json`.
 
 ## 4.3 Değişkenler ve sabitler: var, let, const
-Kaynak: [`W4/3-react-native-variable-const.md`](../1_hoca_notlari/W4/3-react-native-variable-const.md)
+Kaynak: [`W4/3-react-native-variable-const.md`](../1_hocanin_ders_materyali/W4/3-react-native-variable-const.md)
 
 RN düz JavaScript kullandığı için değişken tanımlama W2'deki ile aynı; fark, bunları bileşen içinde ekrana basmak.
 
@@ -1292,7 +1292,7 @@ export default function DynamicVariableExample() {
 Dikkat: (Materyalde let/const için hoisting "yok" yazıyor, doğrusu hoist edilirler ama TDZ (Temporal Dead Zone, geçici ölü bölge) yüzünden tanımdan önce erişim ReferenceError verir.) (Materyalde const "immutable" deniyor, doğrusu const sadece yeniden atamayı engeller; nesne/dizi içeriği değişebilir.) Bileşen içinde `let userCount = 0; userCount++` ekranı kalıcı güncellemez; her render'da baştan başlar, kalıcı değer için state gerekir. Blok içinde `let` ile tanımlanan değişkene blok dışından erişmek hata verir.
 
 ## 4.4 Props
-Kaynak: [`W4/4-react-native-props.md`](../1_hoca_notlari/W4/4-react-native-props.md)
+Kaynak: [`W4/4-react-native-props.md`](../1_hocanin_ders_materyali/W4/4-react-native-props.md)
 
 Props (properties, özellikler), bir bileşenden diğerine veri göndermenin yoludur. Parent (üst) bileşen child'ı (alt) props ile özelleştirir; böylece aynı bileşen farklı verilerle tekrar kullanılır.
 - Veri yönü tek: parent'tan child'a.
@@ -1325,7 +1325,7 @@ function CustomButton({ title, onPress, color = '#007AFF', disabled = false }) {
 Dikkat: (Materyalde `count = count + 1` için "ERROR: props değiştirilemez" yazıyor, doğrusu destructure edilmiş yerel değişkene atama hata fırlatmaz ama parent'ı da etkilemez; kural, props nesnesini değiştirmemektir.) (Materyaldeki `onPress={delete}` geçersiz JS'tir: `delete` ayrılmış kelime, SyntaxError verir.) `borderLeftWidth` verip `borderLeftColor` vermezsen kenarlık siyah çıkar.
 
 ## 4.5 State
-Kaynak: [`W4/5-react-native-state.md`](../1_hoca_notlari/W4/5-react-native-state.md)
+Kaynak: [`W4/5-react-native-state.md`](../1_hocanin_ders_materyali/W4/5-react-native-state.md)
 
 State (durum), bileşenin içinde tuttuğu ve zamanla değişen veridir. State değişince bileşen otomatik olarak yeniden çizilir (re-render); düz değişkende bu olmaz.
 - `useState(başlangıç)` bir dizi döner: `[değer, setter]`.
@@ -1357,7 +1357,7 @@ export default function SimpleForm() {
 Dikkat: `name.trim() === ''` boşluklu girişi de boş sayar (doğrulama, validation). `{koşul && <Bileşen />}` koşullu render'dır. Materyalin test adımlarında "Reset" butonu deniyor, koddaki buton "New Form" ve sadece gönderimden sonra görünür.
 
 ## 4.6 Hooks: useState ve useEffect
-Kaynak: [`W4/6-react-native-hooks.md`](../1_hoca_notlari/W4/6-react-native-hooks.md)
+Kaynak: [`W4/6-react-native-hooks.md`](../1_hocanin_ders_materyali/W4/6-react-native-hooks.md)
 
 Hook'lar, function component'lerde state ve yaşam döngüsü (lifecycle) özelliklerini kullanmamızı sağlayan özel fonksiyonlardır; class component'e gerek bırakmazlar.
 - `useState`: bileşende state yönetimi. Örnekler: `Counter` (Decrement'e iki basış "Counter: -2"), `TextInputExample` ("Hi" yazınca "You wrote: Hi", "Character count: 2").
@@ -1384,7 +1384,7 @@ useEffect(() => {
 Dikkat: Timer'da `setSeconds(seconds + 1)` yazsaydın deps `[isRunning]` olduğu için eski `seconds` değerine takılırdı; fonksiyonel biçim bu yüzden şart. (Materyal WelcomeMessage örneğinde cleanup ve console.log anlatıyor ama kodda ikisi de yok; doğrusu `const t = setTimeout(...); return () => clearTimeout(t);`.)
 
 ## 4.7 Temel bileşenlere ilk bakış (repodan silinmiş dosya)
-Kaynak: [`W4/7-example-basic-components.md`](../1_hoca_notlari/W4/7-example-basic-components.md)
+Kaynak: [`W4/7-example-basic-components.md`](../1_hocanin_ders_materyali/W4/7-example-basic-components.md)
 
 RN'de HTML etiketi yoktur; her şey hazır native bileşenlerle kurulur. Bu dosya her birini tek örnekle tanıtıyor.
 
@@ -1433,7 +1433,7 @@ Dikkat: Uzak resimde `width`/`height` vermezsen resim görünmez. Materyalde `Fl
 
 # Hafta 6: React Native Core Components
 
-Kaynak: [`W6/README.md`](../1_hoca_notlari/W6/README.md)  
+Kaynak: [`W6/README.md`](../1_hocanin_ders_materyali/W6/README.md)  
 Expo Blank (JavaScript) şablonunda ekranı kuran temel parçalar (core components, çekirdek bileşenler). Her bileşen için bil: ne işe yarar, önemli prop'ları (özellikleri) ve event'leri (olayları), tuzakları. İlk 9 bileşen `react-native`'den gelir; Picker ve Checkbox ayrı paket kurar; RadioButton hazır gelmez, kendin yazarsın. Örnekler `app.js` içinde ekran olarak denenir; README `expo start` diyor, güncel komut `npx expo start` (global expo-cli emekli). README'nin linklediği `StudentExercise.md` repoda yok.
 
 | Bileşen | Ne işe yarar | Nereden import |
@@ -1452,7 +1452,7 @@ Expo Blank (JavaScript) şablonunda ekranı kuran temel parçalar (core componen
 | Checkbox | Çoklu seçim / onay kutusu | `expo-checkbox` |
 
 ## 6.1 View
-Kaynak: [`W6/components/View.md`](../1_hoca_notlari/W6/components/View.md)  
+Kaynak: [`W6/components/View.md`](../1_hocanin_ders_materyali/W6/components/View.md)  
 View, React Native'in temel kapsayıcısıdır; web'deki `div` gibi düşün ama konumlandırma tamamen flexbox ile yapılır. Hizalama, boşluk, gölge gibi her yerleşim işi View'larla kurulur.  
 Import: `import { View } from 'react-native';`
 
@@ -1485,7 +1485,7 @@ const [cardsPerRow, setCardsPerRow] = useState(2);
 **Dikkat:** View içine düz metin yazılmaz, metin her zaman `<Text>` içinde olur. Tekrarlanan stilleri `StyleSheet.create` ile topla; ScrollView içinde çok derin View ağaçları performansı düşürür.
 
 ## 6.2 Text
-Kaynak: [`W6/components/Text.md`](../1_hoca_notlari/W6/components/Text.md)  
+Kaynak: [`W6/components/Text.md`](../1_hocanin_ders_materyali/W6/components/Text.md)  
 Okunabilir her içerik Text ile gösterilir: başlık, paragraf, etiket, link. Text iç içe kullanılabilir (nestable); bir cümlenin bir kısmını farklı stillendirmek için içine başka Text koyarsın.  
 Import: `import { Text } from 'react-native';`
 
@@ -1517,7 +1517,7 @@ Import: `import { Text } from 'react-native';`
 **Dikkat:** Text içine View konmaz, sadece başka Text konur. `ellipsizeMode` tek başına işe yaramaz, `numberOfLines` ile birlikte verilir. Uzun metni küçük Text parçalarına böl (okunur ve stillenir).
 
 ## 6.3 Image
-Kaynak: [`W6/components/Image.md`](../1_hoca_notlari/W6/components/Image.md)  
+Kaynak: [`W6/components/Image.md`](../1_hocanin_ders_materyali/W6/components/Image.md)  
 Yerel (projeye gömülü) ve uzak (internetten) görselleri aynı API ile gösterir; önbellekleme (caching) ve çözünürlüğe göre kaynak seçimi platform tarafından yapılır.  
 Import: `import { Image } from 'react-native';`
 
@@ -1549,7 +1549,7 @@ const [uri, setUri] = useState(PRIMARY_URI);
 **Dikkat:** Uzak (`uri`) görselin boyutu bilinmez, `style` ile width/height vermezsen görünmez (materyal bunu açıkça yazmıyor, sadece örneklerde var). `require` içine değişken yazılmaz, yol sabit string olmalı. Büyük uzak görselleri önceden küçült; açılış ekranı ve ikonlar için Expo Asset ile önceden paketle.
 
 ## 6.4 TextInput
-Kaynak: [`W6/components/TextInput.md`](../1_hoca_notlari/W6/components/TextInput.md)  
+Kaynak: [`W6/components/TextInput.md`](../1_hocanin_ders_materyali/W6/components/TextInput.md)  
 Kullanıcıdan metin almanın ana yolu: formlar, arama kutuları, sohbet girişi, kayıt ekranları. Controlled (kontrollü, değeri state'te tutulan) veya uncontrolled (kontrolsüz) kullanılabilir.  
 Import: `import { TextInput } from 'react-native';`
 
@@ -1585,7 +1585,7 @@ const isValid = EMAIL_REGEX.test(value);
 **Dikkat:** `value` verip `onChangeText` vermezsen alan kilitlenir, yazılan görünmez. `onChangeText` string verir, `onChange` event nesnesi verir; karıştırma. Controlled mı uncontrolled mı, performansa göre seç (uncontrolled: `value` verme). Listede olmayıp örneklerde geçenler: `multiline` (çok satır, Text Örnek 2), `placeholderTextColor` (placeholder rengi). Uzun formlarda klavye alanı kapatmasın diye `KeyboardAvoidingView` ile sar.
 
 ## 6.5 Button
-Kaynak: [`W6/components/Button.md`](../1_hoca_notlari/W6/components/Button.md)  
+Kaynak: [`W6/components/Button.md`](../1_hocanin_ders_materyali/W6/components/Button.md)  
 Platformun kendi native butonunu çizen hazır bileşen. Hızlı prototip ve tek aksiyonlu basit akışlar için idealdir; özelleştirme çok sınırlıdır.  
 Import: `import { Button } from 'react-native';`
 
@@ -1616,7 +1616,7 @@ const [isRunning, setRunning] = useState(false);
 **Dikkat:** Button `style` prop'u almaz, içine çocuk (ikon, View) da konmaz; yazı `title` ile verilir. `color` iki platformda farklı şeyi boyar. Özel stil isteniyorsa: dış boşluk için Button'ı bir `View` ile sar; gerçek özel görünüm (arka plan, köşe, ikon) için `Pressable`, `TouchableOpacity`, `TouchableHighlight` veya `TouchableWithoutFeedback` + içine `<Text>` ile kendi butonunu yaz (6.8). Görünüm platforma göre değişir; birebir tasarımda özel buton daha iyidir. (Örnek 1 tuzağı: iki alan boşsa `Number('')` 0 olduğu için sonuç "0" çıkar.)
 
 ## 6.6 ScrollView
-Kaynak: [`W6/components/ScrollView.md`](../1_hoca_notlari/W6/components/ScrollView.md)  
+Kaynak: [`W6/components/ScrollView.md`](../1_hocanin_ders_materyali/W6/components/ScrollView.md)  
 Ekrana sığmayan içeriği kaydırılabilir yapar: formlar, uzun bilgi sayfaları, yatay kart galerileri. Tüm çocukları tek seferde render eder; bu yüzden kısa içerik için uygundur.  
 Import: `import { ScrollView } from 'react-native';`
 
@@ -1652,7 +1652,7 @@ const handleScroll = (e) => {
 **Dikkat:** Padding / `gap` gibi içerik stilleri `style`'a değil `contentContainerStyle`'a yazılır. Büyük veri için ScrollView değil FlatList veya SectionList kullan. ScrollView içine aynı yönde FlatList koyma; iç içe kaydırmada Android'de `nestedScrollEnabled` aç.
 
 ## 6.7 FlatList
-Kaynak: [`W6/components/FlatList.md`](../1_hoca_notlari/W6/components/FlatList.md)  
+Kaynak: [`W6/components/FlatList.md`](../1_hocanin_ders_materyali/W6/components/FlatList.md)  
 Uzun veya dinamik listeler için optimize edilmiş liste. Virtualization (sanallaştırma) ile sadece ekranda görünen öğeleri render eder; binlerce satırda bile akıcıdır. Feed, ürün listesi, sohbet; dikey, yatay ve grid (ızgara) düzeni destekler.  
 Import: `import { FlatList } from 'react-native';`
 
@@ -1718,7 +1718,7 @@ useEffect(() => { loadPage(1, true); }, []); // ilk yükleme bir kez
 **Dikkat:** Materyaldeki Örnek 2'de sonsuz yeniden yükleme döngüsü var: `loadPage` `useCallback(..., [loadingMore, refreshing])` ile tanımlı ve `useEffect(() => { loadPage(1, true); }, [loadPage])`. `refreshing` her değiştiğinde `loadPage` yeniden oluşur, effect yeniden çalışır: yaklaşık her 600 ms'de sayfa 1 tekrar yüklenir, eklenen sayfalar sıfırlanır. (Materyalde `[loadPage]` bağımlılığı var, doğrusu yukarıdaki gibi ilk yüklemeyi `[]` ile bir kez yapmak ve guard'ı `useRef`'te tutmak.) `keyExtractor` string döndürmeli (`String(id)`). `renderItem`'ı `useCallback` ile sar; büyük listede `getItemLayout` ver; `onEndReached` birden fazla kez tetiklenebilir, yükleme bayrağıyla koru.
 
 ## 6.8 TouchableOpacity
-Kaynak: [`W6/components/TouchableOpacity.md`](../1_hoca_notlari/W6/components/TouchableOpacity.md)  
+Kaynak: [`W6/components/TouchableOpacity.md`](../1_hocanin_ders_materyali/W6/components/TouchableOpacity.md)  
 İçine koyduğun her şeyi (metin, ikon, görsel, karmaşık yerleşim) basılabilir yapar; basınca içerik soluklaşır (opacity animasyonu). Özel buton, kart ve liste satırı yapmanın en esnek yolu.  
 Import: `import { TouchableOpacity } from 'react-native';`
 
@@ -1748,7 +1748,7 @@ const [expanded, setExpanded] = useState(false);
 **Dikkat:** Button'ın aksine `title` yok, yazıyı içine `<Text>` olarak koyarsın; `style` serbesttir; içine metin, ikon (Örnek 1: `@expo/vector-icons` `Ionicons`), görsel, karmaşık yerleşim konur. Daha güçlü geri bildirim için `activeOpacity`'yi ayarla veya `Animated` ekle. Olay sırası: `onPressIn` > `onPressOut` > `onPress`. Örnek 2'deki `expo publish` komutu kaldırıldı, yerini `eas update` aldı.
 
 ## 6.9 SafeAreaView
-Kaynak: [`W6/components/SafeAreaView.md`](../1_hoca_notlari/W6/components/SafeAreaView.md)  
+Kaynak: [`W6/components/SafeAreaView.md`](../1_hocanin_ders_materyali/W6/components/SafeAreaView.md)  
 İçeriği çentik (notch), Dynamic Island, yuvarlak köşe ve alt jest çubuğundan uzak tutar; özellikle iOS'ta önemli. Genelde ekranın en dışına (root) konur.  
 Import: `import { SafeAreaView } from 'react-native'; // core, sadece iOS'ta etkili` / `import { SafeAreaProvider, SafeAreaView, useSafeAreaInsets } from 'react-native-safe-area-context';`  
 Kurulum: `npx expo install react-native-safe-area-context` (Expo'nun önerdiği paket).
@@ -1776,7 +1776,7 @@ export default function App() {
 **Dikkat:** Örnek 2'de `edges={['top']}` ile `paddingTop: insets.top` birlikte verilmiş; paket inset'i style padding'ine ekler, üst boşluk iki katına çıkar. (Materyalde ikisi birlikte, doğrusu ikisinden biri: ya `SafeAreaView edges`, ya düz `View` + `insets.top`.) Core `SafeAreaView` Android'de hiçbir şey yapmaz ve RN 0.81'de deprecated oldu; materyaldeki "Android'de tutarlılık sağlar" sözü core için geçerli değil. `useSafeAreaInsets` sadece `SafeAreaProvider` içinde çalışır.
 
 ## 6.10 Picker
-Kaynak: [`W6/components/Picker.md`](../1_hoca_notlari/W6/components/Picker.md)  
+Kaynak: [`W6/components/Picker.md`](../1_hocanin_ders_materyali/W6/components/Picker.md)  
 Platforma göre açılır liste (dropdown) veya tekerlek (wheel) seçici çizer. Değeri sabit bir listeyle sınırlamak için kullanılır: seviye, dil, tema. Core Picker kaldırıldığı için ayrı paket kurulur.  
 Import: `import { Picker } from '@react-native-picker/picker';`  
 Kurulum: `npx expo install @react-native-picker/picker`
@@ -1806,7 +1806,7 @@ const [track, setTrack] = useState('foundation');
 **Dikkat:** `selectedValue` bir Item'ın `value`'su ile birebir eşleşmeli. Android'de doğrudan stil sadece metni etkiler; arka plan için Picker'ı stillenmiş bir `View` ile sar. Uzun seçenek listesini async yüklüyorsan veri gelene kadar `enabled={false}` ver (boş tekerlek olmasın). Formlarda (Formik, React Hook Form) Picker state'ini doğrulama şemasıyla senkron tut. Materyal core Picker'a "deprecated" diyor; aslında core'dan tamamen kaldırıldı, `react-native`'den import edilemez.
 
 ## 6.11 RadioButton
-Kaynak: [`W6/components/RadioButton.md`](../1_hoca_notlari/W6/components/RadioButton.md)  
+Kaynak: [`W6/components/RadioButton.md`](../1_hocanin_ders_materyali/W6/components/RadioButton.md)  
 Tek seçimlik gruplar için (bir modül, bir tema). React Native core'da hazır RadioButton hiç olmadı (materyal "artık yok" diyor); `Pressable` ile kendin yazarsın ya da `react-native-paper`, `@rneui/themed`, `native-base` gibi UI kitleri kullanırsın.  
 Import: `import { Pressable, View, Text } from 'react-native';`
 
@@ -1839,7 +1839,7 @@ function RadioItem({ label, value, isSelected, onPress }) {
 **Dikkat:** Seçim state'i her radio'da değil, ebeveynde tek bir değer olarak tutulur; `isSelected` buradan türetilir. Saran View'a `accessibilityRole="radiogroup"` ver (materyal önerip örneklerde kullanmıyor). Seçenek çoksa Picker'a veya modal'a geç; büyük listelerde `onPress`'i `useCallback` ile sar.
 
 ## 6.12 Checkbox
-Kaynak: [`W6/components/Checkbox.md`](../1_hoca_notlari/W6/components/Checkbox.md)  
+Kaynak: [`W6/components/Checkbox.md`](../1_hocanin_ders_materyali/W6/components/Checkbox.md)  
 Kullanıcının birden fazla şeyi açıp kapatabildiği durumlar için: görev listesi, ayarlar, sözleşme onayı. Native iOS / Android kutusu çizer; API `value` ve `onValueChange` etrafında döner.  
 Import: `import Checkbox from 'expo-checkbox';`  
 Kurulum: `npx expo install expo-checkbox` (bare RN projede aynı API ile `@react-native-community/checkbox`).

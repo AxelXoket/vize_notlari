@@ -4,7 +4,7 @@ Verilen bir ekran tasarımını Expo (React Native) ile `App.js` olarak yazmak i
 
 ## 1. Başlamadan
 
-1. Bu repoyu tarayıcıda aç, [4_sinav_kodlari](4_sinav_kodlari) sekmesini açık tut.
+1. Bu repoyu tarayıcıda aç, [2_kod_sorusu_hazir_sablonlar](2_kod_sorusu_hazir_sablonlar) sekmesini açık tut.
 2. Teslim için hocanın istediği klasörü masaüstünde hazırla; her çözüm o klasörde `App.js` olarak duracak.
 3. Hangi yolla çalışacağına karar ver: **Snack en hızlısı** (kurulum yok). Bilgisayarda Node kuruluysa yerel Expo da olur.
 4. **Çalışmayan kod puan getirmez.** Önce çalışır hale getir, sonra güzelleştir.
@@ -23,23 +23,23 @@ Sorudaki her cümle ayrı bir istek, çoğu zaman ayrı puan. Madde madde yaz ve
 
 | Soruda bu varsa | Şablon |
 |---|---|
-| Bir değer gir, butona bas, sonucu göster (dönüştürücü, hesaplayıcı) | [01_birim_donusturucu](4_sinav_kodlari/01_birim_donusturucu/App.js), [02_vki_hesaplayici](4_sinav_kodlari/02_vki_hesaplayici/App.js), arkadaş referansı [Joule dönüştürücü](3_arkadas_referansi/joule_donusturucu/App.js) |
-| Listeden seç, seçili sayısını göster, seçiliye farklı renk | [03_coklu_secim_listesi](4_sinav_kodlari/03_coklu_secim_listesi/App.js), arkadaş referansı [şehir seçici](3_arkadas_referansi/sehir_secici/App.js) |
-| Resim ızgarası, beğen/seç, büyük önizleme | [04_resim_galerisi_grid](4_sinav_kodlari/04_resim_galerisi_grid/App.js) |
-| Form, doğrulama, şifre alanı, radio, checkbox | [05_kayit_formu](4_sinav_kodlari/05_kayit_formu/App.js) |
-| Picker (dropdown), Checkbox, RadioButton birlikte | [06 paketli](4_sinav_kodlari/06_secim_bilesenleri_paketli/App.js) (hocanın paketleri), [07 paketsiz](4_sinav_kodlari/07_secim_bilesenleri_paketsiz/App.js) (paket kurulamazsa) |
-| Ekle / sil / tamamla listesi | [08_yapilacaklar_listesi](4_sinav_kodlari/08_yapilacaklar_listesi/App.js) |
-| Arama kutusu, kategori filtresi, sıralama | [09_arama_ve_filtre](4_sinav_kodlari/09_arama_ve_filtre/App.js) |
-| "Veriyi şu linkten çek" (JSON, API) | [10_api_listesi](4_sinav_kodlari/10_api_listesi/App.js), [şehir seçici, linkten çeken](3_arkadas_referansi/sehir_secici_linkten/App.js) |
-| Verilen ekranı birebir çiz (kart, profil, düzen) | [11_profil_karti_layout](4_sinav_kodlari/11_profil_karti_layout/App.js) |
-| Sayaç, zamanlayıcı, kronometre | [12_sayac_ve_kronometre](4_sinav_kodlari/12_sayac_ve_kronometre/App.js) |
-| Birden çok ekran, sekme, geri butonu, modal | [13_cok_ekranli_uygulama](4_sinav_kodlari/13_cok_ekranli_uygulama/App.js) |
+| Bir değer gir, butona bas, sonucu göster (dönüştürücü, hesaplayıcı) | [01_sayi_gir_sonuc_goster](2_kod_sorusu_hazir_sablonlar/01_sayi_gir_sonuc_goster/App.js), [02_iki_girisli_hesaplayici](2_kod_sorusu_hazir_sablonlar/02_iki_girisli_hesaplayici/App.js), arkadaş referansı [Joule dönüştürücü](3_kod_sorusu_arkadas_cozumleri/joule_donusturucu/App.js) |
+| Listeden seç, seçili sayısını göster, seçiliye farklı renk | [03_listeden_sec_ve_say](2_kod_sorusu_hazir_sablonlar/03_listeden_sec_ve_say/App.js), arkadaş referansı [şehir seçici](3_kod_sorusu_arkadas_cozumleri/sehir_secici/App.js) |
+| Resim ızgarası, beğen/seç, büyük önizleme | [04_resim_galerisi](2_kod_sorusu_hazir_sablonlar/04_resim_galerisi/App.js) |
+| Form, doğrulama, şifre alanı, radio, checkbox | [05_form_ve_dogrulama](2_kod_sorusu_hazir_sablonlar/05_form_ve_dogrulama/App.js) |
+| Picker (dropdown), Checkbox, RadioButton birlikte | [06 paketli](2_kod_sorusu_hazir_sablonlar/06_acilir_menu_checkbox_radio_paketli/App.js) (hocanın paketleri), [07 paketsiz](2_kod_sorusu_hazir_sablonlar/07_acilir_menu_checkbox_radio_paketsiz/App.js) (paket kurulamazsa) |
+| Ekle / sil / tamamla listesi | [08_ekle_sil_listesi](2_kod_sorusu_hazir_sablonlar/08_ekle_sil_listesi/App.js) |
+| Arama kutusu, kategori filtresi, sıralama | [09_arama_ve_filtre](2_kod_sorusu_hazir_sablonlar/09_arama_ve_filtre/App.js) |
+| "Veriyi şu linkten çek" (JSON, API) | [10_linkten_veri_cek](2_kod_sorusu_hazir_sablonlar/10_linkten_veri_cek/App.js), [şehir seçici, linkten çeken](3_kod_sorusu_arkadas_cozumleri/sehir_secici_linkten/App.js) |
+| Verilen ekranı birebir çiz (kart, profil, düzen) | [11_ekran_tasarimi_kopyala](2_kod_sorusu_hazir_sablonlar/11_ekran_tasarimi_kopyala/App.js) |
+| Sayaç, zamanlayıcı, kronometre | [12_sayac_ve_kronometre](2_kod_sorusu_hazir_sablonlar/12_sayac_ve_kronometre/App.js) |
+| Birden çok ekran, sekme, geri butonu, modal | [13_cok_ekranli_uygulama](2_kod_sorusu_hazir_sablonlar/13_cok_ekranli_uygulama/App.js) |
 
 Her şablonun en üstündeki yorumda **"NASIL UYARLANIR"** bölümü var: neyi nereden değiştireceğin yazar. Renkler dosyanın başındaki `COLORS` sabitinde.
 
 ## 4a. Snack ile (önerilen)
 
-1. [4_sinav_kodlari](4_sinav_kodlari) sayfasındaki **"Snack'te aç"** linkine tıkla. Şablon kodu yüklü halde açılır.
+1. [2_kod_sorusu_hazir_sablonlar](2_kod_sorusu_hazir_sablonlar) sayfasındaki **"Snack'te aç"** linkine tıkla. Şablon kodu yüklü halde açılır.
    (Ya da [snack.expo.dev](https://snack.expo.dev) aç, `App.js`'in içini sil, şablonu yapıştır.)
 2. Sağ üstten **Web** önizlemeyi seç ya da telefonda **Expo Go** ile QR'ı okut.
 3. Kodu uyarla. Sol altta hata sayısı görünür; hata varsa üstüne tıkla, mesajı oku.
@@ -76,8 +76,8 @@ npx expo start
 
 ## 6. Teori soruları için
 
-- W6 bileşen prop'ları, event'leri ve 40 soru-cevap: [2_detayli_notlar/W6.md](2_detayli_notlar/W6.md).
-- Kısa tekrar: [1_konu_anlatimi.md](1_konu_anlatimi.md).
+- W6 bileşen prop'ları, event'leri ve 40 soru-cevap: [5_teori_detayli_notlar/W6_react_native_bilesenler.md](5_teori_detayli_notlar/W6_react_native_bilesenler.md).
+- Kısa tekrar: [4_teori_konu_anlatimi.md](4_teori_konu_anlatimi.md).
 
 ## 7. Teslimden önce son kontrol
 

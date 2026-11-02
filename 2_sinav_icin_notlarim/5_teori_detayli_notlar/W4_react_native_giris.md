@@ -1,16 +1,16 @@
 # Hafta 4: React Native'e Giriş (Expo, Değişkenler, Props, State, Hooks)
 
-> Kaynak: [`W4/1-react-native-intro.md`](../../1_hoca_notlari/W4/1-react-native-intro.md), [`W4/2-example-hello-expo.md`](../../1_hoca_notlari/W4/2-example-hello-expo.md), [`W4/3-react-native-variable-const.md`](../../1_hoca_notlari/W4/3-react-native-variable-const.md), [`W4/4-react-native-props.md`](../../1_hoca_notlari/W4/4-react-native-props.md), [`W4/5-react-native-state.md`](../../1_hoca_notlari/W4/5-react-native-state.md), [`W4/6-react-native-hooks.md`](../../1_hoca_notlari/W4/6-react-native-hooks.md), ek olarak [`W4/7-example-basic-components.md`](../../1_hoca_notlari/W4/7-example-basic-components.md) (repodan silinmiş, git geçmişinden kurtarıldı).
+> Kaynak: [`W4/1-react-native-intro.md`](../../1_hocanin_ders_materyali/W4/1-react-native-intro.md), [`W4/2-example-hello-expo.md`](../../1_hocanin_ders_materyali/W4/2-example-hello-expo.md), [`W4/3-react-native-variable-const.md`](../../1_hocanin_ders_materyali/W4/3-react-native-variable-const.md), [`W4/4-react-native-props.md`](../../1_hocanin_ders_materyali/W4/4-react-native-props.md), [`W4/5-react-native-state.md`](../../1_hocanin_ders_materyali/W4/5-react-native-state.md), [`W4/6-react-native-hooks.md`](../../1_hocanin_ders_materyali/W4/6-react-native-hooks.md), ek olarak [`W4/7-example-basic-components.md`](../../1_hocanin_ders_materyali/W4/7-example-basic-components.md) (repodan silinmiş, git geçmişinden kurtarıldı).
 > Referans biçimi: `W4/dosya:SATIR` (repo köküne göre). "(ders dışı ek bilgi)" etiketli maddeler kaynakta yoktur.
 
 ## İçindekiler
 
-1. [React Native'e Giriş ([`W4/1-react-native-intro.md`](../../1_hoca_notlari/W4/1-react-native-intro.md))](#1-react-nativee-giriş-w41-react-native-intromd)
-2. [Expo ile "Hello React Native" ([`W4/2-example-hello-expo.md`](../../1_hoca_notlari/W4/2-example-hello-expo.md))](#2-expo-ile-hello-react-native-w42-example-hello-expomd)
-3. [Değişkenler ve Sabitler: var / let / const ([`W4/3-react-native-variable-const.md`](../../1_hoca_notlari/W4/3-react-native-variable-const.md))](#3-değişkenler-ve-sabitler-var--let--const-w43-react-native-variable-constmd)
-4. [Props ([`W4/4-react-native-props.md`](../../1_hoca_notlari/W4/4-react-native-props.md))](#4-props-w44-react-native-propsmd)
-5. [State ([`W4/5-react-native-state.md`](../../1_hoca_notlari/W4/5-react-native-state.md))](#5-state-w45-react-native-statemd)
-6. [Hooks: useState, useEffect ([`W4/6-react-native-hooks.md`](../../1_hoca_notlari/W4/6-react-native-hooks.md))](#6-hooks-usestate-useeffect-w46-react-native-hooksmd)
+1. [React Native'e Giriş ([`W4/1-react-native-intro.md`](../../1_hocanin_ders_materyali/W4/1-react-native-intro.md))](#1-react-nativee-giriş-w41-react-native-intromd)
+2. [Expo ile "Hello React Native" ([`W4/2-example-hello-expo.md`](../../1_hocanin_ders_materyali/W4/2-example-hello-expo.md))](#2-expo-ile-hello-react-native-w42-example-hello-expomd)
+3. [Değişkenler ve Sabitler: var / let / const ([`W4/3-react-native-variable-const.md`](../../1_hocanin_ders_materyali/W4/3-react-native-variable-const.md))](#3-değişkenler-ve-sabitler-var--let--const-w43-react-native-variable-constmd)
+4. [Props ([`W4/4-react-native-props.md`](../../1_hocanin_ders_materyali/W4/4-react-native-props.md))](#4-props-w44-react-native-propsmd)
+5. [State ([`W4/5-react-native-state.md`](../../1_hocanin_ders_materyali/W4/5-react-native-state.md))](#5-state-w45-react-native-statemd)
+6. [Hooks: useState, useEffect ([`W4/6-react-native-hooks.md`](../../1_hocanin_ders_materyali/W4/6-react-native-hooks.md))](#6-hooks-usestate-useeffect-w46-react-native-hooksmd)
 7. [Temel Bileşenler (repodan silinmiş, git geçmişinden kurtarıldı)](#7-temel-bileşenler-repodan-silinmiş-git-geçmişinden-kurtarıldı)
 8. [Hızlı Bakış Tabloları](#8-hızlı-bakış-tabloları)
 9. [Olası Sınav Soruları ve Kısa Cevaplar](#olası-sınav-soruları-ve-kısa-cevaplar)
@@ -18,7 +18,7 @@
 
 ---
 
-## 1. React Native'e Giriş ([`W4/1-react-native-intro.md`](../../1_hoca_notlari/W4/1-react-native-intro.md))
+## 1. React Native'e Giriş ([`W4/1-react-native-intro.md`](../../1_hocanin_ders_materyali/W4/1-react-native-intro.md))
 
 **Ana fikir:** React Native (RN), React'in bileşen (component) mantığını mobil platformlara taşıyan, tek kod tabanından (single codebase) iOS ve Android uygulaması üreten açık kaynak framework'tür. Kurulum için iki yol vardır: Expo (başlangıç için önerilen) ve React Native CLI (tam native kontrol).
 
@@ -118,7 +118,7 @@ MyApp/
 
 ---
 
-## 2. Expo ile "Hello React Native" ([`W4/2-example-hello-expo.md`](../../1_hoca_notlari/W4/2-example-hello-expo.md))
+## 2. Expo ile "Hello React Native" ([`W4/2-example-hello-expo.md`](../../1_hocanin_ders_materyali/W4/2-example-hello-expo.md))
 
 **Ana fikir:** Expo ile ilk ekran kurulur; temel ve etkileşimli (interactive) iki `App.js` örneği, Expo CLI komutları ve önerilen klasör yapısı verilir.
 
@@ -177,7 +177,7 @@ Test etme ([`W4/2-example-hello-expo.md:33-37`](https://github.com/zeki-ozen/Mob
 
 ---
 
-## 3. Değişkenler ve Sabitler: var / let / const ([`W4/3-react-native-variable-const.md`](../../1_hoca_notlari/W4/3-react-native-variable-const.md))
+## 3. Değişkenler ve Sabitler: var / let / const ([`W4/3-react-native-variable-const.md`](../../1_hocanin_ders_materyali/W4/3-react-native-variable-const.md))
 
 **Ana fikir:** RN, JavaScript'in değişken tanımlama yollarını kullanır. `const` değişmeyecek değerler, `let` değişen değerler için; `var` eski yöntem, kullanılmamalı.
 
@@ -230,7 +230,7 @@ Not: Kaynak let/const için hoisting "yok" diyor; teknik olarak hoist edilirler 
 
 ---
 
-## 4. Props ([`W4/4-react-native-props.md`](../../1_hoca_notlari/W4/4-react-native-props.md))
+## 4. Props ([`W4/4-react-native-props.md`](../../1_hocanin_ders_materyali/W4/4-react-native-props.md))
 
 **Ana fikir:** Props (properties), bir bileşenden diğerine (parent'tan child'a) veri göndermenin yoludur. Props **read-only**'dir; bileşenleri yeniden kullanılabilir (reusable) yapar.
 
@@ -276,7 +276,7 @@ Veri aktarımı, read-only, varsayılan değer verilebilir, fonksiyon gönderile
 
 ---
 
-## 5. State ([`W4/5-react-native-state.md`](../../1_hoca_notlari/W4/5-react-native-state.md))
+## 5. State ([`W4/5-react-native-state.md`](../../1_hocanin_ders_materyali/W4/5-react-native-state.md))
 
 **Ana fikir:** State, bileşenin içinde tutulan ve zamanla değişebilen veridir. State değişince bileşen **otomatik yeniden render** (re-render) olur. Fonksiyon bileşenlerde `useState` hook'u ile oluşturulur.
 
@@ -319,7 +319,7 @@ Veri aktarımı, read-only, varsayılan değer verilebilir, fonksiyon gönderile
 
 ---
 
-## 6. Hooks: useState, useEffect ([`W4/6-react-native-hooks.md`](../../1_hoca_notlari/W4/6-react-native-hooks.md))
+## 6. Hooks: useState, useEffect ([`W4/6-react-native-hooks.md`](../../1_hocanin_ders_materyali/W4/6-react-native-hooks.md))
 
 **Ana fikir:** Hooks, fonksiyon bileşenlerinde state ve lifecycle (yaşam döngüsü) özelliklerini kullanmayı sağlayan özel fonksiyonlardır; class component gerekmeden state yönetilir ([`W4/6-react-native-hooks.md:3-7`](https://github.com/zeki-ozen/MobileAppDevelopment/blob/7a13069/W4/6-react-native-hooks.md?plain=1#L3-L7)).
 
@@ -368,7 +368,7 @@ Veri aktarımı, read-only, varsayılan değer verilebilir, fonksiyon gönderile
 
 ## 7. Temel Bileşenler (repodan silinmiş, git geçmişinden kurtarıldı)
 
-Kaynak: [`W4/7-example-basic-components.md`](../../1_hoca_notlari/W4/7-example-basic-components.md) (hoca 2025-11-03'te repodan sildi, commit b658c31; içerik muhtemelen W6'ya taşındı).
+Kaynak: [`W4/7-example-basic-components.md`](../../1_hocanin_ders_materyali/W4/7-example-basic-components.md) (hoca 2025-11-03'te repodan sildi, commit b658c31; içerik muhtemelen W6'ya taşındı).
 
 **Ana fikir:** RN'in temel bileşenlerinin (`View`, `Text`, `Image`, `ScrollView`, `FlatList`, `TouchableOpacity`, `TextInput`) kullanımı, özellikleri ve performans ipuçları ([`W4/7-example-basic-components.md:3`](https://github.com/zeki-ozen/MobileAppDevelopment/blob/2987a68/W4/7-example-basic-components.md?plain=1#L3)).
 

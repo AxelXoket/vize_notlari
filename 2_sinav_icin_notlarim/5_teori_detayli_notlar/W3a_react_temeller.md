@@ -1,25 +1,25 @@
 # Hafta 3 (A): React Temelleri, Kurulum, Components, JSX, Props, State
 
-> Kaynak: [`W3/00-React-Fundamentals.md`](../../1_hoca_notlari/W3/00-React-Fundamentals.md), [`W3/00-javascript-basics.md`](../../1_hoca_notlari/W3/00-javascript-basics.md), [`W3/00-setup-and-installation.md`](../../1_hoca_notlari/W3/00-setup-and-installation.md), [`W3/01-components.md`](../../1_hoca_notlari/W3/01-components.md), [`W3/01-components-class.jsx`](../../1_hoca_notlari/W3/01-components-class.jsx), [`W3/01-components-functional.jsx`](../../1_hoca_notlari/W3/01-components-functional.jsx), [`W3/02-jsx.md`](../../1_hoca_notlari/W3/02-jsx.md), [`W3/02-jsx-example.jsx`](../../1_hoca_notlari/W3/02-jsx-example.jsx), [`W3/03-props.md`](../../1_hoca_notlari/W3/03-props.md), [`W3/03-props-example.jsx`](../../1_hoca_notlari/W3/03-props-example.jsx), [`W3/04-state.md`](../../1_hoca_notlari/W3/04-state.md), [`W3/04-state-example.jsx`](../../1_hoca_notlari/W3/04-state-example.jsx)
+> Kaynak: [`W3/00-React-Fundamentals.md`](../../1_hocanin_ders_materyali/W3/00-React-Fundamentals.md), [`W3/00-javascript-basics.md`](../../1_hocanin_ders_materyali/W3/00-javascript-basics.md), [`W3/00-setup-and-installation.md`](../../1_hocanin_ders_materyali/W3/00-setup-and-installation.md), [`W3/01-components.md`](../../1_hocanin_ders_materyali/W3/01-components.md), [`W3/01-components-class.jsx`](../../1_hocanin_ders_materyali/W3/01-components-class.jsx), [`W3/01-components-functional.jsx`](../../1_hocanin_ders_materyali/W3/01-components-functional.jsx), [`W3/02-jsx.md`](../../1_hocanin_ders_materyali/W3/02-jsx.md), [`W3/02-jsx-example.jsx`](../../1_hocanin_ders_materyali/W3/02-jsx-example.jsx), [`W3/03-props.md`](../../1_hocanin_ders_materyali/W3/03-props.md), [`W3/03-props-example.jsx`](../../1_hocanin_ders_materyali/W3/03-props-example.jsx), [`W3/04-state.md`](../../1_hocanin_ders_materyali/W3/04-state.md), [`W3/04-state-example.jsx`](../../1_hocanin_ders_materyali/W3/04-state-example.jsx)
 >
 > Satır referansları repo köküne göredir (`W3/dosya:SATIR`). "(ders dışı ek bilgi)" işaretli yerler kaynakta yoktur.
 
 ## İçindekiler
 
-1. [00a. React Temelleri ([`W3/00-React-Fundamentals.md`](../../1_hoca_notlari/W3/00-React-Fundamentals.md))](#00a-react-temelleri-w300-react-fundamentalsmd)
-2. [00b. React için JavaScript Temelleri ([`W3/00-javascript-basics.md`](../../1_hoca_notlari/W3/00-javascript-basics.md))](#00b-react-için-javascript-temelleri-w300-javascript-basicsmd)
-3. [00c. Kurulum ([`W3/00-setup-and-installation.md`](../../1_hoca_notlari/W3/00-setup-and-installation.md))](#00c-kurulum-w300-setup-and-installationmd)
-4. [01. Components ([`W3/01-components.md`](../../1_hoca_notlari/W3/01-components.md) + .jsx)](#01-components-w301-componentsmd--jsx)
-5. [02. JSX ([`W3/02-jsx.md`](../../1_hoca_notlari/W3/02-jsx.md) + 02-jsx-example.jsx)](#02-jsx-w302-jsxmd--02-jsx-examplejsx)
-6. [03. Props ([`W3/03-props.md`](../../1_hoca_notlari/W3/03-props.md) + 03-props-example.jsx)](#03-props-w303-propsmd--03-props-examplejsx)
-7. [04. State ([`W3/04-state.md`](../../1_hoca_notlari/W3/04-state.md) + 04-state-example.jsx)](#04-state-w304-statemd--04-state-examplejsx)
+1. [00a. React Temelleri ([`W3/00-React-Fundamentals.md`](../../1_hocanin_ders_materyali/W3/00-React-Fundamentals.md))](#00a-react-temelleri-w300-react-fundamentalsmd)
+2. [00b. React için JavaScript Temelleri ([`W3/00-javascript-basics.md`](../../1_hocanin_ders_materyali/W3/00-javascript-basics.md))](#00b-react-için-javascript-temelleri-w300-javascript-basicsmd)
+3. [00c. Kurulum ([`W3/00-setup-and-installation.md`](../../1_hocanin_ders_materyali/W3/00-setup-and-installation.md))](#00c-kurulum-w300-setup-and-installationmd)
+4. [01. Components ([`W3/01-components.md`](../../1_hocanin_ders_materyali/W3/01-components.md) + .jsx)](#01-components-w301-componentsmd--jsx)
+5. [02. JSX ([`W3/02-jsx.md`](../../1_hocanin_ders_materyali/W3/02-jsx.md) + 02-jsx-example.jsx)](#02-jsx-w302-jsxmd--02-jsx-examplejsx)
+6. [03. Props ([`W3/03-props.md`](../../1_hocanin_ders_materyali/W3/03-props.md) + 03-props-example.jsx)](#03-props-w303-propsmd--03-props-examplejsx)
+7. [04. State ([`W3/04-state.md`](../../1_hocanin_ders_materyali/W3/04-state.md) + 04-state-example.jsx)](#04-state-w304-statemd--04-state-examplejsx)
 8. [Hızlı karşılaştırma tabloları](#hızlı-karşılaştırma-tabloları)
 9. [Olası sınav soruları ve kısa cevaplar](#olası-sınav-soruları-ve-kısa-cevaplar)
 10. [Materyalde hata / eksik / güncel olmayan bilgi](#materyalde-hata--eksik--güncel-olmayan-bilgi)
 
 ---
 
-## 00a. React Temelleri ([`W3/00-React-Fundamentals.md`](../../1_hoca_notlari/W3/00-React-Fundamentals.md))
+## 00a. React Temelleri ([`W3/00-React-Fundamentals.md`](../../1_hocanin_ders_materyali/W3/00-React-Fundamentals.md))
 
 **Ana fikir:** React, kullanıcı arayüzü (UI) kurmak için bir JavaScript **kütüphanesidir** (library, framework değil). Facebook yaptı, şimdi Meta ve topluluk bakıyor. UI küçük, yeniden kullanılabilir **component**'lere bölünür (`:3`).
 
@@ -147,7 +147,7 @@ Functional component dosyasında önerilen sıra:
 
 ---
 
-## 00b. React için JavaScript Temelleri ([`W3/00-javascript-basics.md`](../../1_hoca_notlari/W3/00-javascript-basics.md))
+## 00b. React için JavaScript Temelleri ([`W3/00-javascript-basics.md`](../../1_hocanin_ders_materyali/W3/00-javascript-basics.md))
 
 **Ana fikir:** React'e geçmeden gereken modern JS (ES6+) konuları: değişkenler, fonksiyonlar, array metotları, destructuring, spread/rest, modüller, immutability (`:3`).
 
@@ -179,7 +179,7 @@ Functional component dosyasında önerilen sıra:
 
 ---
 
-## 00c. Kurulum ([`W3/00-setup-and-installation.md`](../../1_hoca_notlari/W3/00-setup-and-installation.md))
+## 00c. Kurulum ([`W3/00-setup-and-installation.md`](../../1_hocanin_ders_materyali/W3/00-setup-and-installation.md))
 
 **Ana fikir:** React geliştirme ortamı kurmanın yolları: CRA, Vite, Next.js, CDN ile manuel; dev/prod build, env değişkenleri, deploy, performans, sorun giderme.
 
@@ -248,7 +248,7 @@ VS Code, React Developer Tools, **ESLint** (linter, kod kalitesi), **Prettier** 
 
 ---
 
-## 01. Components ([`W3/01-components.md`](../../1_hoca_notlari/W3/01-components.md) + .jsx)
+## 01. Components ([`W3/01-components.md`](../../1_hocanin_ders_materyali/W3/01-components.md) + .jsx)
 
 **Ana fikir:** React uygulaması küçük, izole, yeniden kullanılabilir **component**'lerden kurulur; UI bağımsız parçalara bölünür ve her parça ayrı düşünülür (`:3`). İki ana tür var (`:5`).
 
@@ -282,7 +282,7 @@ VS Code, React Developer Tools, **ESLint** (linter, kod kalitesi), **Prettier** 
 
 ---
 
-## 02. JSX ([`W3/02-jsx.md`](../../1_hoca_notlari/W3/02-jsx.md) + 02-jsx-example.jsx)
+## 02. JSX ([`W3/02-jsx.md`](../../1_hocanin_ders_materyali/W3/02-jsx.md) + 02-jsx-example.jsx)
 
 **Ana fikir:** **JSX = JavaScript XML**; React'in önerdiği, JS dosyasında HTML benzeri kod yazmayı sağlayan söz dizimi uzantısı (`:3`).
 
@@ -310,7 +310,7 @@ VS Code, React Developer Tools, **ESLint** (linter, kod kalitesi), **Prettier** 
 
 ---
 
-## 03. Props ([`W3/03-props.md`](../../1_hoca_notlari/W3/03-props.md) + 03-props-example.jsx)
+## 03. Props ([`W3/03-props.md`](../../1_hocanin_ders_materyali/W3/03-props.md) + 03-props-example.jsx)
 
 **Ana fikir:** **Props (properties)** bir component'ten diğerine (parent'tan child'a) veri aktarır. **Read-only**: alan component değiştiremez; bu **unidirectional data flow** ve öngörülebilirlik sağlar (`:3`).
 
@@ -340,7 +340,7 @@ VS Code, React Developer Tools, **ESLint** (linter, kod kalitesi), **Prettier** 
 
 ---
 
-## 04. State ([`W3/04-state.md`](../../1_hoca_notlari/W3/04-state.md) + 04-state-example.jsx)
+## 04. State ([`W3/04-state.md`](../../1_hocanin_ders_materyali/W3/04-state.md) + 04-state-example.jsx)
 
 **Ana fikir:** **State**, component'e ait, zamanla değişebilen veri; değişince React component'i **re-render** eder. Component'in kendi içinde yönetilir (`:3`).
 

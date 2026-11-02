@@ -1,24 +1,24 @@
 # Hafta 3 (C): Styling, Forms, Routing ve W3 Genel Rehberi
 
-> Kaynak: [`W3/12-styling.md`](../../1_hoca_notlari/W3/12-styling.md), [`W3/12-styling-example.jsx`](../../1_hoca_notlari/W3/12-styling-example.jsx), [`W3/styling-example.css`](../../1_hoca_notlari/W3/styling-example.css), [`W3/13-forms.md`](../../1_hoca_notlari/W3/13-forms.md), [`W3/13-forms-example.jsx`](../../1_hoca_notlari/W3/13-forms-example.jsx), [`W3/14-routing.md`](../../1_hoca_notlari/W3/14-routing.md), [`W3/14-routing-example.jsx`](../../1_hoca_notlari/W3/14-routing-example.jsx), [`W3/README.md`](../../1_hoca_notlari/W3/README.md)
+> Kaynak: [`W3/12-styling.md`](../../1_hocanin_ders_materyali/W3/12-styling.md), [`W3/12-styling-example.jsx`](../../1_hocanin_ders_materyali/W3/12-styling-example.jsx), [`W3/styling-example.css`](../../1_hocanin_ders_materyali/W3/styling-example.css), [`W3/13-forms.md`](../../1_hocanin_ders_materyali/W3/13-forms.md), [`W3/13-forms-example.jsx`](../../1_hocanin_ders_materyali/W3/13-forms-example.jsx), [`W3/14-routing.md`](../../1_hocanin_ders_materyali/W3/14-routing.md), [`W3/14-routing-example.jsx`](../../1_hocanin_ders_materyali/W3/14-routing-example.jsx), [`W3/README.md`](../../1_hocanin_ders_materyali/W3/README.md)
 >
 > Not: Repoda **11 numaralı dosya yok**. Numaralandırma `10-data-sharing` dosyasından doğrudan `12-styling` dosyasına atlıyor (README'deki dosya ağacında da 11 yok: [`W3/README.md:126-127`](https://github.com/zeki-ozen/MobileAppDevelopment/blob/7a13069/W3/README.md?plain=1#L126-L127)).
 
 ## İçindekiler
 
-1. [12. Styling ([`W3/12-styling.md`](../../1_hoca_notlari/W3/12-styling.md))](#12-styling-w312-stylingmd)
-2. [12. Styling örnek dosyaları ([`W3/12-styling-example.jsx`](../../1_hoca_notlari/W3/12-styling-example.jsx), [`W3/styling-example.css`](../../1_hoca_notlari/W3/styling-example.css))](#12-styling-örnek-dosyaları-w312-styling-examplejsx-w3styling-examplecss)
-3. [13. Forms ([`W3/13-forms.md`](../../1_hoca_notlari/W3/13-forms.md))](#13-forms-w313-formsmd)
-4. [13. Forms örnek dosyası ([`W3/13-forms-example.jsx`](../../1_hoca_notlari/W3/13-forms-example.jsx))](#13-forms-örnek-dosyası-w313-forms-examplejsx)
-5. [14. Routing ([`W3/14-routing.md`](../../1_hoca_notlari/W3/14-routing.md))](#14-routing-w314-routingmd)
-6. [14. Routing örnek dosyası ([`W3/14-routing-example.jsx`](../../1_hoca_notlari/W3/14-routing-example.jsx))](#14-routing-örnek-dosyası-w314-routing-examplejsx)
-7. [W3 Genel Rehberi ([`W3/README.md`](../../1_hoca_notlari/W3/README.md))](#w3-genel-rehberi-w3readmemd)
+1. [12. Styling ([`W3/12-styling.md`](../../1_hocanin_ders_materyali/W3/12-styling.md))](#12-styling-w312-stylingmd)
+2. [12. Styling örnek dosyaları ([`W3/12-styling-example.jsx`](../../1_hocanin_ders_materyali/W3/12-styling-example.jsx), [`W3/styling-example.css`](../../1_hocanin_ders_materyali/W3/styling-example.css))](#12-styling-örnek-dosyaları-w312-styling-examplejsx-w3styling-examplecss)
+3. [13. Forms ([`W3/13-forms.md`](../../1_hocanin_ders_materyali/W3/13-forms.md))](#13-forms-w313-formsmd)
+4. [13. Forms örnek dosyası ([`W3/13-forms-example.jsx`](../../1_hocanin_ders_materyali/W3/13-forms-example.jsx))](#13-forms-örnek-dosyası-w313-forms-examplejsx)
+5. [14. Routing ([`W3/14-routing.md`](../../1_hocanin_ders_materyali/W3/14-routing.md))](#14-routing-w314-routingmd)
+6. [14. Routing örnek dosyası ([`W3/14-routing-example.jsx`](../../1_hocanin_ders_materyali/W3/14-routing-example.jsx))](#14-routing-örnek-dosyası-w314-routing-examplejsx)
+7. [W3 Genel Rehberi ([`W3/README.md`](../../1_hocanin_ders_materyali/W3/README.md))](#w3-genel-rehberi-w3readmemd)
 8. [Olası sınav soruları ve kısa cevaplar](#olası-sınav-soruları-ve-kısa-cevaplar)
 9. [Materyalde hata / eksik / güncel olmayan bilgi](#materyalde-hata--eksik--güncel-olmayan-bilgi)
 
 ---
 
-## 12. Styling ([`W3/12-styling.md`](../../1_hoca_notlari/W3/12-styling.md))
+## 12. Styling ([`W3/12-styling.md`](../../1_hocanin_ders_materyali/W3/12-styling.md))
 
 **Ana fikir:** React'te bileşen stillemenin birden fazla yolu var; dosya 6 yöntemi anlatıp sonunda hangisinin ne zaman seçileceğini özetliyor ([`W3/12-styling.md:1-3`](https://github.com/zeki-ozen/MobileAppDevelopment/blob/7a13069/W3/12-styling.md?plain=1#L1-L3)).
 
@@ -83,7 +83,7 @@ Son cümle: projenin ihtiyacına ve ekibin tercihine göre seç (`:312`).
 
 ---
 
-## 12. Styling örnek dosyaları ([`W3/12-styling-example.jsx`](../../1_hoca_notlari/W3/12-styling-example.jsx), [`W3/styling-example.css`](../../1_hoca_notlari/W3/styling-example.css))
+## 12. Styling örnek dosyaları ([`W3/12-styling-example.jsx`](../../1_hocanin_ders_materyali/W3/12-styling-example.jsx), [`W3/styling-example.css`](../../1_hocanin_ders_materyali/W3/styling-example.css))
 
 `12-styling-example.jsx` dosyası `import './styling-example.css';` ile CSS'i alır ([`W3/12-styling-example.jsx:2`](https://github.com/zeki-ozen/MobileAppDevelopment/blob/7a13069/W3/12-styling-example.jsx#L2)). 8 bileşen + `App`:
 
@@ -115,7 +115,7 @@ Son cümle: projenin ihtiyacına ve ekibin tercihine göre seç (`:312`).
 
 ---
 
-## 13. Forms ([`W3/13-forms.md`](../../1_hoca_notlari/W3/13-forms.md))
+## 13. Forms ([`W3/13-forms.md`](../../1_hocanin_ders_materyali/W3/13-forms.md))
 
 **Ana fikir:** HTML'de form elemanları kendi state'ini tutar; React'te state'i **tek doğruluk kaynağı (single source of truth)** yaparak elemanı kontrol ederiz. Buna **controlled component** denir ([`W3/13-forms.md:3-7`](https://github.com/zeki-ozen/MobileAppDevelopment/blob/7a13069/W3/13-forms.md?plain=1#L3-L7)).
 
@@ -186,7 +186,7 @@ Son cümle: projenin ihtiyacına ve ekibin tercihine göre seç (`:312`).
 
 ---
 
-## 13. Forms örnek dosyası ([`W3/13-forms-example.jsx`](../../1_hoca_notlari/W3/13-forms-example.jsx))
+## 13. Forms örnek dosyası ([`W3/13-forms-example.jsx`](../../1_hocanin_ders_materyali/W3/13-forms-example.jsx))
 
 3 form + `App` ([`W3/13-forms-example.jsx:561-579`](https://github.com/zeki-ozen/MobileAppDevelopment/blob/7a13069/W3/13-forms-example.jsx#L561-L579)).
 
@@ -216,7 +216,7 @@ Son cümle: projenin ihtiyacına ve ekibin tercihine göre seç (`:312`).
 
 ---
 
-## 14. Routing ([`W3/14-routing.md`](../../1_hoca_notlari/W3/14-routing.md))
+## 14. Routing ([`W3/14-routing.md`](../../1_hocanin_ders_materyali/W3/14-routing.md))
 
 **Ana fikir:** **React Router**, React'in standart routing kütüphanesi; tek sayfa uygulamada (SPA) sayfa yenilemeden görünümler arası geçiş sağlar ([`W3/14-routing.md:3`](https://github.com/zeki-ozen/MobileAppDevelopment/blob/7a13069/W3/14-routing.md?plain=1#L3)).
 
@@ -284,7 +284,7 @@ Son cümle: projenin ihtiyacına ve ekibin tercihine göre seç (`:312`).
 
 ---
 
-## 14. Routing örnek dosyası ([`W3/14-routing-example.jsx`](../../1_hoca_notlari/W3/14-routing-example.jsx))
+## 14. Routing örnek dosyası ([`W3/14-routing-example.jsx`](../../1_hocanin_ders_materyali/W3/14-routing-example.jsx))
 
 **Önemli:** Bu dosya **react-router-dom kullanmıyor**; Context + History API ile **elle yazılmış basit bir router** ([`W3/14-routing-example.jsx:3`](https://github.com/zeki-ozen/MobileAppDevelopment/blob/7a13069/W3/14-routing-example.jsx#L3)). API'si v5'e benziyor (`component=`, `exact`, `activeStyle`).
 
@@ -300,7 +300,7 @@ Son cümle: projenin ihtiyacına ve ekibin tercihine göre seç (`:312`).
 
 ---
 
-## W3 Genel Rehberi ([`W3/README.md`](../../1_hoca_notlari/W3/README.md))
+## W3 Genel Rehberi ([`W3/README.md`](../../1_hocanin_ders_materyali/W3/README.md))
 
 **Ana fikir:** W3 klasörünün indeksi; kurulum, öğrenme yolu, dosya listesi, örneklerin nasıl çalıştırılacağı, ileri konular, best practices, araçlar ve kaynaklar.
 

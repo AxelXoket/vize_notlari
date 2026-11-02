@@ -1,6 +1,6 @@
 # Hafta 6: React Native Core Components
 
-> Kaynak: [`W6/README.md`](../../1_hoca_notlari/W6/README.md), [`W6/components/View.md`](../../1_hoca_notlari/W6/components/View.md), `Text.md`, `Image.md`, `TextInput.md`, `Button.md`, `ScrollView.md`, `FlatList.md`, `TouchableOpacity.md`, `SafeAreaView.md`, `Picker.md`, `RadioButton.md`, `Checkbox.md` (hepsi `W6/components/` altında).
+> Kaynak: [`W6/README.md`](../../1_hocanin_ders_materyali/W6/README.md), [`W6/components/View.md`](../../1_hocanin_ders_materyali/W6/components/View.md), `Text.md`, `Image.md`, `TextInput.md`, `Button.md`, `ScrollView.md`, `FlatList.md`, `TouchableOpacity.md`, `SafeAreaView.md`, `Picker.md`, `RadioButton.md`, `Checkbox.md` (hepsi `W6/components/` altında).
 > README'nin linklediği `StudentExercise.md` ([`W6/README.md:18`](https://github.com/zeki-ozen/MobileAppDevelopment/blob/7a13069/W6/README.md?plain=1#L18)) repoda YOK; bu nota alınamadı.
 > Bağlam: Materyal Expo "Blank (JavaScript)" şablonu üzerine kurulu ([`W6/README.md:3`](https://github.com/zeki-ozen/MobileAppDevelopment/blob/7a13069/W6/README.md?plain=1#L3)). Her dosya aynı yapıda: Overview, Notable Props, Key Events, 2 Example, Tips.
 > Çalıştırma: README `expo start` diyor ([`W6/README.md:23`](https://github.com/zeki-ozen/MobileAppDevelopment/blob/7a13069/W6/README.md?plain=1#L23)); örnekler `app.js` içinde ekran olarak denenir ([`W6/README.md:21`](https://github.com/zeki-ozen/MobileAppDevelopment/blob/7a13069/W6/README.md?plain=1#L21)).
@@ -67,7 +67,7 @@ Sınavda en sık sorulacak "hangi prop / neden" soruları. Detay ilgili bileşen
 
 ---
 
-## View ([`W6/components/View.md`](../../1_hoca_notlari/W6/components/View.md))
+## View ([`W6/components/View.md`](../../1_hocanin_ders_materyali/W6/components/View.md))
 
 **Ne işe yarar:** React Native'in temel kapsayıcı bileşeni (core container). Web'deki `div` gibidir ama konumlandırma tamamen flexbox modeline dayanır. Görünür/görünmez kapsayıcılarla hizalama, boşluk, gölge vb. kurulur ([`W6/components/View.md:4`](https://github.com/zeki-ozen/MobileAppDevelopment/blob/7a13069/W6/components/View.md?plain=1#L4)).
 
@@ -123,7 +123,7 @@ const [cardsPerRow, setCardsPerRow] = useState(2);
 
 ---
 
-## Text ([`W6/components/Text.md`](../../1_hoca_notlari/W6/components/Text.md))
+## Text ([`W6/components/Text.md`](../../1_hocanin_ders_materyali/W6/components/Text.md))
 
 **Ne işe yarar:** Okunabilir içerik göstermenin ana yolu. Tipografi, satır kaydırma ve erişilebilirliği platformlar arası birleştirir. İç içe (nestable) olur: Text içine Text konup parça parça stil verilebilir ([`W6/components/Text.md:4`](https://github.com/zeki-ozen/MobileAppDevelopment/blob/7a13069/W6/components/Text.md?plain=1#L4)).
 
@@ -173,7 +173,7 @@ const limitReached = remaining <= 10;
 
 ---
 
-## Image ([`W6/components/Image.md`](../../1_hoca_notlari/W6/components/Image.md))
+## Image ([`W6/components/Image.md`](../../1_hocanin_ders_materyali/W6/components/Image.md))
 
 **Ne işe yarar:** Yerel (bundled) ve uzak (network) görselleri aynı API ile yükler. Otomatik önbellekleme (caching), çözünürlüğe göre kaynak seçimi ve yükleme sırasında placeholder gibi platform optimizasyonları vardır ([`W6/components/Image.md:4`](https://github.com/zeki-ozen/MobileAppDevelopment/blob/7a13069/W6/components/Image.md?plain=1#L4)).
 
@@ -238,7 +238,7 @@ const MODES = ['cover', 'contain', 'stretch', 'center', 'repeat'];
 
 ---
 
-## TextInput ([`W6/components/TextInput.md`](../../1_hoca_notlari/W6/components/TextInput.md))
+## TextInput ([`W6/components/TextInput.md`](../../1_hocanin_ders_materyali/W6/components/TextInput.md))
 
 **Ne işe yarar:** Kullanıcıdan metin verisi almanın ana yolu: form, arama çubuğu, chat, kayıt ekranı. Kontrollü (controlled, state ile) ve kontrolsüz (uncontrolled) kullanımı destekler; klavye yönetimi, auto-fill ve güvenli giriş yerleşiktir ([`W6/components/TextInput.md:4`](https://github.com/zeki-ozen/MobileAppDevelopment/blob/7a13069/W6/components/TextInput.md?plain=1#L4)).
 
@@ -304,7 +304,7 @@ const filteredLessons = useMemo(() => {
 
 ---
 
-## Button ([`W6/components/Button.md`](../../1_hoca_notlari/W6/components/Button.md))
+## Button ([`W6/components/Button.md`](../../1_hocanin_ders_materyali/W6/components/Button.md))
 
 **Ne işe yarar:** Hızlıca dokunulabilir aksiyon eklemek için üst seviye bileşen. Platformun native butonunu çizer; özelleştirme sınırlıdır (metin, renk, erişilebilirlik). Prototip ve tek aksiyonlu akışlar için ideal. İkonlu/çok durumlu butonlar için `Pressable`, `TouchableOpacity` veya `TouchableHighlight` ile özel bileşen yaz ([`W6/components/Button.md:4`](https://github.com/zeki-ozen/MobileAppDevelopment/blob/7a13069/W6/components/Button.md?plain=1#L4)).
 
@@ -359,7 +359,7 @@ useEffect(() => {
 
 ---
 
-## ScrollView ([`W6/components/ScrollView.md`](../../1_hoca_notlari/W6/components/ScrollView.md))
+## ScrollView ([`W6/components/ScrollView.md`](../../1_hocanin_ders_materyali/W6/components/ScrollView.md))
 
 **Ne işe yarar:** Ekranı aşan içeriği kaydırılabilir yapar; formlar, uzun bilgi ekranları, yatay kart galerileri. **Tüm çocukları bir kerede render eder**; kısa içerik için iyi, büyük veri için `FlatList` veya `SectionList` ([`W6/components/ScrollView.md:4`](https://github.com/zeki-ozen/MobileAppDevelopment/blob/7a13069/W6/components/ScrollView.md?plain=1#L4)). Dikey ve yatay kaydırma destekler.
 
@@ -415,7 +415,7 @@ const handleScroll = (event) => {
 
 ---
 
-## FlatList ([`W6/components/FlatList.md`](../../1_hoca_notlari/W6/components/FlatList.md))
+## FlatList ([`W6/components/FlatList.md`](../../1_hocanin_ders_materyali/W6/components/FlatList.md))
 
 **Ne işe yarar:** Uzun/dinamik veri setleri için optimize. Sadece görünen öğeleri render eder (virtualization), binlerce satırda bile akıcı kaydırma. Feed, ürün listesi, chat; dikey/yatay ve grid ([`W6/components/FlatList.md:4`](https://github.com/zeki-ozen/MobileAppDevelopment/blob/7a13069/W6/components/FlatList.md?plain=1#L4)).
 
@@ -483,7 +483,7 @@ useEffect(() => { loadPage(1, true); }, [loadPage]);
 
 ---
 
-## TouchableOpacity ([`W6/components/TouchableOpacity.md`](../../1_hoca_notlari/W6/components/TouchableOpacity.md))
+## TouchableOpacity ([`W6/components/TouchableOpacity.md`](../../1_hocanin_ders_materyali/W6/components/TouchableOpacity.md))
 
 **Ne işe yarar:** Herhangi bir içeriği basılabilir yüzeye sarar; basınca opaklık animasyonu. Özel buton, kart, liste satırı için en esnek yapı taşlarından. İçine her şey (text, ikon, görsel, layout) konabilir ([`W6/components/TouchableOpacity.md:4`](https://github.com/zeki-ozen/MobileAppDevelopment/blob/7a13069/W6/components/TouchableOpacity.md?plain=1#L4), [`W6/components/TouchableOpacity.md:149`](https://github.com/zeki-ozen/MobileAppDevelopment/blob/7a13069/W6/components/TouchableOpacity.md?plain=1#L149)).
 
@@ -532,7 +532,7 @@ const [expanded, setExpanded] = useState(false);
 
 ---
 
-## SafeAreaView ([`W6/components/SafeAreaView.md`](../../1_hoca_notlari/W6/components/SafeAreaView.md))
+## SafeAreaView ([`W6/components/SafeAreaView.md`](../../1_hocanin_ders_materyali/W6/components/SafeAreaView.md))
 
 **Ne işe yarar:** İçeriği cihaz kesiklerinden (cutouts), dynamic island ve yuvarlak köşelerden uzak tutar; özellikle iOS'ta önemli. Android her zaman gerektirmese de üst/alt boşlukları platformlar arası tutarlı yapar. `react-native-safe-area-context` paketiyle cihaz profillerine göre hassas kontrol ([`W6/components/SafeAreaView.md:4`](https://github.com/zeki-ozen/MobileAppDevelopment/blob/7a13069/W6/components/SafeAreaView.md?plain=1#L4)). Expo bu paketi öneriyor ([`W6/components/SafeAreaView.md:14`](https://github.com/zeki-ozen/MobileAppDevelopment/blob/7a13069/W6/components/SafeAreaView.md?plain=1#L14)).
 
@@ -588,7 +588,7 @@ export default function NotchedHeaderDemo() {
 
 ---
 
-## Picker ([`W6/components/Picker.md`](../../1_hoca_notlari/W6/components/Picker.md))
+## Picker ([`W6/components/Picker.md`](../../1_hocanin_ders_materyali/W6/components/Picker.md))
 
 **Ne işe yarar:** Platforma göre dropdown veya wheel seçici. **Core RN Picker deprecated olduğu için** Expo projelerinde `@react-native-picker/picker` kurulur. Değeri belirli bir listeyle sınırlamak için (seviye, dil, tema) ([`W6/components/Picker.md:4`](https://github.com/zeki-ozen/MobileAppDevelopment/blob/7a13069/W6/components/Picker.md?plain=1#L4)).
 
@@ -641,7 +641,7 @@ const filtered = useMemo(() => SESSIONS.filter((s) => s.track === track), [track
 
 ---
 
-## RadioButton ([`W6/components/RadioButton.md`](../../1_hoca_notlari/W6/components/RadioButton.md))
+## RadioButton ([`W6/components/RadioButton.md`](../../1_hocanin_ders_materyali/W6/components/RadioButton.md))
 
 **Ne işe yarar:** Tek seçim (single-choice) formları, ders track'i seçme, tema değiştirme. RN core hazır radio sunmadığı için Expo'da `Pressable` ile **özel bileşen** yazılır veya `react-native-paper`, `@rneui/themed` gibi UI kitleri kullanılır. Özel bileşen tipografi/renk sistemine uyar ([`W6/components/RadioButton.md:4`](https://github.com/zeki-ozen/MobileAppDevelopment/blob/7a13069/W6/components/RadioButton.md?plain=1#L4)).
 
@@ -699,7 +699,7 @@ const [selected, setSelected] = useState('foundation');
 
 ---
 
-## Checkbox ([`W6/components/Checkbox.md`](../../1_hoca_notlari/W6/components/Checkbox.md))
+## Checkbox ([`W6/components/Checkbox.md`](../../1_hocanin_ders_materyali/W6/components/Checkbox.md))
 
 **Ne işe yarar:** Kullanıcının **birden fazla** öğeyi açıp kapatabildiği durumlar: görev listesi, ayarlar, politika onayı. Expo'da `expo-checkbox` veya `@react-native-community/checkbox`; ikisi de `value` ve `onValueChange` merkezli küçük bir API sunar ([`W6/components/Checkbox.md:4`](https://github.com/zeki-ozen/MobileAppDevelopment/blob/7a13069/W6/components/Checkbox.md?plain=1#L4)).
 

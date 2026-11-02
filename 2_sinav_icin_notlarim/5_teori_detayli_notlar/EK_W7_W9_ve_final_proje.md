@@ -14,13 +14,13 @@
 ---
 
 ## Hafta 7: Yerel veri saklama (Local Storage)
-Kaynak: [`W7/README.md`](../../1_hoca_notlari/W7/README.md), [`W7/AsyncStorage.md`](../../1_hoca_notlari/W7/AsyncStorage.md), [`W7/MMKV.md`](../../1_hoca_notlari/W7/MMKV.md), [`W7/SQLite.md`](../../1_hoca_notlari/W7/SQLite.md), [`W7/Realm.md`](../../1_hoca_notlari/W7/Realm.md), [`W7/MySQL.md`](../../1_hoca_notlari/W7/MySQL.md)
+Kaynak: [`W7/README.md`](../../1_hocanin_ders_materyali/W7/README.md), [`W7/AsyncStorage.md`](../../1_hocanin_ders_materyali/W7/AsyncStorage.md), [`W7/MMKV.md`](../../1_hocanin_ders_materyali/W7/MMKV.md), [`W7/SQLite.md`](../../1_hocanin_ders_materyali/W7/SQLite.md), [`W7/Realm.md`](../../1_hocanin_ders_materyali/W7/Realm.md), [`W7/MySQL.md`](../../1_hocanin_ders_materyali/W7/MySQL.md)
 
 Genel kurgu: her dosyada önce kısa özet, sonra Expo (Blank JavaScript şablonu) istemci + Express REST API sunucu ile iki örnek. Sunucu önce çalıştırılır, sonra RN tarafı test edilir. [`W7/README.md:3`](https://github.com/zeki-ozen/MobileAppDevelopment/blob/7a13069/W7/README.md?plain=1#L3), [`W7/README.md:13-14`](https://github.com/zeki-ozen/MobileAppDevelopment/blob/7a13069/W7/README.md?plain=1#L13-L14)
 - Örneklerdeki URL `http://192.168.1.23:PORT`: telefon `localhost`'a erişemez, bilgisayarın yerel ağ (LAN) IP'si yazılmalı. [`W7/AsyncStorage.md:28`](https://github.com/zeki-ozen/MobileAppDevelopment/blob/7a13069/W7/AsyncStorage.md?plain=1#L28), [`W7/MySQL.md:139`](https://github.com/zeki-ozen/MobileAppDevelopment/blob/7a13069/W7/MySQL.md?plain=1#L139)
 
 ### AsyncStorage
-Kaynak: [`W7/AsyncStorage.md`](../../1_hoca_notlari/W7/AsyncStorage.md)
+Kaynak: [`W7/AsyncStorage.md`](../../1_hocanin_ders_materyali/W7/AsyncStorage.md)
 - **Ne:** Anahtar-değer (key-value) kalıcı depolama; uygulama kapanıp açılınca veri durur. Kullanım: kullanıcı tercihleri, token, küçük önbellek (cache). [`W7/AsyncStorage.md:3`](https://github.com/zeki-ozen/MobileAppDevelopment/blob/7a13069/W7/AsyncStorage.md?plain=1#L3)
 - **Kurulum/import:** paket `@react-native-async-storage/async-storage`; `import AsyncStorage from '@react-native-async-storage/async-storage';` [`W7/AsyncStorage.md:26`](https://github.com/zeki-ozen/MobileAppDevelopment/blob/7a13069/W7/AsyncStorage.md?plain=1#L26)
 - **Asenkron (Promise tabanlı):** her çağrı `await` ister; REST çağrılarıyla zincirlenir. [`W7/AsyncStorage.md:3`](https://github.com/zeki-ozen/MobileAppDevelopment/blob/7a13069/W7/AsyncStorage.md?plain=1#L3)
@@ -31,7 +31,7 @@ Kaynak: [`W7/AsyncStorage.md`](../../1_hoca_notlari/W7/AsyncStorage.md)
 - **Avantaj/dezavantaj:** basit, Expo Go'da çalışır; ama yavaş/async, şifresiz. Token gibi hassas veri için `expo-secure-store` daha doğru (ders dışı ek bilgi).
 
 ### MMKV
-Kaynak: [`W7/MMKV.md`](../../1_hoca_notlari/W7/MMKV.md)
+Kaynak: [`W7/MMKV.md`](../../1_hocanin_ders_materyali/W7/MMKV.md)
 - **Ne:** C++ tabanlı, çok hızlı key-value depolama; paket `react-native-mmkv`. Sık okunan ayarlar ve state cache için. [`W7/MMKV.md:3`](https://github.com/zeki-ozen/MobileAppDevelopment/blob/7a13069/W7/MMKV.md?plain=1#L3)
 - **Senkron (sync):** `await` gerekmez; bu sayede form alanları her tuş vuruşunda kaydedilip uygulama yeniden açılınca geri yüklenebilir (taslak/draft). [`W7/MMKV.md:72`](https://github.com/zeki-ozen/MobileAppDevelopment/blob/7a13069/W7/MMKV.md?plain=1#L72), [`W7/MMKV.md:98-104`](https://github.com/zeki-ozen/MobileAppDevelopment/blob/7a13069/W7/MMKV.md?plain=1#L98-L104)
 - **Kurulum:** `import { MMKV } from 'react-native-mmkv'; const storage = new MMKV();` [`W7/MMKV.md:22-24`](https://github.com/zeki-ozen/MobileAppDevelopment/blob/7a13069/W7/MMKV.md?plain=1#L22-L24)
@@ -41,7 +41,7 @@ Kaynak: [`W7/MMKV.md`](../../1_hoca_notlari/W7/MMKV.md)
 - **Avantaj/dezavantaj:** AsyncStorage'dan çok hızlı ve sync; ama native modül, Expo Go'da çalışmaz, development build gerekir (ders dışı ek bilgi). v4 sürümünde API `createMMKV()` ve `remove()` olarak değişti (ders dışı ek bilgi).
 
 ### SQLite (expo-sqlite)
-Kaynak: [`W7/SQLite.md`](../../1_hoca_notlari/W7/SQLite.md)
+Kaynak: [`W7/SQLite.md`](../../1_hocanin_ders_materyali/W7/SQLite.md)
 - **Ne:** cihaz üzerinde ilişkisel (relational) veritabanı; tablolar, `SELECT`, filtreleme, offline sorgular. [`W7/SQLite.md:3`](https://github.com/zeki-ozen/MobileAppDevelopment/blob/7a13069/W7/SQLite.md?plain=1#L3)
 - **Import:** `import * as SQLite from 'expo-sqlite';` Expo içinde native build uğraşı yok. [`W7/SQLite.md:3`](https://github.com/zeki-ozen/MobileAppDevelopment/blob/7a13069/W7/SQLite.md?plain=1#L3), [`W7/SQLite.md:26`](https://github.com/zeki-ozen/MobileAppDevelopment/blob/7a13069/W7/SQLite.md?plain=1#L26)
 - **Kaynaktaki API (eski):** `SQLite.openDatabase('fitness.db')`, `db.transaction(tx => tx.executeSql(sql, params, ok, err))`; Promise'e saran `run()` yardımcı fonksiyonu. [`W7/SQLite.md:28-37`](https://github.com/zeki-ozen/MobileAppDevelopment/blob/7a13069/W7/SQLite.md?plain=1#L28-L37)
@@ -52,7 +52,7 @@ Kaynak: [`W7/SQLite.md`](../../1_hoca_notlari/W7/SQLite.md)
 - **Güncel API (ders dışı ek bilgi):** `openDatabaseAsync/openDatabaseSync`, `execAsync`, `runAsync`, `getAllAsync`. Kaynaktaki `openDatabase/transaction` SDK 52'den itibaren yok (aşağıda hata bölümüne bakın).
 
 ### Realm
-Kaynak: [`W7/Realm.md`](../../1_hoca_notlari/W7/Realm.md)
+Kaynak: [`W7/Realm.md`](../../1_hocanin_ders_materyali/W7/Realm.md)
 - **Ne:** MongoDB'ye ait reaktif (reactive) nesne tabanlı yerel veritabanı; koleksiyon değişince UI yeniden çizilir. [`W7/Realm.md:3`](https://github.com/zeki-ozen/MobileAppDevelopment/blob/7a13069/W7/Realm.md?plain=1#L3)
 - **Şema (schema):** `class Session extends Realm.Object {}` + `schema = { name, primaryKey, properties }`. [`W7/Realm.md:27-36`](https://github.com/zeki-ozen/MobileAppDevelopment/blob/7a13069/W7/Realm.md?plain=1#L27-L36)
 - **Açma:** `Realm.open({ schema: [Session] })`. [`W7/Realm.md:39`](https://github.com/zeki-ozen/MobileAppDevelopment/blob/7a13069/W7/Realm.md?plain=1#L39)
@@ -63,7 +63,7 @@ Kaynak: [`W7/Realm.md`](../../1_hoca_notlari/W7/Realm.md)
 - **Dezavantaj:** native modül (Expo Go'da yok); Atlas Device SDK (Realm) 2024'te kullanımdan kaldırıldı (deprecated) (ders dışı ek bilgi).
 
 ### MySQL
-Kaynak: [`W7/MySQL.md`](../../1_hoca_notlari/W7/MySQL.md)
+Kaynak: [`W7/MySQL.md`](../../1_hocanin_ders_materyali/W7/MySQL.md)
 - **Ne:** sunucu tarafı ilişkisel veritabanı. Mobil uygulama MySQL'e **doğrudan bağlanmaz**; arada Express REST katmanı vardır, RN sadece `fetch` ile API'ye istek atar. [`W7/MySQL.md:3`](https://github.com/zeki-ozen/MobileAppDevelopment/blob/7a13069/W7/MySQL.md?plain=1#L3)
 - **Sunucu paketi:** `mysql2/promise`, `cors`, `express`. [`W7/MySQL.md:21-23`](https://github.com/zeki-ozen/MobileAppDevelopment/blob/7a13069/W7/MySQL.md?plain=1#L21-L23)
 - **Bağlantı havuzu:** `mysql.createPool({ host, user, password, database })`. [`W7/MySQL.md:29-34`](https://github.com/zeki-ozen/MobileAppDevelopment/blob/7a13069/W7/MySQL.md?plain=1#L29-L34)
@@ -88,12 +88,12 @@ Kaynak: [`W7/MySQL.md`](../../1_hoca_notlari/W7/MySQL.md)
 ---
 
 ## Hafta 8: Ağ ve API (Networking)
-Kaynak: [`W8/README.md`](../../1_hoca_notlari/W8/README.md), [`W8/AsyncAwait.md`](../../1_hoca_notlari/W8/AsyncAwait.md), [`W8/FetchAPI.md`](../../1_hoca_notlari/W8/FetchAPI.md), [`W8/Axios.md`](../../1_hoca_notlari/W8/Axios.md), [`W8/RESTfulAPIs.md`](../../1_hoca_notlari/W8/RESTfulAPIs.md), [`W8/ErrorHandling.md`](../../1_hoca_notlari/W8/ErrorHandling.md), [`W8/LoadingStates.md`](../../1_hoca_notlari/W8/LoadingStates.md)
+Kaynak: [`W8/README.md`](../../1_hocanin_ders_materyali/W8/README.md), [`W8/AsyncAwait.md`](../../1_hocanin_ders_materyali/W8/AsyncAwait.md), [`W8/FetchAPI.md`](../../1_hocanin_ders_materyali/W8/FetchAPI.md), [`W8/Axios.md`](../../1_hocanin_ders_materyali/W8/Axios.md), [`W8/RESTfulAPIs.md`](../../1_hocanin_ders_materyali/W8/RESTfulAPIs.md), [`W8/ErrorHandling.md`](../../1_hocanin_ders_materyali/W8/ErrorHandling.md), [`W8/LoadingStates.md`](../../1_hocanin_ders_materyali/W8/LoadingStates.md)
 
 Genel: tüm örnekler Expo Snack'te çalışır ve kimlik doğrulaması istemeyen ücretsiz API'ler (JSONPlaceholder) kullanır. [`W8/README.md:3`](https://github.com/zeki-ozen/MobileAppDevelopment/blob/7a13069/W8/README.md?plain=1#L3), [`W8/README.md:17`](https://github.com/zeki-ozen/MobileAppDevelopment/blob/7a13069/W8/README.md?plain=1#L17)
 
 ### Async/Await
-Kaynak: [`W8/AsyncAwait.md`](../../1_hoca_notlari/W8/AsyncAwait.md)
+Kaynak: [`W8/AsyncAwait.md`](../../1_hocanin_ders_materyali/W8/AsyncAwait.md)
 - `async` fonksiyon her zaman Promise döner; `await` Promise çözülene kadar o fonksiyonu bekletir (main thread'i bloklamaz). [`W8/AsyncAwait.md:4`](https://github.com/zeki-ozen/MobileAppDevelopment/blob/7a13069/W8/AsyncAwait.md?plain=1#L4), [`W8/AsyncAwait.md:7-8`](https://github.com/zeki-ozen/MobileAppDevelopment/blob/7a13069/W8/AsyncAwait.md?plain=1#L7-L8)
 - Promise üzerine kurulu "syntactic sugar"; kod senkron gibi okunur. [`W8/AsyncAwait.md:4`](https://github.com/zeki-ozen/MobileAppDevelopment/blob/7a13069/W8/AsyncAwait.md?plain=1#L4)
 - Hata yönetimi `try/catch`, temizlik `finally` (ör. `setLoading(false)`). [`W8/AsyncAwait.md:58-85`](https://github.com/zeki-ozen/MobileAppDevelopment/blob/7a13069/W8/AsyncAwait.md?plain=1#L58-L85)
@@ -104,7 +104,7 @@ Kaynak: [`W8/AsyncAwait.md`](../../1_hoca_notlari/W8/AsyncAwait.md)
 - `loadingStage` ile sıralı adımlarda kullanıcıya ilerleme mesajı. [`W8/AsyncAwait.md:63`](https://github.com/zeki-ozen/MobileAppDevelopment/blob/7a13069/W8/AsyncAwait.md?plain=1#L63), [`W8/AsyncAwait.md:558`](https://github.com/zeki-ozen/MobileAppDevelopment/blob/7a13069/W8/AsyncAwait.md?plain=1#L558)
 
 ### Fetch API
-Kaynak: [`W8/FetchAPI.md`](../../1_hoca_notlari/W8/FetchAPI.md)
+Kaynak: [`W8/FetchAPI.md`](../../1_hocanin_ders_materyali/W8/FetchAPI.md)
 - Yerleşik (built-in), ek paket gerekmez; Promise döner, sonuç `Response` nesnesi. [`W8/FetchAPI.md:7-8`](https://github.com/zeki-ozen/MobileAppDevelopment/blob/7a13069/W8/FetchAPI.md?plain=1#L7-L8)
 - `fetch(url, options)`; seçenekler `method`, `headers`, `body`, `mode`. [`W8/FetchAPI.md:14`](https://github.com/zeki-ozen/MobileAppDevelopment/blob/7a13069/W8/FetchAPI.md?plain=1#L14), [`W8/FetchAPI.md:21-24`](https://github.com/zeki-ozen/MobileAppDevelopment/blob/7a13069/W8/FetchAPI.md?plain=1#L21-L24)
 - `body` JSON ise `JSON.stringify` + `Content-Type: application/json` zorunlu. [`W8/FetchAPI.md:23`](https://github.com/zeki-ozen/MobileAppDevelopment/blob/7a13069/W8/FetchAPI.md?plain=1#L23), [`W8/FetchAPI.md:365`](https://github.com/zeki-ozen/MobileAppDevelopment/blob/7a13069/W8/FetchAPI.md?plain=1#L365)
@@ -114,7 +114,7 @@ Kaynak: [`W8/FetchAPI.md`](../../1_hoca_notlari/W8/FetchAPI.md)
 - Unmount olan bileşende isteği iptal için `AbortController`. [`W8/FetchAPI.md:363`](https://github.com/zeki-ozen/MobileAppDevelopment/blob/7a13069/W8/FetchAPI.md?plain=1#L363)
 
 ### Axios
-Kaynak: [`W8/Axios.md`](../../1_hoca_notlari/W8/Axios.md)
+Kaynak: [`W8/Axios.md`](../../1_hocanin_ders_materyali/W8/Axios.md)
 - Promise tabanlı HTTP istemci kütüphanesi; kurulum `npm install axios`. [`W8/Axios.md:4`](https://github.com/zeki-ozen/MobileAppDevelopment/blob/7a13069/W8/Axios.md?plain=1#L4), [`W8/Axios.md:16`](https://github.com/zeki-ozen/MobileAppDevelopment/blob/7a13069/W8/Axios.md?plain=1#L16)
 - Otomatik JSON dönüşümü: cevap doğrudan `response.data`, `.json()` yok. [`W8/Axios.md:7`](https://github.com/zeki-ozen/MobileAppDevelopment/blob/7a13069/W8/Axios.md?plain=1#L7), [`W8/Axios.md:27`](https://github.com/zeki-ozen/MobileAppDevelopment/blob/7a13069/W8/Axios.md?plain=1#L27)
 - **Non-2xx cevapta otomatik hata fırlatır** (fetch'ten farkı). [`W8/Axios.md:11`](https://github.com/zeki-ozen/MobileAppDevelopment/blob/7a13069/W8/Axios.md?plain=1#L11), [`W8/Axios.md:568`](https://github.com/zeki-ozen/MobileAppDevelopment/blob/7a13069/W8/Axios.md?plain=1#L568)
@@ -126,7 +126,7 @@ Kaynak: [`W8/Axios.md`](../../1_hoca_notlari/W8/Axios.md)
 - Sonsuz kaydırma: `onEndReached` + `onEndReachedThreshold` + `ListFooterComponent`. [`W8/Axios.md:148-157`](https://github.com/zeki-ozen/MobileAppDevelopment/blob/7a13069/W8/Axios.md?plain=1#L148-L157)
 
 ### RESTful APIs
-Kaynak: [`W8/RESTfulAPIs.md`](../../1_hoca_notlari/W8/RESTfulAPIs.md)
+Kaynak: [`W8/RESTfulAPIs.md`](../../1_hocanin_ders_materyali/W8/RESTfulAPIs.md)
 - REST (Representational State Transfer): HTTP metotlarıyla kaynaklar (resource) üzerinde CRUD. [`W8/RESTfulAPIs.md:4`](https://github.com/zeki-ozen/MobileAppDevelopment/blob/7a13069/W8/RESTfulAPIs.md?plain=1#L4)
 - Kaynak = URL (`/users`, `/posts/1`); endpoint = istek kabul eden URL. [`W8/RESTfulAPIs.md:14-15`](https://github.com/zeki-ozen/MobileAppDevelopment/blob/7a13069/W8/RESTfulAPIs.md?plain=1#L14-L15)
 - PUT tüm kaydı değiştirir, PATCH kısmi günceller. [`W8/RESTfulAPIs.md:9-10`](https://github.com/zeki-ozen/MobileAppDevelopment/blob/7a13069/W8/RESTfulAPIs.md?plain=1#L9-L10)
@@ -162,7 +162,7 @@ Kaynak: [`W8/RESTfulAPIs.md`](../../1_hoca_notlari/W8/RESTfulAPIs.md)
 Gruplar: 2xx başarı, 4xx istemci hatası, 5xx sunucu hatası. [`W8/ErrorHandling.md:8`](https://github.com/zeki-ozen/MobileAppDevelopment/blob/7a13069/W8/ErrorHandling.md?plain=1#L8)
 
 ### Error Handling
-Kaynak: [`W8/ErrorHandling.md`](../../1_hoca_notlari/W8/ErrorHandling.md)
+Kaynak: [`W8/ErrorHandling.md`](../../1_hocanin_ders_materyali/W8/ErrorHandling.md)
 - Hata türleri: ağ (offline, DNS), HTTP (4xx/5xx), parse (bozuk JSON), timeout, abort. [`W8/ErrorHandling.md:7-11`](https://github.com/zeki-ozen/MobileAppDevelopment/blob/7a13069/W8/ErrorHandling.md?plain=1#L7-L11)
 - Desenler: try/catch, Error Boundary, global handler (interceptor), exponential backoff ile retry. [`W8/ErrorHandling.md:14-17`](https://github.com/zeki-ozen/MobileAppDevelopment/blob/7a13069/W8/ErrorHandling.md?plain=1#L14-L17)
 - Hataları sınıflandır (`ERROR_TYPES`) ve her tür için kullanıcıya uygun mesaj (`ERROR_MESSAGES`). [`W8/ErrorHandling.md:35-70`](https://github.com/zeki-ozen/MobileAppDevelopment/blob/7a13069/W8/ErrorHandling.md?plain=1#L35-L70)
@@ -175,7 +175,7 @@ Kaynak: [`W8/ErrorHandling.md`](../../1_hoca_notlari/W8/ErrorHandling.md)
 - Error Boundary async/fetch hatalarını yakalamaz, sadece render hatalarını (ders dışı ek bilgi).
 
 ### Loading States
-Kaynak: [`W8/LoadingStates.md`](../../1_hoca_notlari/W8/LoadingStates.md)
+Kaynak: [`W8/LoadingStates.md`](../../1_hocanin_ders_materyali/W8/LoadingStates.md)
 - Türler: initial, refresh (pull-to-refresh), pagination (load more), submit, skeleton. [`W8/LoadingStates.md:7-11`](https://github.com/zeki-ozen/MobileAppDevelopment/blob/7a13069/W8/LoadingStates.md?plain=1#L7-L11)
 - Skeleton: `Animated.loop(Animated.sequence([...]))` ile opaklık animasyonu, `useNativeDriver: true`. [`W8/LoadingStates.md:41-56`](https://github.com/zeki-ozen/MobileAppDevelopment/blob/7a13069/W8/LoadingStates.md?plain=1#L41-L56)
 - Her yükleme için AYRI state: `loading`, `refreshing`, `loadingMore`, `hasMore`, `page`. [`W8/LoadingStates.md:88-93`](https://github.com/zeki-ozen/MobileAppDevelopment/blob/7a13069/W8/LoadingStates.md?plain=1#L88-L93)
@@ -272,12 +272,12 @@ return <FlatList data={data} keyExtractor={(i) => i.id.toString()} renderItem={.
 ---
 
 ## Hafta 9: Cihaz özellikleri (Camera, Notifications, Maps)
-Kaynak: [`W9/README.md`](../../1_hoca_notlari/W9/README.md), [`W9/components/Camera.md`](../../1_hoca_notlari/W9/components/Camera.md), [`W9/components/Notifications.md`](../../1_hoca_notlari/W9/components/Notifications.md), [`W9/components/ReactNativeMaps.md`](../../1_hoca_notlari/W9/components/ReactNativeMaps.md), [`W9/components/ReactNativeLeaflet.md`](../../1_hoca_notlari/W9/components/ReactNativeLeaflet.md)
+Kaynak: [`W9/README.md`](../../1_hocanin_ders_materyali/W9/README.md), [`W9/components/Camera.md`](../../1_hocanin_ders_materyali/W9/components/Camera.md), [`W9/components/Notifications.md`](../../1_hocanin_ders_materyali/W9/components/Notifications.md), [`W9/components/ReactNativeMaps.md`](../../1_hocanin_ders_materyali/W9/components/ReactNativeMaps.md), [`W9/components/ReactNativeLeaflet.md`](../../1_hocanin_ders_materyali/W9/components/ReactNativeLeaflet.md)
 
 - Snack'te paketler **Dependencies** panelinden eklenir; yerelde `npx expo install <paket>` (Expo SDK ile uyumlu sürüm için). [`W9/README.md:18-19`](https://github.com/zeki-ozen/MobileAppDevelopment/blob/7a13069/W9/README.md?plain=1#L18-L19)
 
 ### Camera (`expo-camera`)
-Kaynak: [`W9/components/Camera.md`](../../1_hoca_notlari/W9/components/Camera.md)
+Kaynak: [`W9/components/Camera.md`](../../1_hocanin_ders_materyali/W9/components/Camera.md)
 - Akış 3 adım: çalışma anında izin (runtime permission) iste, izin varsa önizleme göster, çek/tara. [`W9/components/Camera.md:6-8`](https://github.com/zeki-ozen/MobileAppDevelopment/blob/7a13069/W9/components/Camera.md?plain=1#L6-L8)
 - Paket `expo-camera`; `import { CameraView, useCameraPermissions } from 'expo-camera';` [`W9/components/Camera.md:21`](https://github.com/zeki-ozen/MobileAppDevelopment/blob/7a13069/W9/components/Camera.md?plain=1#L21), [`W9/components/Camera.md:26`](https://github.com/zeki-ozen/MobileAppDevelopment/blob/7a13069/W9/components/Camera.md?plain=1#L26)
 - **İzin:** `const [permission, requestPermission] = useCameraPermissions();` `permission` null ise yükleniyor, `!permission.granted` ise "izin ver" düğmesi (`onPress={requestPermission}`). [`W9/components/Camera.md:30`](https://github.com/zeki-ozen/MobileAppDevelopment/blob/7a13069/W9/components/Camera.md?plain=1#L30), [`W9/components/Camera.md:35-52`](https://github.com/zeki-ozen/MobileAppDevelopment/blob/7a13069/W9/components/Camera.md?plain=1#L35-L52)
@@ -287,7 +287,7 @@ Kaynak: [`W9/components/Camera.md`](../../1_hoca_notlari/W9/components/Camera.md
 - Expo Go ile gerçek cihazda çalışır, web önizlemede genelde çalışmaz; izin olmadan kamera bileşenini render etme. [`W9/components/Camera.md:10`](https://github.com/zeki-ozen/MobileAppDevelopment/blob/7a13069/W9/components/Camera.md?plain=1#L10), [`W9/components/Camera.md:203`](https://github.com/zeki-ozen/MobileAppDevelopment/blob/7a13069/W9/components/Camera.md?plain=1#L203)
 
 ### Notifications (`expo-notifications`)
-Kaynak: [`W9/components/Notifications.md`](../../1_hoca_notlari/W9/components/Notifications.md)
+Kaynak: [`W9/components/Notifications.md`](../../1_hocanin_ders_materyali/W9/components/Notifications.md)
 - Akış: izin iste, handler ayarla, yerel bildirim gönder/zamanla, (ops.) tıklamayı işle. [`W9/components/Notifications.md:6-9`](https://github.com/zeki-ozen/MobileAppDevelopment/blob/7a13069/W9/components/Notifications.md?plain=1#L6-L9)
 - İzin: iOS her zaman; Android 13+ (API 33) da ister. `Notifications.getPermissionsAsync()` önce, yoksa `requestPermissionsAsync()`. [`W9/components/Notifications.md:6`](https://github.com/zeki-ozen/MobileAppDevelopment/blob/7a13069/W9/components/Notifications.md?plain=1#L6), [`W9/components/Notifications.md:50-60`](https://github.com/zeki-ozen/MobileAppDevelopment/blob/7a13069/W9/components/Notifications.md?plain=1#L50-L60)
 - `setNotificationHandler`: uygulama ön plandayken (foreground) bildirim nasıl gösterilsin. [`W9/components/Notifications.md:31-37`](https://github.com/zeki-ozen/MobileAppDevelopment/blob/7a13069/W9/components/Notifications.md?plain=1#L31-L37)
@@ -297,7 +297,7 @@ Kaynak: [`W9/components/Notifications.md`](../../1_hoca_notlari/W9/components/No
 - Expo Go'da yerel (local) bildirim çalışır; push için ek kurulum ve gerçek cihaz gerekir. [`W9/components/Notifications.md:11`](https://github.com/zeki-ozen/MobileAppDevelopment/blob/7a13069/W9/components/Notifications.md?plain=1#L11)
 
 ### react-native-maps
-Kaynak: [`W9/components/ReactNativeMaps.md`](../../1_hoca_notlari/W9/components/ReactNativeMaps.md)
+Kaynak: [`W9/components/ReactNativeMaps.md`](../../1_hocanin_ders_materyali/W9/components/ReactNativeMaps.md)
 - Native harita: iOS'ta Apple Maps, Android'de Google Maps. [`W9/components/ReactNativeMaps.md:4`](https://github.com/zeki-ozen/MobileAppDevelopment/blob/7a13069/W9/components/ReactNativeMaps.md?plain=1#L4)
 - Paket `react-native-maps`; `import MapView, { Marker, Polyline } from 'react-native-maps';` [`W9/components/ReactNativeMaps.md:23`](https://github.com/zeki-ozen/MobileAppDevelopment/blob/7a13069/W9/components/ReactNativeMaps.md?plain=1#L23), [`W9/components/ReactNativeMaps.md:67`](https://github.com/zeki-ozen/MobileAppDevelopment/blob/7a13069/W9/components/ReactNativeMaps.md?plain=1#L67)
 - Bölge: `{ latitude, longitude, latitudeDelta, longitudeDelta }` (delta = zoom). [`W9/components/ReactNativeMaps.md:25-30`](https://github.com/zeki-ozen/MobileAppDevelopment/blob/7a13069/W9/components/ReactNativeMaps.md?plain=1#L25-L30)
@@ -308,7 +308,7 @@ Kaynak: [`W9/components/ReactNativeMaps.md`](../../1_hoca_notlari/W9/components/
 - Kullanıcı konumu için `expo-location` izni gerekir; kaynakta yok (ders dışı ek bilgi).
 
 ### Leaflet (WebView + CDN)
-Kaynak: [`W9/components/ReactNativeLeaflet.md`](../../1_hoca_notlari/W9/components/ReactNativeLeaflet.md)
+Kaynak: [`W9/components/ReactNativeLeaflet.md`](../../1_hocanin_ders_materyali/W9/components/ReactNativeLeaflet.md)
 - Leaflet bir web harita kütüphanesi; RN'de `react-native-webview` içinde HTML olarak, Leaflet CDN'den yüklenir. [`W9/components/ReactNativeLeaflet.md:4`](https://github.com/zeki-ozen/MobileAppDevelopment/blob/7a13069/W9/components/ReactNativeLeaflet.md?plain=1#L4)
 - `react-native-webview-leaflet` Snack'te çalışmaz (TypeScript entry). [`W9/components/ReactNativeLeaflet.md:7`](https://github.com/zeki-ozen/MobileAppDevelopment/blob/7a13069/W9/components/ReactNativeLeaflet.md?plain=1#L7)
 - Kullanım: `<WebView originWhitelist={['*']} source={{ html }} />`; HTML içinde `L.map`, `L.tileLayer` (OpenStreetMap), `L.marker`. [`W9/components/ReactNativeLeaflet.md:49-55`](https://github.com/zeki-ozen/MobileAppDevelopment/blob/7a13069/W9/components/ReactNativeLeaflet.md?plain=1#L49-L55), [`W9/components/ReactNativeLeaflet.md:78-80`](https://github.com/zeki-ozen/MobileAppDevelopment/blob/7a13069/W9/components/ReactNativeLeaflet.md?plain=1#L78-L80)
@@ -415,7 +415,7 @@ Testler (unit/widget), platform özellikleri (kamera, konum, bildirim, sensör, 
 | 14 | [`W8/Axios.md:9`](https://github.com/zeki-ozen/MobileAppDevelopment/blob/7a13069/W8/Axios.md?plain=1#L9), `:567` | `axios.CancelToken` öneriliyor. | Axios v0.22'den beri deprecated; `AbortController` (`signal`) kullanılmalı. |
 | 15 | [`W8/ErrorHandling.md:482`](https://github.com/zeki-ozen/MobileAppDevelopment/blob/7a13069/W8/ErrorHandling.md?plain=1#L482) | Örnek 2'de `'timeout'` mesajı kontrol ediliyor. | O örnekte timeout mekanizması yok; dal hiç çalışmaz (küçük). |
 | 16 | [`W9/components/Notifications.md:33`](https://github.com/zeki-ozen/MobileAppDevelopment/blob/7a13069/W9/components/Notifications.md?plain=1#L33) | `shouldShowAlert: true` | Expo SDK 53'ten beri deprecated; `shouldShowBanner` ve `shouldShowList`. |
-| 17 | [`W9/README.md:9`](https://github.com/zeki-ozen/MobileAppDevelopment/blob/7a13069/W9/README.md?plain=1#L9) vs [`W9/components/Notifications.md`](../../1_hoca_notlari/W9/components/Notifications.md) | Her not "iki çalışır örnek" içerir deniyor. | Notifications dosyasında tek örnek var; zamanlanmış bildirim, iptal ve tıklama dinleyicisi örneklenmemiş (`:110-114` arası boş). |
+| 17 | [`W9/README.md:9`](https://github.com/zeki-ozen/MobileAppDevelopment/blob/7a13069/W9/README.md?plain=1#L9) vs [`W9/components/Notifications.md`](../../1_hocanin_ders_materyali/W9/components/Notifications.md) | Her not "iki çalışır örnek" içerir deniyor. | Notifications dosyasında tek örnek var; zamanlanmış bildirim, iptal ve tıklama dinleyicisi örneklenmemiş (`:110-114` arası boş). |
 | 18 | [`W9/components/ReactNativeLeaflet.md:17-19`](https://github.com/zeki-ozen/MobileAppDevelopment/blob/7a13069/W9/components/ReactNativeLeaflet.md?plain=1#L17-L19) | Key Concepts: `mapCenterPosition`, `mapMarkers`, `mapShapes`. | Bunlar `react-native-webview-leaflet` prop'ları; dosya bu paketi kullanmıyor (`:7`), örneklerde geçmiyor. |
 | 19 | `W9` ve `W8` tüm örnekler (ör. [`W9/components/Camera.md:25`](https://github.com/zeki-ozen/MobileAppDevelopment/blob/7a13069/W9/components/Camera.md?plain=1#L25)) | `SafeAreaView` `react-native`'den. | RN 0.81'de deprecated; `react-native-safe-area-context` önerilir (ders dışı ek bilgi). |
 | 20 | `mobile_final_project_EN.md:5` vs `:139` | Proje bireysel ("each student") ama sunumda "her takım üyesinin katkısı" isteniyor. | Bireysel mi takım mı belirsiz; hocaya sorulmalı. |

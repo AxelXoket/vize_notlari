@@ -1,6 +1,6 @@
 # TextInput ve W6 Bilesenleri: Soru-Cevap (arkadas referansi)
 
-Cevaplar [`W6/components/TextInput.md`](../../1_hoca_notlari/W6/components/TextInput.md) dosyasindaki ifadelerle uyumlu yazildi
+Cevaplar [`W6/components/TextInput.md`](../../1_hocanin_ders_materyali/W6/components/TextInput.md) dosyasindaki ifadelerle uyumlu yazildi
 ("onChange: Similar to onChangeText but provides the raw event object",
 "onEndEditing: Fires when the user finishes editing", "keyboardType: Sets the virtual keyboard type").
 

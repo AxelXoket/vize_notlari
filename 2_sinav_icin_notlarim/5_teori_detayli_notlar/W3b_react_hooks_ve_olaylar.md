@@ -1,6 +1,6 @@
 # Hafta 3 (B): Lifecycle & Effects, Events, Conditional/List Rendering, Hooks, Data Sharing
 
-> Kaynak: [`W3/05-lifecycle-and-effects.md`](../../1_hoca_notlari/W3/05-lifecycle-and-effects.md), [`W3/05-lifecycle-and-effects-example.jsx`](../../1_hoca_notlari/W3/05-lifecycle-and-effects-example.jsx), [`W3/06-event-handling.md`](../../1_hoca_notlari/W3/06-event-handling.md), [`W3/06-event-handling-example.jsx`](../../1_hoca_notlari/W3/06-event-handling-example.jsx), [`W3/07-conditional-rendering.md`](../../1_hoca_notlari/W3/07-conditional-rendering.md), [`W3/07-conditional-rendering-example.jsx`](../../1_hoca_notlari/W3/07-conditional-rendering-example.jsx), [`W3/08-list-rendering.md`](../../1_hoca_notlari/W3/08-list-rendering.md), [`W3/08-list-rendering-example.jsx`](../../1_hoca_notlari/W3/08-list-rendering-example.jsx), [`W3/09-hooks.md`](../../1_hoca_notlari/W3/09-hooks.md), [`W3/09-hooks-example.jsx`](../../1_hoca_notlari/W3/09-hooks-example.jsx), [`W3/10-data-sharing.md`](../../1_hoca_notlari/W3/10-data-sharing.md), [`W3/10-data-sharing-example.jsx`](../../1_hoca_notlari/W3/10-data-sharing-example.jsx)
+> Kaynak: [`W3/05-lifecycle-and-effects.md`](../../1_hocanin_ders_materyali/W3/05-lifecycle-and-effects.md), [`W3/05-lifecycle-and-effects-example.jsx`](../../1_hocanin_ders_materyali/W3/05-lifecycle-and-effects-example.jsx), [`W3/06-event-handling.md`](../../1_hocanin_ders_materyali/W3/06-event-handling.md), [`W3/06-event-handling-example.jsx`](../../1_hocanin_ders_materyali/W3/06-event-handling-example.jsx), [`W3/07-conditional-rendering.md`](../../1_hocanin_ders_materyali/W3/07-conditional-rendering.md), [`W3/07-conditional-rendering-example.jsx`](../../1_hocanin_ders_materyali/W3/07-conditional-rendering-example.jsx), [`W3/08-list-rendering.md`](../../1_hocanin_ders_materyali/W3/08-list-rendering.md), [`W3/08-list-rendering-example.jsx`](../../1_hocanin_ders_materyali/W3/08-list-rendering-example.jsx), [`W3/09-hooks.md`](../../1_hocanin_ders_materyali/W3/09-hooks.md), [`W3/09-hooks-example.jsx`](../../1_hocanin_ders_materyali/W3/09-hooks-example.jsx), [`W3/10-data-sharing.md`](../../1_hocanin_ders_materyali/W3/10-data-sharing.md), [`W3/10-data-sharing-example.jsx`](../../1_hocanin_ders_materyali/W3/10-data-sharing-example.jsx)
 >
 > Satır referansları `W3/dosya:SATIR` biçimindedir (repo köküne göre). "(ders dışı ek bilgi)" işaretli yerler materyalde yoktur.
 
@@ -17,7 +17,7 @@
 
 ---
 
-## 05. Lifecycle Methods ve useEffect ([`W3/05-lifecycle-and-effects.md`](../../1_hoca_notlari/W3/05-lifecycle-and-effects.md))
+## 05. Lifecycle Methods ve useEffect ([`W3/05-lifecycle-and-effects.md`](../../1_hocanin_ders_materyali/W3/05-lifecycle-and-effects.md))
 
 **Ana fikir:** Bir bileşenin (component) hayatı 3 evreden geçer: oluşturulma (mounting), güncellenme (updating), kaldırılma (unmounting). Class component'lerde her evre için override edilen lifecycle method'lar vardır; function component'lerde bunların hepsinin yerini `useEffect` alır (yan etkiler / side effects, veri çekme, temizlik). [`W3/05-lifecycle-and-effects.md:3`](https://github.com/zeki-ozen/MobileAppDevelopment/blob/7a13069/W3/05-lifecycle-and-effects.md?plain=1#L3), `:79`
 
@@ -69,7 +69,7 @@
 | `shouldComponentUpdate` | `React.memo` / `useMemo` (ders dışı ek bilgi) | materyalde eşleme yok |
 | `getSnapshotBeforeUpdate` / DOM ölçme | `useLayoutEffect` yakın karşılık (ders dışı eşleme) | [`W3/09-hooks.md:222-224`](https://github.com/zeki-ozen/MobileAppDevelopment/blob/7a13069/W3/09-hooks.md?plain=1#L222-L224) |
 
-### Örnek dosya: [`W3/05-lifecycle-and-effects-example.jsx`](../../1_hoca_notlari/W3/05-lifecycle-and-effects-example.jsx)
+### Örnek dosya: [`W3/05-lifecycle-and-effects-example.jsx`](../../1_hocanin_ders_materyali/W3/05-lifecycle-and-effects-example.jsx)
 
 - **`LifecycleClass`** (`:4-47`): state `{count, message}`; `componentDidMount` içinde `setState({message: 'Component mounted successfully'})` (`:16`) yapar, bu yüzden mount sonrası ikinci bir render + `componentDidUpdate` olur. `componentDidUpdate`, `prevState.count !== this.state.count` ise değişimi loglar (`:21-23`).
 - **`LifecycleFunctional`** (`:50-84`): aynı davranışın hook'lu hali. `[]` effect mount mesajını set eder (`:55-58`), `[count]` effect sayaç değişimini loglar (`:61-63`), ayrı bir `[]` effect sadece cleanup döndürür (`:66-70`). `setCount(prevCount => prevCount + 1)` functional update (`:73`).
@@ -88,7 +88,7 @@
 
 ---
 
-## 06. Event Handling ([`W3/06-event-handling.md`](../../1_hoca_notlari/W3/06-event-handling.md))
+## 06. Event Handling ([`W3/06-event-handling.md`](../../1_hocanin_ders_materyali/W3/06-event-handling.md))
 
 **Ana fikir:** React event sistemi DOM'a benzer ama event isimleri `camelCase` (`onClick`, `onChange`, `onSubmit`) ve handler'a string değil **fonksiyon** verilir. [`W3/06-event-handling.md:3`](https://github.com/zeki-ozen/MobileAppDevelopment/blob/7a13069/W3/06-event-handling.md?plain=1#L3)
 
@@ -101,7 +101,7 @@
 - **Synthetic Events** (6.3): React tarayıcının native event'ini sarmalayan, tüm tarayıcılarda aynı API'yi veren `SyntheticEvent` objesi verir (cross-browser). `e.target` olayı tetikleyen DOM elemanıdır; `e.target.value` input değeri. `:89`, `:92-98`
 - **Default davranışı engelleme** (6.4): `e.preventDefault()` (form submit sayfa yenileme, link navigasyonu). React'te `return false` ile engellenmez (ders dışı ek bilgi). `:103-113`
 
-### Örnek dosya: [`W3/06-event-handling-example.jsx`](../../1_hoca_notlari/W3/06-event-handling-example.jsx)
+### Örnek dosya: [`W3/06-event-handling-example.jsx`](../../1_hocanin_ders_materyali/W3/06-event-handling-example.jsx)
 - **`ButtonClicker`** (`:4-14`): `onClick={handleClick}` ile `alert`.
 - **`FormExample`** (`:17-38`): **controlled input**: `value={name}` + `onChange={handleChange}` içinde `setName(e.target.value)` (`:25-27`, `:33`); `handleSubmit` içinde `e.preventDefault()` (`:21`); form `onSubmit`, buton `type="submit"` (`:30`, `:35`).
 - **`GreetingButton`** (`:41-52`): aynı handler'a farklı argümanlar: `greetUser('Alice')`, `greetUser('Bob')` (`:48-49`).
@@ -113,7 +113,7 @@
 
 ---
 
-## 07. Conditional Rendering ([`W3/07-conditional-rendering.md`](../../1_hoca_notlari/W3/07-conditional-rendering.md))
+## 07. Conditional Rendering ([`W3/07-conditional-rendering.md`](../../1_hocanin_ders_materyali/W3/07-conditional-rendering.md))
 
 **Ana fikir:** Koşula göre farklı eleman/bileşen render etmek; React'te ayrı bir sözdizimi yoktur, düz JavaScript (`if`, ternary, `&&`) kullanılır. [`W3/07-conditional-rendering.md:3`](https://github.com/zeki-ozen/MobileAppDevelopment/blob/7a13069/W3/07-conditional-rendering.md?plain=1#L3)
 
@@ -132,7 +132,7 @@
 - 7.2 `LoginControl` class'ı 7.1'deki `Greeting`'i kullanır, iki buton tipi `onClick` prop'u alır. `:54-86`
 - 7.5 `Page` class'ı `showWarning` state'ini toggle eder; buton yazısı ternary ile `'Hide' : 'Show'`. `:152-175`
 
-### Örnek dosya: [`W3/07-conditional-rendering-example.jsx`](../../1_hoca_notlari/W3/07-conditional-rendering-example.jsx)
+### Örnek dosya: [`W3/07-conditional-rendering-example.jsx`](../../1_hocanin_ders_materyali/W3/07-conditional-rendering-example.jsx)
 - **`BasicConditional`** (`:4-28`): ternary ile buton yazısı (`:12`) ve iki farklı blok (`:15-25`).
 - **`MultipleConditions`** (`:31-73`): `renderContent()` yardımcı fonksiyonunda `if / else if` zinciri: admin, user+verified, user+!verified, guest (`:35-45`); `<select>` ve checkbox controlled (`:53`, `:62-66`; checkbox için `e.target.checked`).
 - **`LoadingStates`** (`:76-108`): async `fetchData`, `disabled={loading}` (`:99`), üç ayrı `&&`: loading, error, `data && !loading` (`:103-105`).
@@ -147,7 +147,7 @@
 
 ---
 
-## 08. List Rendering ([`W3/08-list-rendering.md`](../../1_hoca_notlari/W3/08-list-rendering.md))
+## 08. List Rendering ([`W3/08-list-rendering.md`](../../1_hocanin_ders_materyali/W3/08-list-rendering.md))
 
 **Ana fikir:** Dizi verisi `Array.prototype.map()` ile JSX eleman dizisine dönüştürülüp render edilir; her elemana kardeşleri arasında benzersiz ve kararlı bir `key` verilir. [`W3/08-list-rendering.md:3`](https://github.com/zeki-ozen/MobileAppDevelopment/blob/7a13069/W3/08-list-rendering.md?plain=1#L3), `:7`
 
@@ -160,7 +160,7 @@
 - **Inline map** (8.4): `map()` doğrudan JSX içinde `{numbers.map(...)}`. `:92-107`
 - (ders dışı ek bilgi) `key` bir prop olarak alt bileşene iletilmez (`props.key` `undefined`); gerekirse ayrı prop (örn. `id`) olarak geçilmeli. Key eksikse console'da "Each child in a list should have a unique key prop" uyarısı çıkar.
 
-### Örnek dosya: [`W3/08-list-rendering-example.jsx`](../../1_hoca_notlari/W3/08-list-rendering-example.jsx)
+### Örnek dosya: [`W3/08-list-rendering-example.jsx`](../../1_hocanin_ders_materyali/W3/08-list-rendering-example.jsx)
 - **`NumberList`** (`:4-15`): sabit `[1..5]`, inline map, `key={number.toString()}`.
 - **`TodoList`** (`:18-34`): obje dizisi, `key={todo.id}`, `completed` ise ternary ile `line-through` stili (`:28`).
 - **`ListItem` + `ExtractedNumberList`** (`:37-47`): doğru kullanım, key `<ListItem key=... value=... />` üzerinde (`:44`), `ListItem` içinde key yok (`:38`).
@@ -172,7 +172,7 @@
 
 ---
 
-## 09. Hooks ([`W3/09-hooks.md`](../../1_hoca_notlari/W3/09-hooks.md))
+## 09. Hooks ([`W3/09-hooks.md`](../../1_hocanin_ders_materyali/W3/09-hooks.md))
 
 **Ana fikir:** Hook'lar function component'lerin React state ve lifecycle özelliklerine "hook into" olmasını sağlayan fonksiyonlardır; **React 16.8** ile geldi ve tercih edilen yazım biçimi oldu. [`W3/09-hooks.md:3`](https://github.com/zeki-ozen/MobileAppDevelopment/blob/7a13069/W3/09-hooks.md?plain=1#L3)
 
@@ -211,7 +211,7 @@
   - `useFetch(url)`: `{data, loading, error}` döner, `[url]` değişince yeniden fetch. `:358-377`
   - `useLocalStorage(key, initialValue)`: **lazy initial state** (`useState(() => ...)`) ile ilk değeri `localStorage`'dan okur, `JSON.parse`/`JSON.stringify`, `try/catch`; `[storedValue, setValue]` döner. `:382-402`
 
-### Örnek dosya: [`W3/09-hooks-example.jsx`](../../1_hoca_notlari/W3/09-hooks-example.jsx)
+### Örnek dosya: [`W3/09-hooks-example.jsx`](../../1_hocanin_ders_materyali/W3/09-hooks-example.jsx)
 - Tek satırda 5 hook import: `useState, useEffect, useContext, useReducer, useRef` (`:1`). `useMemo`/`useCallback` bu dosyada yok.
 - `CounterWithState` (`:4-13`), `DocumentTitleUpdater` (`:16-29`, `[count]` effect `:19-21`), `ThemeContext` + `ThemedButton` (`:32-41`, tema `'dark'` ise koyu stil `:37`), `reducer` + `CounterWithReducer` (`:44-70`), `FocusInput` (`:73-86`).
 - `App` (`:89-110`): `ThemedButton`'ı `<ThemeContext.Provider value="dark">` ile sarar (`:99-101`), böylece buton "Themed Button (dark)" gösterir.
@@ -223,7 +223,7 @@
 
 ---
 
-## 10. Data Sharing ([`W3/10-data-sharing.md`](../../1_hoca_notlari/W3/10-data-sharing.md))
+## 10. Data Sharing ([`W3/10-data-sharing.md`](../../1_hocanin_ders_materyali/W3/10-data-sharing.md))
 
 **Ana fikir:** React'te veri **tek yönlü** akar: parent -> child, props ile. Doğrudan ilişkili olmayan bileşenler veri paylaşacaksa: lifting state up, Context API, (derin ağaçta kaçınılacak) prop drilling veya state management kütüphaneleri. [`W3/10-data-sharing.md:3`](https://github.com/zeki-ozen/MobileAppDevelopment/blob/7a13069/W3/10-data-sharing.md?plain=1#L3)
 
@@ -251,7 +251,7 @@
 | Context API | Ağaç genelinde "global" veri | Ara katmanları atlar | Provider değeri değişince tüm consumer'lar re-render (ders dışı ek bilgi) |
 | Redux/MobX/Zustand | Büyük, karmaşık global state | Merkezi store, araçlar | Ek bağımlılık ve boilerplate |
 
-### Örnek dosya: [`W3/10-data-sharing-example.jsx`](../../1_hoca_notlari/W3/10-data-sharing-example.jsx)
+### Örnek dosya: [`W3/10-data-sharing-example.jsx`](../../1_hocanin_ders_materyali/W3/10-data-sharing-example.jsx)
 - **`ThemeProvider` / `UserProvider`** (`:8-39`): `ThemeContext` değeri `{theme, toggleTheme}` (`:16`), `UserContext` değeri `{user, login, logout}` (`:35`). `toggleTheme` functional update kullanır (`:12`).
 - **Custom context hook'ları `useTheme` / `useUser`** (`:42-56`): `createContext()` varsayılansız olduğundan Provider dışında `context` `undefined` olur, hook anlamlı bir hata fırlatır (`:44-46`, `:52-54`). İyi pratik.
 - **`ThemeToggle`** (`:59-75`), **`UserProfile`** (`:77-91`, `user` yoksa early return "Please log in" `:80-82`), **`LoginForm`** (`:93-124`, obje state'i spread ile güncellenir `:110`, `:118`; submit'te `preventDefault` + `login(formData)` `:97-101`).
@@ -280,7 +280,7 @@
 
 6. **`useEffect(fn)`, `useEffect(fn, [])`, `useEffect(fn, [count])` farkı?** Array yok: her render sonrası. `[]`: sadece ilk render sonrası bir kez. `[count]`: ilk render'da ve count değiştikçe. [`W3/05-lifecycle-and-effects.md:88-107`](https://github.com/zeki-ozen/MobileAppDevelopment/blob/7a13069/W3/05-lifecycle-and-effects.md?plain=1#L88-L107)
 
-7. **[`W3/05-lifecycle-and-effects.md`](../../1_hoca_notlari/W3/05-lifecycle-and-effects.md) içindeki `Timer` ilk mount'ta konsola ne yazar, butona bir kez basınca ne yazar?** Mount: `Effect ran`, `Effect ran only once`, `Count changed: 0`. Tık: `Cleanup ran`, `Effect ran`, `Count changed: 1` (`[]` effect tekrar çalışmaz). (StrictMode'da dev'de mount çift görünür, ders dışı.) [`W3/05-lifecycle-and-effects.md:89-107`](https://github.com/zeki-ozen/MobileAppDevelopment/blob/7a13069/W3/05-lifecycle-and-effects.md?plain=1#L89-L107)
+7. **[`W3/05-lifecycle-and-effects.md`](../../1_hocanin_ders_materyali/W3/05-lifecycle-and-effects.md) içindeki `Timer` ilk mount'ta konsola ne yazar, butona bir kez basınca ne yazar?** Mount: `Effect ran`, `Effect ran only once`, `Count changed: 0`. Tık: `Cleanup ran`, `Effect ran`, `Count changed: 1` (`[]` effect tekrar çalışmaz). (StrictMode'da dev'de mount çift görünür, ders dışı.) [`W3/05-lifecycle-and-effects.md:89-107`](https://github.com/zeki-ozen/MobileAppDevelopment/blob/7a13069/W3/05-lifecycle-and-effects.md?plain=1#L89-L107)
 
 8. **Cleanup function nedir, nasıl yazılır?** Effect callback'inin döndürdüğü fonksiyon; unmount'ta (ve deps'li effect yeniden çalışmadan önce) çalışır. Örn. `return () => clearInterval(interval);`. [`W3/05-lifecycle-and-effects-example.jsx:132`](https://github.com/zeki-ozen/MobileAppDevelopment/blob/7a13069/W3/05-lifecycle-and-effects-example.jsx#L132)
 
@@ -336,13 +336,13 @@
 
 34. **Context API'nin 3 adımı?** `createContext()`, `<Ctx.Provider value={...}>` ile sarma, `useContext(Ctx)` ile okuma. [`W3/10-data-sharing.md:65`](https://github.com/zeki-ozen/MobileAppDevelopment/blob/7a13069/W3/10-data-sharing.md?plain=1#L65), `:72`, `:80`
 
-35. **[`W3/10-data-sharing-example.jsx`](../../1_hoca_notlari/W3/10-data-sharing-example.jsx) içindeki `useTheme()` Provider dışında çağrılırsa ne olur?** `createContext()` varsayılansız olduğundan değer `undefined`; hook `Error('useTheme must be used within a ThemeProvider')` fırlatır. [`W3/10-data-sharing-example.jsx:4`](https://github.com/zeki-ozen/MobileAppDevelopment/blob/7a13069/W3/10-data-sharing-example.jsx#L4), `:42-47`
+35. **[`W3/10-data-sharing-example.jsx`](../../1_hocanin_ders_materyali/W3/10-data-sharing-example.jsx) içindeki `useTheme()` Provider dışında çağrılırsa ne olur?** `createContext()` varsayılansız olduğundan değer `undefined`; hook `Error('useTheme must be used within a ThemeProvider')` fırlatır. [`W3/10-data-sharing-example.jsx:4`](https://github.com/zeki-ozen/MobileAppDevelopment/blob/7a13069/W3/10-data-sharing-example.jsx#L4), `:42-47`
 
 36. **Redux'ta okuma ve yazma için hangi react-redux hook'ları?** `useSelector(state => state.count)` okuma, `useDispatch()` + `dispatch(increment())` yazma; uygulama `<Provider store={store}>` ile sarılır. [`W3/10-data-sharing.md:179-185`](https://github.com/zeki-ozen/MobileAppDevelopment/blob/7a13069/W3/10-data-sharing.md?plain=1#L179-L185), `:193`
 
 37. **`Calculator`'da Celsius kutusuna `100` yazılınca Fahrenheit kutusu ne gösterir?** `212` (`'100' * 9 / 5 + 32`, `*` string'i sayıya çevirir). [`W3/10-data-sharing.md:37`](https://github.com/zeki-ozen/MobileAppDevelopment/blob/7a13069/W3/10-data-sharing.md?plain=1#L37)
 
-38. **[`W3/05-lifecycle-and-effects.md`](../../1_hoca_notlari/W3/05-lifecycle-and-effects.md) `Timer`, React 18 `StrictMode` + development'ta mount olunca konsol?** `Effect ran`, `Effect ran only once`, `Count changed: 0`, sonra simüle unmount: `Cleanup ran`, sonra tekrar mount: `Effect ran`, `Effect ran only once`, `Count changed: 0`. Production'da çift çalışma yok. Unmount olunca yalnız `Cleanup ran`. (StrictMode davranışı ders dışı) [`W3/05-lifecycle-and-effects.md:89-107`](https://github.com/zeki-ozen/MobileAppDevelopment/blob/7a13069/W3/05-lifecycle-and-effects.md?plain=1#L89-L107)
+38. **[`W3/05-lifecycle-and-effects.md`](../../1_hocanin_ders_materyali/W3/05-lifecycle-and-effects.md) `Timer`, React 18 `StrictMode` + development'ta mount olunca konsol?** `Effect ran`, `Effect ran only once`, `Count changed: 0`, sonra simüle unmount: `Cleanup ran`, sonra tekrar mount: `Effect ran`, `Effect ran only once`, `Count changed: 0`. Production'da çift çalışma yok. Unmount olunca yalnız `Cleanup ran`. (StrictMode davranışı ders dışı) [`W3/05-lifecycle-and-effects.md:89-107`](https://github.com/zeki-ozen/MobileAppDevelopment/blob/7a13069/W3/05-lifecycle-and-effects.md?plain=1#L89-L107)
 
 39. **`LifecycleClass`'ta Increment'e basınca ve bileşen Toggle ile kaldırılınca log?** Tık: `Render called`, `Component did update`, `Count changed from 0 to 1`. Kaldırma: `Component will unmount`. [`W3/05-lifecycle-and-effects-example.jsx:20-27`](https://github.com/zeki-ozen/MobileAppDevelopment/blob/7a13069/W3/05-lifecycle-and-effects-example.jsx#L20-L27), `:37`
 
@@ -366,7 +366,7 @@
 
 49. **`ThemedButton` Provider olmadan render edilirse ne yazar?** "Themed Button (light)" (createContext varsayılanı). Örnekte Provider `value="dark"` olduğu için "Themed Button (dark)". [`W3/09-hooks-example.jsx:32-39`](https://github.com/zeki-ozen/MobileAppDevelopment/blob/7a13069/W3/09-hooks-example.jsx#L32-L39), `:99-101`
 
-50. **[`W3/10-data-sharing-example.jsx`](../../1_hoca_notlari/W3/10-data-sharing-example.jsx) Context bölümü ilk açılışta ne gösterir?** Buton "Switch to dark theme", "Please log in", boş Name/Email formu. Login sonrası "Welcome, {name}!" + Email + Logout; `LoginForm` görünmeye devam eder ve alanları sıfırlanır. [`W3/10-data-sharing-example.jsx:72`](https://github.com/zeki-ozen/MobileAppDevelopment/blob/7a13069/W3/10-data-sharing-example.jsx#L72), `:80-82`, `:97-101`
+50. **[`W3/10-data-sharing-example.jsx`](../../1_hocanin_ders_materyali/W3/10-data-sharing-example.jsx) Context bölümü ilk açılışta ne gösterir?** Buton "Switch to dark theme", "Please log in", boş Name/Email formu. Login sonrası "Welcome, {name}!" + Email + Logout; `LoginForm` görünmeye devam eder ve alanları sıfırlanır. [`W3/10-data-sharing-example.jsx:72`](https://github.com/zeki-ozen/MobileAppDevelopment/blob/7a13069/W3/10-data-sharing-example.jsx#L72), `:80-82`, `:97-101`
 
 51. **`TodoApp`'te iki todo ekleyip birincisini işaretleyince "Active" filtresi neyi gösterir?** Yalnız ikinci todo; `filteredTodos` `!todo.completed` ile süzer, state'teki `todos` değişmez (derived değer). [`W3/10-data-sharing-example.jsx:253-257`](https://github.com/zeki-ozen/MobileAppDevelopment/blob/7a13069/W3/10-data-sharing-example.jsx#L253-L257)
 

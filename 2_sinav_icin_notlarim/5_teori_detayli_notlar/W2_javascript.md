@@ -1,7 +1,7 @@
 # Hafta 2: JavaScript & ES6 Temelleri
 
 > Kaynak klasör: `W2/`
-> Dosyalar: [`W2/README.md`](../../1_hoca_notlari/W2/README.md), [`W2/topics/00_Fundamentals_of_JavaScript.html`](../../1_hoca_notlari/W2/topics/00_Fundamentals_of_JavaScript.md), `00_fundamentals.js`, `01_Using_JS_in_HTML.html`, `01_using_js_in_html.js`, `02_Running_JS_Standalone.html`, `02_standalone.js`, `03_Variables_and_Constants.html`, `03_variables_constants.js`, `04_Data_Types.html`, `04_data_types.js`, `05_Operators_and_Expressions.html`, `05_operators.js`, `06_Control_Flow.html`, `06_control_flow.js`, `07_Loops_and_Iteration.html`, `07_loops.js`, `08_Functions_and_Arrow_Functions.html`, `08_functions.js`, `09_Arrays_and_Iteration_Methods.html`, `09_arrays.js`, `10_Modules_and_Imports.html`, `10_math_utils.js`, `10_module_main.js`, `deneme.html`, `first.js` (atlananlar: `styles.css`, `README.html`)
+> Dosyalar: [`W2/README.md`](../../1_hocanin_ders_materyali/W2/README.md), [`W2/topics/00_Fundamentals_of_JavaScript.html`](../../1_hocanin_ders_materyali/W2/topics/00_Fundamentals_of_JavaScript.md), `00_fundamentals.js`, `01_Using_JS_in_HTML.html`, `01_using_js_in_html.js`, `02_Running_JS_Standalone.html`, `02_standalone.js`, `03_Variables_and_Constants.html`, `03_variables_constants.js`, `04_Data_Types.html`, `04_data_types.js`, `05_Operators_and_Expressions.html`, `05_operators.js`, `06_Control_Flow.html`, `06_control_flow.js`, `07_Loops_and_Iteration.html`, `07_loops.js`, `08_Functions_and_Arrow_Functions.html`, `08_functions.js`, `09_Arrays_and_Iteration_Methods.html`, `09_arrays.js`, `10_Modules_and_Imports.html`, `10_math_utils.js`, `10_module_main.js`, `deneme.html`, `first.js` (atlananlar: `styles.css`, `README.html`)
 > Satır referansları repo köküne göredir. `.js` dosyalarının çoğu tarayıcıda butona basınca çalışır; çıktılar elle izlendi (node yok).
 
 ## İçindekiler
@@ -22,12 +22,12 @@
 - [Olası sınav soruları ve kısa cevaplar](#sorular)
 - [Materyalde hata / eksik / güncel olmayan bilgi](#hatalar)
 
-README özeti ([`W2/README.md`](../../1_hoca_notlari/W2/README.md)): her ders HTML'i bir "Teaching Notes" paneliyle açılır ([`W2/README.md:28`](https://github.com/zeki-ozen/MobileAppDevelopment/blob/7a13069/W2/README.md?plain=1#L28)); örnekler ES6+ ([`W2/README.md:29`](https://github.com/zeki-ozen/MobileAppDevelopment/blob/7a13069/W2/README.md?plain=1#L29)); modül dersi (`10`) bir HTTP sunucusu (Live Server, Vite, `npx serve`) üzerinden açılmalı, `file://` ile değil ([`W2/README.md:30`](https://github.com/zeki-ozen/MobileAppDevelopment/blob/7a13069/W2/README.md?plain=1#L30)); `02_standalone.js` aynı kodun Node ve tarayıcıda paylaşımını gösterir ([`W2/README.md:31`](https://github.com/zeki-ozen/MobileAppDevelopment/blob/7a13069/W2/README.md?plain=1#L31)).
+README özeti ([`W2/README.md`](../../1_hocanin_ders_materyali/W2/README.md)): her ders HTML'i bir "Teaching Notes" paneliyle açılır ([`W2/README.md:28`](https://github.com/zeki-ozen/MobileAppDevelopment/blob/7a13069/W2/README.md?plain=1#L28)); örnekler ES6+ ([`W2/README.md:29`](https://github.com/zeki-ozen/MobileAppDevelopment/blob/7a13069/W2/README.md?plain=1#L29)); modül dersi (`10`) bir HTTP sunucusu (Live Server, Vite, `npx serve`) üzerinden açılmalı, `file://` ile değil ([`W2/README.md:30`](https://github.com/zeki-ozen/MobileAppDevelopment/blob/7a13069/W2/README.md?plain=1#L30)); `02_standalone.js` aynı kodun Node ve tarayıcıda paylaşımını gösterir ([`W2/README.md:31`](https://github.com/zeki-ozen/MobileAppDevelopment/blob/7a13069/W2/README.md?plain=1#L31)).
 
 ---
 
 <a id="00"></a>
-## 00. JavaScript Temelleri ([`W2/topics/00_Fundamentals_of_JavaScript.html`](../../1_hoca_notlari/W2/topics/00_Fundamentals_of_JavaScript.md))
+## 00. JavaScript Temelleri ([`W2/topics/00_Fundamentals_of_JavaScript.html`](../../1_hocanin_ders_materyali/W2/topics/00_Fundamentals_of_JavaScript.md))
 
 **Ana fikir:** JS, Brendan Eich'in 1995'te Netscape'te yarattığı high-level, interpreted (pratikte JIT-compiled) bir dil. TC39 komitesi ECMAScript spesifikasyonu olarak standartlaştırır (`:14-17`).
 
@@ -81,7 +81,7 @@ Tip: Open the console (⌥⌘I on macOS) ...   (console.info)
 ---
 
 <a id="01"></a>
-## 01. HTML içinde JavaScript ([`W2/topics/01_Using_JS_in_HTML.html`](../../1_hoca_notlari/W2/topics/01_Using_JS_in_HTML.md))
+## 01. HTML içinde JavaScript ([`W2/topics/01_Using_JS_in_HTML.html`](../../1_hocanin_ders_materyali/W2/topics/01_Using_JS_in_HTML.md))
 
 **Ana fikir:** JS HTML'e inline `<script>`, harici dosya (`src`), event handler attribute'u (`onclick`) veya `type="module"` ile eklenir.
 
@@ -103,7 +103,7 @@ Tip: Open the console (⌥⌘I on macOS) ...   (console.info)
 ---
 
 <a id="02"></a>
-## 02. JavaScript'i tek başına çalıştırma ([`W2/topics/02_Running_JS_Standalone.html`](../../1_hoca_notlari/W2/topics/02_Running_JS_Standalone.md))
+## 02. JavaScript'i tek başına çalıştırma ([`W2/topics/02_Running_JS_Standalone.html`](../../1_hocanin_ders_materyali/W2/topics/02_Running_JS_Standalone.md))
 
 **Ana fikir:** JS sadece tarayıcıda değil, Node.js / Deno / Bun ile komut satırında da çalışır (`:14`).
 
@@ -127,7 +127,7 @@ Tip: Open the console (⌥⌘I on macOS) ...   (console.info)
 ---
 
 <a id="03"></a>
-## 03. Variables and Constants ([`W2/topics/03_Variables_and_Constants.html`](../../1_hoca_notlari/W2/topics/03_Variables_and_Constants.md))
+## 03. Variables and Constants ([`W2/topics/03_Variables_and_Constants.html`](../../1_hocanin_ders_materyali/W2/topics/03_Variables_and_Constants.md))
 
 **Ana fikir:** Modern JS'de `let` ve `const` block-scoped; `var` function-scoped ve legacy. Varsayılan `const`, yeniden atama gerekiyorsa `let`, `var` yok (`:15-17`, `:147-154`).
 
@@ -188,7 +188,7 @@ Hoisting demo completed.
 ---
 
 <a id="04"></a>
-## 04. Data Types ([`W2/topics/04_Data_Types.html`](../../1_hoca_notlari/W2/topics/04_Data_Types.md))
+## 04. Data Types ([`W2/topics/04_Data_Types.html`](../../1_hocanin_ders_materyali/W2/topics/04_Data_Types.md))
 
 **Ana fikir:** 7 primitive tip + reference (object) tipler. Primitive'ler by value kopyalanır ve immutable; reference tipler pointer kopyalar, mutasyon tüm referansları etkiler (`:15-17`, `:28`, `:34`, `:109`).
 
@@ -238,7 +238,7 @@ Hoisting demo completed.
 ---
 
 <a id="05"></a>
-## 05. Operators and Expressions ([`W2/topics/05_Operators_and_Expressions.html`](../../1_hoca_notlari/W2/topics/05_Operators_and_Expressions.md))
+## 05. Operators and Expressions ([`W2/topics/05_Operators_and_Expressions.html`](../../1_hocanin_ders_materyali/W2/topics/05_Operators_and_Expressions.md))
 
 **Ana fikir:** Aritmetik, karşılaştırma, mantıksal, atama ve özel operatörler; strict karşılaştırma tercih edilir, `+` string ile coercion yapar, öncelik parantezle netleştirilir (`:15-21`).
 
@@ -300,7 +300,7 @@ Ternary Example: Left is larger
 ---
 
 <a id="06"></a>
-## 06. Control Flow ([`W2/topics/06_Control_Flow.html`](../../1_hoca_notlari/W2/topics/06_Control_Flow.md))
+## 06. Control Flow ([`W2/topics/06_Control_Flow.html`](../../1_hocanin_ders_materyali/W2/topics/06_Control_Flow.md))
 
 **Ana fikir:** Program akışını koşullarla yönetmek: `if/else`, `switch`, ternary, truthy/falsy, guard clause (`:15-18`, `:27`).
 
@@ -338,7 +338,7 @@ console.log("You can drive");
 ---
 
 <a id="07"></a>
-## 07. Loops and Iteration ([`W2/topics/07_Loops_and_Iteration.html`](../../1_hoca_notlari/W2/topics/07_Loops_and_Iteration.md))
+## 07. Loops and Iteration ([`W2/topics/07_Loops_and_Iteration.html`](../../1_hocanin_ders_materyali/W2/topics/07_Loops_and_Iteration.md))
 
 **Ana fikir:** Kod tekrarı: iterasyon sayısı biliniyorsa `for`, bilinmiyorsa `while`/`do...while`; değerler için `for...of`, anahtarlar için `for...in`; deklaratif array helper'lar (`:15-18`).
 
@@ -395,7 +395,7 @@ forEach 3: Read MDN documentation
 ---
 
 <a id="08"></a>
-## 08. Functions and Arrow Functions ([`W2/topics/08_Functions_and_Arrow_Functions.html`](../../1_hoca_notlari/W2/topics/08_Functions_and_Arrow_Functions.md))
+## 08. Functions and Arrow Functions ([`W2/topics/08_Functions_and_Arrow_Functions.html`](../../1_hocanin_ders_materyali/W2/topics/08_Functions_and_Arrow_Functions.md))
 
 **Ana fikir:** Fonksiyon tanımlamanın yolları (declaration, expression, arrow, IIFE) ve farkları; pure function, closure, higher-order, composition (`:15-18`).
 
@@ -430,7 +430,7 @@ forEach 3: Read MDN documentation
 ---
 
 <a id="09"></a>
-## 09. Arrays and Iteration Methods ([`W2/topics/09_Arrays_and_Iteration_Methods.html`](../../1_hoca_notlari/W2/topics/09_Arrays_and_Iteration_Methods.md))
+## 09. Arrays and Iteration Methods ([`W2/topics/09_Arrays_and_Iteration_Methods.html`](../../1_hocanin_ders_materyali/W2/topics/09_Arrays_and_Iteration_Methods.md))
 
 **Ana fikir:** Array'ler sıralı, zero-indexed, mutable koleksiyonlar. Mutate eden metotlar (push, splice) ile kopya döndürenler (slice, map) ayrımı; spread/rest, destructuring, map/filter/reduce (`:15-18`).
 
@@ -496,7 +496,7 @@ let a = 1, b = 2; [a, b] = [b, a];        // swap → 2 1
 ---
 
 <a id="10"></a>
-## 10. ES6 Modules and Imports ([`W2/topics/10_Modules_and_Imports.html`](../../1_hoca_notlari/W2/topics/10_Modules_and_Imports.md))
+## 10. ES6 Modules and Imports ([`W2/topics/10_Modules_and_Imports.html`](../../1_hocanin_ders_materyali/W2/topics/10_Modules_and_Imports.md))
 
 **Ana fikir:** ES modules kodu dosyalar arasında standart şekilde paylaştırır: encapsulation, dependency yönetimi, tree-shaking (`:15`, `:27`).
 
@@ -559,7 +559,7 @@ Remember: modules are evaluated once and cached.
 ---
 
 <a id="ek"></a>
-## Ek: deneme.html + first.js ([`W2/topics/deneme.html`](../../1_hoca_notlari/W2/topics/deneme.md), [`W2/topics/first.js`](../../1_hoca_notlari/W2/topics/first.js))
+## Ek: deneme.html + first.js ([`W2/topics/deneme.html`](../../1_hocanin_ders_materyali/W2/topics/deneme.md), [`W2/topics/first.js`](../../1_hocanin_ders_materyali/W2/topics/first.js))
 
 Sınıfta yazılmış deneme dosyaları (README'deki listede yok).
 - `first.js`: harici JS dosyası örneği; veri tipleri (number, float, string, boolean, array, object, `null`, `undefined`, `BigInt` literal `...890n`, `Symbol("unique")`) ([`W2/topics/first.js:6-18`](https://github.com/zeki-ozen/MobileAppDevelopment/blob/7a13069/W2/topics/first.js#L6-L18)); `while` + `numbers.shift()` döngüsü (`:21-30`); yorumda `for` ve `forEach` alternatifleri (`:32-41`).
