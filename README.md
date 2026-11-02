@@ -15,20 +15,23 @@
 
 ## Kod sorusunda hangi şablon
 
+🟢 = **hocanın bir örneğiyle birebir uyuşuyor**: aynı işi yapıyor ve hocanın o örnekte kullandığı her bileşen şablonda var (SafeAreaView sayılmadı, şablon 14'te gösteriliyor). Hocanın derste anlattığına en yakın şablonlar bunlar. Diğerleri hocanın kalıplarıyla yazıldı ama hocada aynı işi yapan tam bir örnek yok ya da bir bileşen farklı (örnek: `Button` yerine `TouchableOpacity`).
+
 | Soruda bu varsa | Şablon |
 |---|---|
 | Sayı gir, butona bas, sonucu göster (dönüştürücü) | [01_sayi_gir_sonuc_goster](2_sinav_icin_notlarim/2_kod_sorusu_hazir_sablonlar/01_sayi_gir_sonuc_goster/App.js) |
 | İki giriş, hesapla, sonuca göre renk | [02_iki_girisli_hesaplayici](2_sinav_icin_notlarim/2_kod_sorusu_hazir_sablonlar/02_iki_girisli_hesaplayici/App.js) |
 | Listeden seç, seçileni say, seçiliye farklı renk | [03_listeden_sec_ve_say](2_sinav_icin_notlarim/2_kod_sorusu_hazir_sablonlar/03_listeden_sec_ve_say/App.js) |
 | Resim ızgarası | [04_resim_galerisi](2_sinav_icin_notlarim/2_kod_sorusu_hazir_sablonlar/04_resim_galerisi/App.js) |
-| Form, giriş alanları, hata mesajları | [05_form_ve_dogrulama](2_sinav_icin_notlarim/2_kod_sorusu_hazir_sablonlar/05_form_ve_dogrulama/App.js) |
-| Açılır menü (Picker), checkbox, radio | [06 paketli](2_sinav_icin_notlarim/2_kod_sorusu_hazir_sablonlar/06_acilir_menu_checkbox_radio_paketli/App.js) ya da [07 paketsiz](2_sinav_icin_notlarim/2_kod_sorusu_hazir_sablonlar/07_acilir_menu_checkbox_radio_paketsiz/App.js) |
+| Form, giriş alanları, hata mesajları | 🟢 [05_form_ve_dogrulama](2_sinav_icin_notlarim/2_kod_sorusu_hazir_sablonlar/05_form_ve_dogrulama/App.js) (hocanın örneği: [W4 State, Örnek 2: Form State Management](1_hocanin_ders_materyali/W4/5-react-native-state.md#example-2-form-state-management), [W6 RadioButton, Örnek 1](1_hocanin_ders_materyali/W6/components/RadioButton.md#example-1-module-selection)) |
+| Açılır menü (Picker), checkbox, radio | 🟢 [06 paketli](2_sinav_icin_notlarim/2_kod_sorusu_hazir_sablonlar/06_acilir_menu_checkbox_radio_paketli/App.js) (hocanın örneği: [W6 Picker, Örnek 1](1_hocanin_ders_materyali/W6/components/Picker.md#example-1-course-level-selector), [W6 Checkbox, Örnek 1](1_hocanin_ders_materyali/W6/components/Checkbox.md#example-1-lesson-task-list), [W6 RadioButton, Örnek 1](1_hocanin_ders_materyali/W6/components/RadioButton.md#example-1-module-selection)) ya da [07 paketsiz](2_sinav_icin_notlarim/2_kod_sorusu_hazir_sablonlar/07_acilir_menu_checkbox_radio_paketsiz/App.js) |
 | Ekle / sil / tamamla listesi | [08_ekle_sil_listesi](2_sinav_icin_notlarim/2_kod_sorusu_hazir_sablonlar/08_ekle_sil_listesi/App.js) |
-| Arama kutusu, filtre, sıralama | [09_arama_ve_filtre](2_sinav_icin_notlarim/2_kod_sorusu_hazir_sablonlar/09_arama_ve_filtre/App.js) |
+| Arama kutusu, filtre, sıralama | 🟢 [09_arama_ve_filtre](2_sinav_icin_notlarim/2_kod_sorusu_hazir_sablonlar/09_arama_ve_filtre/App.js) (hocanın örneği: [W6 TextInput, Örnek 2: Search Bar Filtering a List](1_hocanin_ders_materyali/W6/components/TextInput.md#example-2-search-bar-filtering-a-list)) |
 | "Veriyi şu linkten çek" | [10_linkten_veri_cek](2_sinav_icin_notlarim/2_kod_sorusu_hazir_sablonlar/10_linkten_veri_cek/App.js) |
 | Verilen ekran görüntüsünü aynen çiz | [11_ekran_tasarimi_kopyala](2_sinav_icin_notlarim/2_kod_sorusu_hazir_sablonlar/11_ekran_tasarimi_kopyala/App.js) |
-| Sayaç, zamanlayıcı | [12_sayac_ve_kronometre](2_sinav_icin_notlarim/2_kod_sorusu_hazir_sablonlar/12_sayac_ve_kronometre/App.js) |
+| Sayaç, zamanlayıcı | 🟢 [12_sayac_ve_kronometre](2_sinav_icin_notlarim/2_kod_sorusu_hazir_sablonlar/12_sayac_ve_kronometre/App.js) (hocanın örneği: [W4 Hooks, useEffect Örnek 2: Timer](1_hocanin_ders_materyali/W4/6-react-native-hooks.md#example-2-timer), [W4 State, Örnek 1: Simple Counter](1_hocanin_ders_materyali/W4/5-react-native-state.md#example-1-simple-counter)) |
 | Birden çok ekran, sekme, geri butonu | [13_cok_ekranli_uygulama](2_sinav_icin_notlarim/2_kod_sorusu_hazir_sablonlar/13_cok_ekranli_uygulama/App.js) |
+| SafeAreaView, çekirdek Button, ikon, aşağı çekip yenileme, resim sığdırma | [14_hocanin_kaliplari](2_sinav_icin_notlarim/2_kod_sorusu_hazir_sablonlar/14_hocanin_kaliplari/App.js) |
 
 Snack'te çalışır halde açmak için: [şablon tablosu](2_sinav_icin_notlarim/2_kod_sorusu_hazir_sablonlar), sağdaki **"Snack'te aç"**.
 

@@ -49,6 +49,9 @@ Sınavda neredeyse her değişiklik şu üç yerden birindedir: **3 (ayarlar)**,
 | `<Image source={{ uri: '...' }} />` | Resim | |
 | `<TouchableOpacity onPress={sil}>` | Basılabilir alan | "Buna basınca sil işini yap" |
 | `<FlatList data={liste} renderItem={...} />` | Liste ekranı | "liste'deki her şey için bir satır çiz" |
+| `<SafeAreaView>` | En dış kutu, iPhone'da içeriği çentiğin altına sokmaz (Android'de düz View) | Hocanın W6 örnekleri bununla başlar |
+| `<Button title="Save" onPress={handleSave} />` | Hazır buton, `style` almaz | "Save yazan düz buton" |
+| `<Ionicons name="star" size={24} />` | İkon | "24 boyutunda yıldız" |
 | `{sayi}` (etiketlerin arasında) | Hafızadaki değeri ekrana bas | |
 | `style={styles.baslik}` | Görünüş | "baslik stilini kullan" |
 | `{kosul && <Text>...</Text>}` | Koşullu gösterme | "Koşul doğruysa bunu göster" |

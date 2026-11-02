@@ -34,6 +34,7 @@ Sorudaki her cümle ayrı bir istek, çoğu zaman ayrı puan. Madde madde yaz ve
 | Verilen ekranı birebir çiz (kart, profil, düzen) | [11_ekran_tasarimi_kopyala](2_kod_sorusu_hazir_sablonlar/11_ekran_tasarimi_kopyala/App.js) |
 | Sayaç, zamanlayıcı, kronometre | [12_sayac_ve_kronometre](2_kod_sorusu_hazir_sablonlar/12_sayac_ve_kronometre/App.js) |
 | Birden çok ekran, sekme, geri butonu, modal | [13_cok_ekranli_uygulama](2_kod_sorusu_hazir_sablonlar/13_cok_ekranli_uygulama/App.js) |
+| SafeAreaView, çekirdek `Button`, ikon, aşağı çekip yenileme, `resizeMode` | [14_hocanin_kaliplari](2_kod_sorusu_hazir_sablonlar/14_hocanin_kaliplari/App.js) (başka şablona eklemek için: [şablon README'si](2_kod_sorusu_hazir_sablonlar/README.md#hocanın-5-parçasını-başka-bir-şablona-eklemek)) |
 
 Her şablonun en üstündeki yorumda **"NASIL UYARLANIR"** bölümü var: neyi nereden değiştireceğin yazar. Renkler dosyanın başındaki `COLORS` sabitinde.
 
