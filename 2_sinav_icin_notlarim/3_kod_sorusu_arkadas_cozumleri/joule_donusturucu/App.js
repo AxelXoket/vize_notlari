@@ -35,7 +35,7 @@ const COLORS = {
 };
 
 // Ekrandaki yazilar
-const TITLE = 'Joule to → cal / kcal Converter';
+const TITLE = 'Joule → cal / kcal Converter';
 const LABEL = 'Joule';
 
 // Sadece rakam ve tek bir ondalik ayirici birakir; virgulu noktaya cevirir ("12,5" -> "12.5")
