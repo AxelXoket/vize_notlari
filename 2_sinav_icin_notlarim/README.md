@@ -7,6 +7,7 @@ Kaynak: hocanın materyali ([1_hocanin_ders_materyali](../1_hocanin_ders_materya
 
 | | Ne | Ne zaman |
 |---|---|---|
+| [0_kod_okuma_rehberi.md](0_kod_okuma_rehberi.md) | Bir App.js'in bölümleri, kod sözlüğü, `Cmd+F` ile okuma, en sık 8 değişiklik | Kod yabancı geliyorsa önce bunu |
 | [1_sinavda_ne_yapacagim_rehber.md](1_sinavda_ne_yapacagim_rehber.md) | Sınav günü adım adım: klasör yapısı, Snack/Expo, hata ayıklama | Sınavdan önce bir kez oku |
 | [2_kod_sorusu_hazir_sablonlar](2_kod_sorusu_hazir_sablonlar) | 13 hazır, çalıştırılıp denenmiş `App.js` şablonu (form, liste, seçim, dönüştürücü...) | Sınavda kopyala, uyarla |
 | [3_kod_sorusu_arkadas_cozumleri](3_kod_sorusu_arkadas_cozumleri) | Arkadaştan alınan referans çözümler (Joule dönüştürücü, şehir seçici) ve TextInput soru-cevap | Örnek olarak |

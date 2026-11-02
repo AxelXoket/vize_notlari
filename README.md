@@ -4,6 +4,7 @@
 
 | Ne lazım | Nereye bak |
 |---|---|
+| **Kodu okuyamıyorum, neyin ne olduğunu bilmiyorum** | [0_kod_okuma_rehberi.md](2_sinav_icin_notlarim/0_kod_okuma_rehberi.md) |
 | **Sınava başlarken, adım adım ne yapacağım** | [1_sinavda_ne_yapacagim_rehber.md](2_sinav_icin_notlarim/1_sinavda_ne_yapacagim_rehber.md) |
 | **Kod sorusu:** bana bir ekran verildi, hazır kod lazım | [2_kod_sorusu_hazir_sablonlar](2_sinav_icin_notlarim/2_kod_sorusu_hazir_sablonlar) (tablodaki "Snack'te aç") |
 | **Kod sorusu:** arkadaşın tam çözüm örnekleri | [3_kod_sorusu_arkadas_cozumleri](2_sinav_icin_notlarim/3_kod_sorusu_arkadas_cozumleri) |
