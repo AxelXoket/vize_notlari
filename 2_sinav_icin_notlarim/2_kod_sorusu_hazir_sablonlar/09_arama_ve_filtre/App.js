@@ -140,7 +140,7 @@ export default function App() {
       {/* Sonuc sayisi + siralama butonu */}
       <View style={styles.toolbar}>
         <Text style={styles.resultCount}>
-          {filteredProducts.length} results
+          {filteredProducts.length} {filteredProducts.length === 1 ? 'result' : 'results'}
         </Text>
         <TouchableOpacity
           style={styles.sortButton}
